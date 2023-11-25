@@ -6,8 +6,8 @@ Tgl			: 24/11/2023
 */
 
 #include <stdio.h>
-#include "header.h"
 #include <windows.h>
+#include "header.h"
 
 void tampilanAwal() {
 	// X BESAR

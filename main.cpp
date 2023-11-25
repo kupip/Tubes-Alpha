@@ -8,19 +8,22 @@ Tgl			: 24/11/2023
 #include <conio.h>
 #include <windows.h>
 #include "header.h"
-#include "dashboard.cpp"
 
 int main(int argc, char** argv) {
-	Player _tempPlayer1, _tempPlayer2;
-	int jwb;
-	
-	tampilanAwal();
-	jwb = getch();
-	system("cls");
-	
-	inputNama(&_tempPlayer1);
+//	Player _tempPlayer1, _tempPlayer2;
+//	int jwb;
+//	
+//	tampilanAwal();
+//	jwb = getch();
+//	system("cls");
+//	
+//	inputNama(&_tempPlayer1);
+//	system("cls");
+	const char *dem = "";
+	tampilMenuAkhir(dem);
+	int jwb = getch();
 	while (jwb != 27) {
-		dashboard(_tempPlayer1, _tempPlayer2);
+//		dashboard(_tempPlayer1, _tempPlayer2);
 		jwb = getch();
 	}
 	return 0;

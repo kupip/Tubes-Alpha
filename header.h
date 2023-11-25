@@ -20,4 +20,4 @@ void inputNama(Player *pemain1);
 
 const char *cekPemenang(char papan[][5], int _jenisPapan);
 
-void tampilMenuAkhir();
+void tampilMenuAkhir(const char *pemenang);
