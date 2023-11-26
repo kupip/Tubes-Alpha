@@ -1,3 +1,10 @@
+/*
+File		: aturUkuranConsole.cpp
+Deskripsi	: Body modul aturUkuranConsole() untuk mengatur ukuran console yang akan digunakan.
+Dibuat oleh	: Thafa Fadillah Ramdani / 2315240
+Tgl			: 26/11/2023
+*/
+
 #include <windows.h>
 #include <stdio.h>
 

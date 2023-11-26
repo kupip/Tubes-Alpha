@@ -13,7 +13,11 @@ int main(int argc, char** argv) {
 //	Player _tempPlayer1, _tempPlayer2;
 //	int jwb;
 //	
-//	tampilanAwal();
+	idx_halaman = 1;
+	tampilanAwal();
+	do {
+		tampilHalaman(&idx_halaman);
+	} while (keluar == false)
 //	jwb = getch();
 //	system("cls");
 //	

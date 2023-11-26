@@ -1,5 +1,12 @@
-#include <stdio.h>
+/*
+File		: printPapan.cpp
+Deskripsi	: Body modul printPapan() untuk menampilkan papan ke layar.
+Dibuat oleh	: Thafa Fadillah Ramdani / 2315240
+Tgl			: 26/11/2023
+*/
 
+
+#include <stdio.h>
 #include "header.h"
 
 void printPapan(int hasilPilihPapan)

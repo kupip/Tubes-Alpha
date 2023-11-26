@@ -9,7 +9,7 @@ Tgl			: 25/11/2023
 #include <windows.h>
 #include "header.h"
 
-void inputNama(Player *pemain1) {
+void inputNama(int *index_halaman, Player *pemain1) {
 	kursorOut(45, 21);
 	printf("Masukkan nama anda: ");
 	scanf("%s", &(*pemain1).nama);
