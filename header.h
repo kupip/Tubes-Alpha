@@ -24,13 +24,14 @@ void tampilanAwal();
 void tampilHalaman(int *index_halaman);
 
 // yang ada di tampilHalaman
-void tampilMenuAwal(int *index_halaman);
+void tampilMenuAwal(int *index_halaman, bool *keluar);
 void pilihMode(int *index_halaman, char *modeMain);
 void pilihPapan(int *index_halaman, int jenis_papan);
 void inputNama(int *index_halaman, Player *pemain);
-
-
+void mainGame(permainan game, char *pemenang, int *index_halaman);
+void tampilMenuAkhir(const char *pemenang, int *index_halaman, bbol *keluar);
 void dashboard(Player pemain1, Player pemain2);
+int cekKotakKosong(char papan[][]); // keknya ga perlu di declare di sini
 
 const char *cekPemenang(char papan[][5], int _jenisPapan);
 

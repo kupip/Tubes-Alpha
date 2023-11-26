@@ -11,7 +11,7 @@ void tampilHalaman(int *index_halaman, permainan *temp_game, bool *keluar) {
 	char pemenang[10];
 	switch(*index_halaman) {
 		case 1: // menu awal;
-			tampilMenuAwal(*index_halaman, bool *keluar);
+			tampilMenuAwal(*index_halaman, &keluar);
 			break;
 		case 2: // pilih opsi start
 			pilihMode(*index_halaman, temp_game.modeMain);
@@ -27,10 +27,14 @@ void tampilHalaman(int *index_halaman, permainan *temp_game, bool *keluar) {
 				inputNama(*temp_game.pemain1);
 				inputNama(*temp_game.pemain2);
 			}
+			break;
 		case 5:
-			while (pemenang == "" || cekPemenang() == false) {
-				mainGame(&(*temp_game), pemenang)
+			while (pemenang == "" || cekKotakKosong() > 0) {
+				mainGame(&(*temp_game), pemenang, &index_halaman);
 			}
+			break;
+		case 6:
+			tampilMenuAKhir(pemenang, &index_halaman, &keluar);
 			break;
 	};
 }
