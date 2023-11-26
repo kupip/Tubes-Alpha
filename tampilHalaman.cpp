@@ -8,6 +8,7 @@ Tgl			: 26/11/2023
 #include "header.h"
 
 void tampilHalaman(int *index_halaman, permainan *temp_game, bool *keluar) {
+	char pemenang[10];
 	switch(*index_halaman) {
 		case 1: // menu awal;
 			tampilMenuAwal(*index_halaman, bool *keluar);
@@ -27,7 +28,7 @@ void tampilHalaman(int *index_halaman, permainan *temp_game, bool *keluar) {
 				inputNama(*temp_game.pemain2);
 			}
 		case 5:
-			while (pemenang == "" || cekPemenang()) {
+			while (pemenang == "" || cekPemenang() == false) {
 				mainGame(&(*temp_game), pemenang)
 			}
 			break;
