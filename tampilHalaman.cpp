@@ -18,6 +18,7 @@ void tampilHalaman(int *index_halaman, permainan *temp_game, bool *keluar) {
 			break;
 		case 3: // pilih papan
 			pilihPapan(*index_halaman, *temp_game.jenis_papan);
+			char papan[temp_game.jenis_papan][temp_game.jenis_papan];
 			break;
 		case 4: //input Nama player kalo pilih mode vs komputer
 			if (temp_game.modeMain == "Komputer") {

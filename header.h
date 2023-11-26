@@ -21,20 +21,22 @@ void kursorOut(int x, int y);
 
 void tampilanAwal();
 
-void tampilHalaman(int *index_halaman);
+void tampilHalaman(int *index_halaman, permainan game, bool *keliar);
 
 // yang ada di tampilHalaman
 void tampilMenuAwal(int *index_halaman, bool *keluar);
 void pilihMode(int *index_halaman, char *modeMain);
 void pilihPapan(int *index_halaman, int jenis_papan);
 void inputNama(int *index_halaman, Player *pemain);
-void mainGame(permainan game, char *pemenang, int *index_halaman);
-void tampilMenuAkhir(const char *pemenang, int *index_halaman, bbol *keluar);
+void mainGame(permainan game, char *pemenang, int *index_halaman, char *papan);
+void tampilMenuAkhir(const char *pemenang, int *index_halaman, bool *keluar);
 void dashboard(Player pemain1, Player pemain2);
-int cekKotakKosong(char papan[][]); // keknya ga perlu di declare di sini
+int cekKotakKosong(); // keknya ga perlu di declare di sini
 
-const char *cekPemenang(char papan[][5], int _jenisPapan);
-
+// dipake di mainGame
+const char *cekPemenang(char papan[][5], int jenis_papan);
 void printPapan(int hasilPilihPapan);
+void setUlangPapan();
+int cekKotakKosong(char papan[][7], int jenis_papan);
 
 void tampilMenuAkhir(const char *pemenang);

@@ -4,8 +4,8 @@
 CPP      = g++.exe -D__DEBUG__
 CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
-OBJ      = main.o kursorOut.o tampilanAwal.o dashboard.o inputNama.o menuAkhir.o tampilHalaman.o printPapan.o aturUkuranConsole.o
-LINKOBJ  = main.o kursorOut.o tampilanAwal.o dashboard.o inputNama.o menuAkhir.o tampilHalaman.o printPapan.o aturUkuranConsole.o
+OBJ      = main.o kursorOut.o tampilanAwal.o dashboard.o inputNama.o menuAkhir.o tampilHalaman.o printPapan.o aturUkuranConsole.o mainGame.o
+LINKOBJ  = main.o kursorOut.o tampilanAwal.o dashboard.o inputNama.o menuAkhir.o tampilHalaman.o printPapan.o aturUkuranConsole.o mainGame.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -50,3 +50,6 @@ printPapan.o: printPapan.cpp
 
 aturUkuranConsole.o: aturUkuranConsole.cpp
 	$(CPP) -c aturUkuranConsole.cpp -o aturUkuranConsole.o $(CXXFLAGS)
+
+mainGame.o: mainGame.cpp
+	$(CPP) -c mainGame.cpp -o mainGame.o $(CXXFLAGS)
