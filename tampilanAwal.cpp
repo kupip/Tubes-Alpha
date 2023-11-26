@@ -36,4 +36,6 @@ void tampilanAwal() {
 	
 	kursorOut(45, 21);
 	printf("Press any key to continue...");
+	getch();
+	system("cls");
 }

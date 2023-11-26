@@ -7,10 +7,10 @@ Tgl			: 26/11/2023
 #include <stdio.h>
 #include "header.h"
 
-void tampilHalaman(int *index_halaman, permainan temp_game) {
+void tampilHalaman(int *index_halaman, permainan *temp_game, bool *keluar) {
 	switch(*index_halaman) {
 		case 1: // menu awal;
-			tampilMenuAwal(*index_halaman);
+			tampilMenuAwal(*index_halaman, bool *keluar);
 			break;
 		case 2: // pilih opsi start
 			pilihMode(*index_halaman, temp_game.modeMain);
@@ -27,7 +27,9 @@ void tampilHalaman(int *index_halaman, permainan temp_game) {
 				inputNama(*temp_game.pemain2);
 			}
 		case 5:
-			while (pemenang == "" || cekPemenang())
+			while (pemenang == "" || cekPemenang()) {
+				mainGame(&(*temp_game), pemenang)
+			}
 			break;
 	};
 }

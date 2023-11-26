@@ -12,11 +12,13 @@ Tgl			: 24/11/2023
 int main(int argc, char** argv) {
 //	Player _tempPlayer1, _tempPlayer2;
 //	int jwb;
-//	
-	idx_halaman = 1;
+
+	permainan temp_game;
+	int idx_halaman = 1;
 	tampilanAwal();
+	bool keluar = false;
 	do {
-		tampilHalaman(&idx_halaman);
+		tampilHalaman(&idx_halaman, &temp_game, &keluar);
 	} while (keluar == false)
 //	jwb = getch();
 //	system("cls");
