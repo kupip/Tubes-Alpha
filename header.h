@@ -5,12 +5,14 @@ Dibuat oleh	: M. Rafif Genadratama / 231524016
 Tgl			: 24/11/2023
 */
 
-typedef struct {
+typedef struct
+{
 	char nama[50];
 	int skor;
 } Player;
 
-typedef struct {
+typedef struct
+{
 	int jenis_papan;
 	char modeMain[10];
 	Player pemain1;
@@ -20,6 +22,8 @@ typedef struct {
 void kursorOut(int x, int y);
 
 void tampilanAwal();
+
+void menuAwal();
 
 void tampilHalaman(int *index_halaman, permainan game, bool *keliar);
 

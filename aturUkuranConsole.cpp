@@ -8,6 +8,8 @@ Tgl			: 26/11/2023
 #include <windows.h>
 #include <stdio.h>
 
+#include "header.h"
+
 HWND WINAPI GetConsoleWindowNT(void)
 {
     // declare function pointer type
