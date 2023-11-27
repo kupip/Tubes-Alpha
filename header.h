@@ -5,6 +5,11 @@ Dibuat oleh	: M. Rafif Genadratama / 231524016
 Tgl			: 24/11/2023
 */
 
+#include <stdio.h>
+#include <stdbool.h>
+#include <conio.h>
+#include <windows.h>
+
 typedef struct
 {
 	char nama[50];
@@ -18,6 +23,8 @@ typedef struct
 	Player pemain1;
 	Player pemain2;
 } permainan;
+
+HWND WINAPI GetConsoleWindowNT(void);
 
 void kursorOut(int x, int y);
 

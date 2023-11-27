@@ -2,4 +2,6 @@
 
 #include "header.h"
 
-void menuAwal();
+void menuAwal()
+{
+}
