@@ -5,7 +5,6 @@ Dibuat oleh	: Thafa Fadillah Ramdani / 2315240
 Tgl			: 26/11/2023
 */
 
-
 #include <stdio.h>
 #include "header.h"
 
@@ -14,6 +13,13 @@ void printPapan(int hasilPilihPapan)
   if (hasilPilihPapan == 3)
   {
     char papan[3][3];
+    for (int i = 0; i < 3; i++)
+    {
+      for (int j = 0; j < 3; j++)
+      {
+        papan[i][j] = ' ';
+      }
+    }
     kursorOut(68, 6);
     printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 218, 196, 196, 196, 196, 196, 194, 196, 196, 196, 196, 196, 194, 196, 196, 196, 196, 196, 191);
     kursorOut(68, 7);
@@ -44,6 +50,13 @@ void printPapan(int hasilPilihPapan)
   else if (hasilPilihPapan == 5)
   {
     char papan[5][5];
+    for (int i = 0; i < 5; i++)
+    {
+      for (int j = 0; j < 5; j++)
+      {
+        papan[i][j] = ' ';
+      }
+    }
     kursorOut(61, 6);
     printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 218, 196, 196, 196, 196, 196, 194, 196, 196, 196, 196, 196, 194, 196, 196, 196, 196, 196, 194, 196, 196, 196, 196, 196, 194, 196, 196, 196, 196, 196, 191);
     kursorOut(61, 7);
@@ -90,6 +103,13 @@ void printPapan(int hasilPilihPapan)
   else if (hasilPilihPapan == 7)
   {
     char papan[7][7];
+    for (int i = 0; i < 7; i++)
+    {
+      for (int j = 0; j < 7; j++)
+      {
+        papan[i][j] = ' ';
+      }
+    }
     kursorOut(54, 6);
     printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 218, 196, 196, 196, 196, 196, 194, 196, 196, 196, 196, 196, 194, 196, 196, 196, 196, 196, 194, 196, 196, 196, 196, 196, 194, 196, 196, 196, 196, 196, 194, 196, 196, 196, 196, 196, 194, 196, 196, 196, 196, 196, 191);
     kursorOut(54, 7);

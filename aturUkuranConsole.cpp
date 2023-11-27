@@ -22,7 +22,7 @@ HWND WINAPI GetConsoleWindowNT(void)
     HMODULE hk32Lib = GetModuleHandle(TEXT("KERNEL32.DLL"));
 
     // assign procedure address to function pointer
-    GetConsoleWindow = (GetConsoleWindowT)GetProcAddress(hk32Lib, TEXT("GetConsoleWindow"));
+    GetConsoleWindow = (GetConsoleWindowT)GetProcAddress(hk32Lib, "GetConsoleWindow");
 
     // check if the function pointer is valid
     // since the function is undocumented
