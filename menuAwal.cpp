@@ -2,7 +2,7 @@
 File		: menuAwal.cpp
 Deskripsi	: Body modul menuAwal() untuk menampilkan menu awal permainan ke layar.
 Dibuat oleh	: Thafa Fadillah Ramdani / 2315240
-Tgl			: 26/11/2023
+Tgl			: 29/11/2023
 */
 
 #include <stdio.h>
