@@ -42,14 +42,11 @@ void pilihMode(int *index_halaman, int *modeMain);
 void pilihPapan(int *index_halaman, int *jenis_papan);
 void inputNama(int *index_halaman, Player *pemain);
 
-void mainGame(permainan game, char *pemenang, int *index_halaman);
+void mainGame(permainan temp_game, char *pemenang, int *index_halaman);
 
 void menuAkhir(const char *pemenang, int *index_halaman, bool *keluar);
 void dashboard(Player pemain1, Player pemain2);
 int cekKotakKosong(); // keknya ga perlu di declare di sini
 
 // dipake di mainGame
-void printPapan(int hasilPilihPapan);
-int cekKotakKosong(char papan[][7], int jenis_papan);
-
 void tampilMenuAkhir(const char *pemenang);

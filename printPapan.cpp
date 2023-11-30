@@ -8,16 +8,8 @@ Tgl			: 26/11/2023
 #include <stdio.h>
 #include "header.h"
 
-void printPapan3x3()
+void printPapan3(char papan[3][3])
 {
-  char papan[3][3];
-  for (int i = 0; i < 3; i++)
-  {
-    for (int j = 0; j < 3; j++)
-    {
-      papan[i][j] = ' ';
-    }
-  }
   kursorOut(68, 6);
   printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 218, 196, 196, 196, 196, 196, 194, 196, 196, 196, 196, 196, 194, 196, 196, 196, 196, 196, 191);
   kursorOut(68, 7);
@@ -46,17 +38,8 @@ void printPapan3x3()
   printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 192, 196, 196, 196, 196, 196, 193, 196, 196, 196, 196, 196, 193, 196, 196, 196, 196, 196, 217);
 }
 
-void pintPapan5x5()
+void pintPapan5(char papan[5][5])
 {
-
-  char papan[5][5];
-  for (int i = 0; i < 5; i++)
-  {
-    for (int j = 0; j < 5; j++)
-    {
-      papan[i][j] = ' ';
-    }
-  }
   kursorOut(61, 6);
   printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 218, 196, 196, 196, 196, 196, 194, 196, 196, 196, 196, 196, 194, 196, 196, 196, 196, 196, 194, 196, 196, 196, 196, 196, 194, 196, 196, 196, 196, 196, 191);
   kursorOut(61, 7);
@@ -101,16 +84,8 @@ void pintPapan5x5()
   printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 192, 196, 196, 196, 196, 196, 193, 196, 196, 196, 196, 196, 193, 196, 196, 196, 196, 196, 193, 196, 196, 196, 196, 196, 193, 196, 196, 196, 196, 196, 217);
 }
 
-void printPapan7x7()
+void printPapan7(char papan[7][7])
 {
-  char papan[7][7];
-  for (int i = 0; i < 7; i++)
-  {
-    for (int j = 0; j < 7; j++)
-    {
-      papan[i][j] = ' ';
-    }
-  }
   kursorOut(54, 6);
   printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 218, 196, 196, 196, 196, 196, 194, 196, 196, 196, 196, 196, 194, 196, 196, 196, 196, 196, 194, 196, 196, 196, 196, 196, 194, 196, 196, 196, 196, 196, 194, 196, 196, 196, 196, 196, 194, 196, 196, 196, 196, 196, 191);
   kursorOut(54, 7);

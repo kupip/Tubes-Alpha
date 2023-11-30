@@ -10,12 +10,28 @@ Tgl			: 26/11/2023
 
 const char *cekPemenang(char papan[][5], int jenis_papan);
 void setUlangPapan();
-int cekKotakKosong();
+int cekKosong3(char papan[3][3]);
+void main3x3(permainan game);
 
 void mainGame(permainan game, char *pemenang, int *index_halaman) {
-	system("cls");
-	kursorOut(45, 15);
-	printf("p mainGame");
-	setUlangPapan();
+	switch(game.jenis_papan) {
+		case 3:
+			main3x3(game);
+		case 5:
+			main5x5(game);
+		case 7:
+			main7x7(game);
+	}
+}
+
+void main3x3(permainan game) {
+	char papan[3][3] = {{'', '', ''},
+						{'', '', ''},
+						{'', '', ''}};
+	printPapan3(papan);
+	do {
+		printPapan3(papan);
+		giliran1(papan);
+	} while (pemenang == '' || cekKosong3(papan) != 0);
 }
 
