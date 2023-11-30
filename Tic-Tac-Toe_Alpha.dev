@@ -161,11 +161,12 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit12]
-FileName=Untitled1
+FileName=menuAwal.cpp
 Folder=
 Compile=1
 Link=1
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
+CompileCpp=1
 

@@ -19,7 +19,7 @@ typedef struct
 typedef struct
 {
 	int jenis_papan;
-	char modeMain[10];
+	int modeMain;
 	Player pemain1;
 	Player pemain2;
 } permainan;
@@ -30,24 +30,26 @@ void kursorOut(int x, int y);
 
 void tampilanAwal();
 
-void menuAwal();
 
-void tampilHalaman(int *index_halaman, permainan game, bool *keliar);
+void tampilHalaman(int *index_halaman, bool *keluar);
 
 // yang ada di tampilHalaman
-void tampilMenuAwal(int *index_halaman, bool *keluar);
-void pilihMode(int *index_halaman, char *modeMain);
-void pilihPapan(int *index_halaman, int jenis_papan);
+void menuAwal(int *index_halaman, bool *keluar);
+void tampilHighScore(int *index_halaman);
+void loadGame(int *index_halaman, permainan *temp_game);
+
+void pilihMode(int *index_halaman, int *modeMain);
+void pilihPapan(int *index_halaman, int *jenis_papan);
 void inputNama(int *index_halaman, Player *pemain);
-void mainGame(permainan game, char *pemenang, int *index_halaman, char *papan);
-void tampilMenuAkhir(const char *pemenang, int *index_halaman, bool *keluar);
+
+void mainGame(permainan game, char *pemenang, int *index_halaman);
+
+void menuAkhir(const char *pemenang, int *index_halaman, bool *keluar);
 void dashboard(Player pemain1, Player pemain2);
 int cekKotakKosong(); // keknya ga perlu di declare di sini
 
 // dipake di mainGame
-const char *cekPemenang(char papan[][5], int jenis_papan);
 void printPapan(int hasilPilihPapan);
-void setUlangPapan();
 int cekKotakKosong(char papan[][7], int jenis_papan);
 
 void tampilMenuAkhir(const char *pemenang);

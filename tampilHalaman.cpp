@@ -7,35 +7,32 @@ Tgl			: 26/11/2023
 #include <stdio.h>
 #include "header.h"
 
-void tampilHalaman(int *index_halaman, permainan *temp_game, bool *keluar) {
+void tampilHalaman(int *index_halaman, bool *keluar) {
+	permainan temp_game;
 	char pemenang[10];
+	Player high_score[20];
+	
+//	if (*index_halaman == 1) {
+//		menuAwal(&(*index_halaman), &(*keluar));
+//	}
 	switch(*index_halaman) {
 		case 1: // menu awal;
-			tampilMenuAwal(*index_halaman, &keluar);
+			menuAwal(&(*index_halaman), &(*keluar));
 			break;
-		case 2: // pilih opsi start
-			pilihMode(*index_halaman, temp_game.modeMain);
+		case 2: // pilih opsi load game
+			loadGame(&(*index_halaman), &temp_game);
 			break;
-		case 3: // pilih papan
-			pilihPapan(*index_halaman, *temp_game.jenis_papan);
-			char papan[temp_game.jenis_papan][temp_game.jenis_papan];
+		case 3: // pilih opsi high score
+			tampilHighScore(&(*index_halaman));
 			break;
 		case 4: //input Nama player kalo pilih mode vs komputer
-			if (temp_game.modeMain == "Komputer") {
-				inputNama(*temp_game.pemain1);
-				strcpy(temp_game.pemain2.nama, "Komputer");
-			} else {
-				inputNama(*temp_game.pemain1);
-				inputNama(*temp_game.pemain2);
-			}
+			pilihMode(&(*index_halaman), &temp_game.modeMain);
 			break;
 		case 5:
-			while (pemenang == "" || cekKotakKosong() > 0) {
-				mainGame(&(*temp_game), pemenang, &index_halaman);
-			}
+			pilihPapan(&(*index_halaman), &temp_game.jenis_papan);
 			break;
 		case 6:
-			tampilMenuAKhir(pemenang, &index_halaman, &keluar);
+			menuAkhir(pemenang, &(*index_halaman), &(*keluar));
 			break;
 	};
 }
