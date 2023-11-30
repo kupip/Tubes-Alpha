@@ -32,6 +32,9 @@ void tampilHalaman(int *index_halaman, bool *keluar) {
 			pilihPapan(&(*index_halaman), &temp_game.jenis_papan);
 			break;
 		case 6:
+			mainGame(temp_game, pemenang, &(*index_halaman));
+			break;
+		case 7:
 			menuAkhir(pemenang, &(*index_halaman), &(*keluar));
 			break;
 	};

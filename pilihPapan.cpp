@@ -16,23 +16,23 @@ Tgl			: 30/11/2023
 void pilihPapan(int *index_halaman, int *jenis_papan) {
 	system("cls");
 	int x, y, inp;
-	kursorOut(47, 9);
+	kursorOut(47, 14);
   	printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 201, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 187);
-  	kursorOut(47, 10);
-  	printf("%c 3x3         %c", 186, 186);
-  	kursorOut(47, 11);
-  	printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 204, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 185);
-  	kursorOut(47, 12);
-  	printf("%c 5x5         %c", 186, 186);
-  	kursorOut(47, 13);
-  	printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 204, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 185);
-  	kursorOut(47, 14);
-  	printf("%c 7x7         %c", 186, 186);
   	kursorOut(47, 15);
+  	printf("%c 3x3          %c", 186, 186);
+  	kursorOut(47, 16);
+  	printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 204, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 185);
+  	kursorOut(47, 17);
+  	printf("%c 5x5          %c", 186, 186);
+  	kursorOut(47, 18);
+  	printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 204, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 185);
+  	kursorOut(47, 19);
+  	printf("%c 7x7          %c", 186, 186);
+  	kursorOut(47, 20);
   	printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 200, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 188);
   	
   	x = 45;
-  	y = 10;
+  	y = 15;
   	kursorOut(x,y);
   	printf("%c", 175);
   	do {
@@ -40,13 +40,13 @@ void pilihPapan(int *index_halaman, int *jenis_papan) {
 		switch (inp) {
 			case atas:
 				printf("\b ");
-				if (y>10) {
+				if (y>15) {
 					y -= 2;
 				}
 				break;
 			case bawah:
 				printf("\b ");
-				if (y<14) {
+				if (y<19) {
 					y += 2;
 				}
 		}
@@ -54,24 +54,24 @@ void pilihPapan(int *index_halaman, int *jenis_papan) {
 		switch (inp) {
 			case W:
 				printf("\b ");
-				if (y>10) {
+				if (y>15) {
 					y -= 2;
 				}
 				break;
 			case S:
 				printf("\b ");
-				if (y<14) {
+				if (y<19) {
 					y += 2;
 				}
 			case w:
 				printf("\b ");
-				if (y>10) {
+				if (y>15) {
 					y -= 2;
 				}
 				break;
 			case s:
 				printf("\b ");
-				if (y<14) {
+				if (y<19) {
 					y += 2;
 				}
 		}
@@ -81,16 +81,16 @@ void pilihPapan(int *index_halaman, int *jenis_papan) {
   } while (inp != 13);
   
   switch (y) {
-  	case 10:
-  		*index_halaman = 5;
+  	case 15:
+  		*index_halaman = 6;
   		*jenis_papan = 3;
   		break;
-	case 12:
-		*index_halaman = 5;
+	case 17:
+		*index_halaman = 6;
 		*jenis_papan = 5;
 		break;
-	case 14:
-		*index_halaman = 5;
+	case 19:
+		*index_halaman = 6;
 		*jenis_papan = 7;
 		break;
   }
