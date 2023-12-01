@@ -31,5 +31,5 @@ void inputNama(permainan *game, int *index_halaman, int modeMain) {
 //		strcpy((*game).pemain2.nama, tempNama);
 		*index_halaman = 7;
 	}
-	
+	system("cls");
 }

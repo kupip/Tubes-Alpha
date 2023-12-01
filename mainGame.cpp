@@ -7,13 +7,14 @@ Tgl			: 26/11/2023
 
 #include <stdio.h>
 #include "header.h"
-	char papan[3][3] = {{' ', ' ', ' '},
-						{' ', ' ', ' '},
-						{' ', ' ', ' '}};
+char papan[3][3] = {{' ', ' ', ' '},
+					{' ', ' ', ' '},
+					{' ', ' ', ' '}};
+
 // Deklarasi modul untuk 3x3
 int cekKosong3(char papan[3][3]);
 const char *cekPemenang3(char papan[3][3], permainan *game);
-void giliran3(char papan[3][3]);
+void giliran3(char papan[3][3], int *turn);
 void main3(permainan game, char (*pemenang)[20]);
 
 // Deklarasi modul untuk 5x5
@@ -21,7 +22,7 @@ void main5(permainan game);
 void main7(permainan game);
 
 void mainGame(permainan game, char (*pemenang)[20], int *index_halaman) {
-	system("cls");
+//	system("cls");
 	switch(game.jenis_papan) {
 		case 3:
 			main3(game, &(*pemenang));
@@ -33,13 +34,16 @@ void mainGame(permainan game, char (*pemenang)[20], int *index_halaman) {
 			main7(game);
 			break;
 	}
+//	*index_halaman = 8;
 }
 
 void main3(permainan game, char (*pemenang)[20]) {
+	
 	while (*pemenang == " " || cekKosong3(papan) != 0) {
+		int turn=1;
 		printPapan3(papan);
-		giliran3(papan);
-		strcpy(*pemenang, cekPemenang3(papan, &game));
+		giliran3(papan, &turn);
+//		strcpy(*pemenang, cekPemenang3(papan, &game));
 		if (*pemenang != " " || cekKosong3(papan) == 0) {
 			break;
 		}
@@ -51,59 +55,24 @@ void main3(permainan game, char (*pemenang)[20]) {
 	}
 }
 
-void giliran3(char papan[3][3]) {
+void giliran3(char papan[3][3], int *giliran) {
 	int n, i, j;
 	kursorOut(68,19);
 	printf("Giliran pemain");
 	kursorOut(68,21);
 	printf("Masukkan nomor papan: ");
 	scanf("%d", &n);
+	i=(n-1)/3;
+	j=(n-1)%3;
 	printf("\b ");
-	switch(n) {
-		case 1:
-			i = 0;
-			j = 0;
-			break;
-		case 2:
-			i = 0;
-			j = 1;
-			break;
-		case 3:
-			i = 0;
-			j = 2;
-			break;
-		case 4:
-			i = 1;
-			j = 0;
-			break;
-		case 5:
-			i = 1;
-			j = 1;
-			break;
-		case 6:
-			i = 1;
-			j = 2;
-			break;
-		case 7:
-			i = 2;
-			j = 0;
-			break;
-		case 8:
-			i = 2;
-			j = 1;
-			break;
-		case 9:
-			i = 2;
-			j = 2;
-			break;
-	}
 	
-	if (papan[i][j] == ' ') {
+	if (papan[i][j] == ' ' && *giliran == 1) {
 		papan[i][j] = 'X';
-//		*giliran = 2;
-	} else if (papan[i][j] == ' '){
+		*giliran = 2;
+	} else if (papan[i][j] == ' ' && *giliran == 2){
 		papan[i][j] = 'O';
-//		*giliran = 1;
+		printf("%d", *giliran);
+		*giliran = 1;
 	} else {
 		kursorOut(68,23);
 		printf("kotak sudah terisi");
