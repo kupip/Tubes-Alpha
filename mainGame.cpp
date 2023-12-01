@@ -43,12 +43,11 @@ void main3(permainan game, char (*pemenang)[20]) {
 		int turn=1;
 		printPapan3(papan);
 		giliran3(papan, &turn);
-//		strcpy(*pemenang, cekPemenang3(papan, &game));
+		
 		if (*pemenang != " " || cekKosong3(papan) == 0) {
 			break;
 		}
-//		strcpy(*pemenang, cekPemenang3(papan, &game));
-//		giliran3(&papan, &giliran);
+
 		if (*pemenang != " " || cekKosong3(papan) == 0) {
 			break;
 		}
@@ -91,23 +90,41 @@ int cekKosong3(char papan[3][3]) {
 }
 
 
-const char *cekPemenang3(char papan[3][3], permainan *game) {
-	const char *tempWinner;
-	tempWinner = (*game).pemain1.nama;
-	if ((papan[0][0] == 'X' && papan[0][0] == papan[0][1] && papan[0][0] == papan[0][2]) ||
-		(papan[1][0] == 'X' && papan[1][0] == papan[1][1] && papan[1][0] == papan[1][2]) ||
-		(papan[2][0] == 'X' && papan[2][0] == papan[2][1] && papan[2][0] == papan[2][2])) {
-		(*game).pemain1.skor++;
-		return tempWinner;
-	} else if ((papan[0][0] == 'X' && papan[0][0] == papan[1][0] && papan[0][0] == papan[2][0]) ||
-				(papan[0][1] == 'X' && papan[0][1] == papan[1][1] && papan[0][1] == papan[2][1]) ||
-				(papan[0][2] == 'X' && papan[0][2] == papan[1][2] && papan[0][2] == papan[2][2])) {
-		(*game).pemain1.skor++;
-		return tempWinner;
-	} else if ((papan[0][0] == 'X' && papan[0][0] == papan[1][1] && papan[0][0] == papan[2][2]) ||
-				(papan[0][2] == 'X' && papan[0][2] == papan[1][1] && papan[0][2] == papan[2][1])) {
-		(*game).pemain1.skor++;
-		return tempWinner;
+int cekPemenang3(char papan[3][3], permainan *game) {
+	for(int baris = 0;baris<3;baris++){
+		if(papan[baris][0] == papan[baris][1] && papan[baris][1] == papan[baris][2]{
+			if (papan[baris][1] == 'X' && papan[baris][2] == 'X'){
+				return 1;
+			} else  if ((papan[baris][1] == 'O' && papan[baris][2] == 'O')){
+				return 2;
+			}
+		}
+	}
+	
+	for(int kolom = 0;kolom<3;kolom++){
+		if(papan[0][kolom] == papan[1][kolom] && papan[1][kolom] == papan[2][kolom]){
+			if(papan[1][kolom] == 'X' && papan[2][kolom] == 'X'){
+				return 1;
+			} else if(papan[0][kolom] == papan[1][kolom] && papan[1][kolom] == papan[2][kolom]){
+				return 2;
+			}
+		}
+	}
+
+	if (papan[0][0] == papan[1][1] && papan[0][0] == papan[2][2] ||  ) {
+		if (papan[1][1] == 'X' && papan[2][2] == 'X'){
+			return 1;
+		} else if (papan[1][1] == 'O' && papan[2][2] == 'O'){
+			return 2;
+		}
+		
+	}
+	if (papan[0][2] == papan[1][1] && papan[0][2] == papan[2][1]){
+		if(papan[1][1] == 'X' && papan[2][1] == 'X'){
+			return 1;
+		} else if (papan[1][1] == 'O' && papan[2][1] == 'O'){
+			return 2;
+		}
 	}
 }
 
