@@ -79,11 +79,11 @@ void pilihMode(int *index_halaman, int *modeMain) {
   switch (y) {
   	case 10:
   		*index_halaman = 5;
-  		*modeMain = 1;
+  		*modeMain = 2;
   		break;
 	case 12:
 		*index_halaman = 5;
-		*modeMain = 2;
+		*modeMain = 1;
 		break;
   }
 }

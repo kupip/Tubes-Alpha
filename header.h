@@ -40,9 +40,9 @@ void loadGame(int *index_halaman, permainan *temp_game);
 
 void pilihMode(int *index_halaman, int *modeMain);
 void pilihPapan(int *index_halaman, int *jenis_papan);
-void inputNama(int *index_halaman, Player *pemain);
+void inputNama(permainan *game, int *index_halaman, int modeMain);
 
-void mainGame(permainan temp_game, char *pemenang, int *index_halaman);
+void mainGame(permainan temp_game, char (*pemenang)[20], int *index_halaman);
 
 void menuAkhir(const char *pemenang, int *index_halaman, bool *keluar);
 void dashboard(Player pemain1, Player pemain2);
@@ -50,3 +50,8 @@ int cekKotakKosong(); // keknya ga perlu di declare di sini
 
 // dipake di mainGame
 void tampilMenuAkhir(const char *pemenang);
+
+// print papan
+void printPapan3(char papan[3][3]);
+void pintPapan5(char papan[5][5]);
+void printPapan7(char papan[7][7]);

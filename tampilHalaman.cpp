@@ -9,12 +9,9 @@ Tgl			: 26/11/2023
 
 void tampilHalaman(int *index_halaman, bool *keluar) {
 	permainan temp_game;
-	char pemenang[10];
+	char pemenang[20] = " ";
 	Player high_score[20];
 	
-//	if (*index_halaman == 1) {
-//		menuAwal(&(*index_halaman), &(*keluar));
-//	}
 	switch(*index_halaman) {
 		case 1: // menu awal;
 			menuAwal(&(*index_halaman), &(*keluar));
@@ -32,9 +29,12 @@ void tampilHalaman(int *index_halaman, bool *keluar) {
 			pilihPapan(&(*index_halaman), &temp_game.jenis_papan);
 			break;
 		case 6:
-			mainGame(temp_game, pemenang, &(*index_halaman));
+			inputNama(&temp_game, &(*index_halaman), temp_game.modeMain); 
 			break;
 		case 7:
+			mainGame(temp_game, &pemenang, &(*index_halaman));
+			break;
+		case 8:
 			menuAkhir(pemenang, &(*index_halaman), &(*keluar));
 			break;
 	};
