@@ -52,9 +52,15 @@ CursorRow=39
 TopLine=13
 LeftChar=10
 [Editor_10]
+<<<<<<< Updated upstream
 CursorCol=14
 CursorRow=42
 TopLine=25
+=======
+CursorCol=2
+CursorRow=36
+TopLine=47
+>>>>>>> Stashed changes
 LeftChar=1
 [Editor_11]
 CursorCol=126
