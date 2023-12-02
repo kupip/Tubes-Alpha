@@ -12,7 +12,7 @@ Tgl			: 24/11/2023
 
 typedef struct
 {
-	char nama[50];
+	char nama[20];
 	int skor;
 } Player;
 

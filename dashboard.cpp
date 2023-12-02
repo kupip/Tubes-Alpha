@@ -10,7 +10,7 @@ Tgl			: 24/11/2023
 #include "header.h"
 
 void dashboard(Player pemain1, Player pemain2) {
-	system("cls");
+//	system("cls");
 	kursorOut(30, 1); printf("%s", pemain1.nama);
 	kursorOut(30,2); printf("%d", pemain1.skor);
 	

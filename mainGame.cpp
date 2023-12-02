@@ -6,16 +6,20 @@ Tgl			: 26/11/2023
 */
 
 #include <stdio.h>
+#include <unistd.h>
 #include "header.h"
-char papan[3][3] = {{' ', ' ', ' '},
+char papan3[3][3] = {{' ', ' ', ' '},
 					{' ', ' ', ' '},
 					{' ', ' ', ' '}};
+int turn = 1;
+int idx_pemenang = 0;
+int kosong=9;
 
 // Deklarasi modul untuk 3x3
 int cekKosong3(char papan[3][3]);
-const char *cekPemenang3(char papan[3][3], permainan *game);
+int cekPemenang3(char papan[3][3]);
 void giliran3(char papan[3][3], int *turn);
-void main3(permainan game, char (*pemenang)[20]);
+void main3(permainan game, char (*pemenang)[20], int *index_halaman);
 
 // Deklarasi modul untuk 5x5
 void main5(permainan game);
@@ -25,7 +29,7 @@ void mainGame(permainan game, char (*pemenang)[20], int *index_halaman) {
 //	system("cls");
 	switch(game.jenis_papan) {
 		case 3:
-			main3(game, &(*pemenang));
+			main3(game, &(*pemenang), &(*index_halaman));
 			break;
 		case 5:
 			main5(game);
@@ -35,20 +39,34 @@ void mainGame(permainan game, char (*pemenang)[20], int *index_halaman) {
 			break;
 	}
 //	*index_halaman = 8;
+//	system("cls");
 }
 
-void main3(permainan game, char (*pemenang)[20]) {
-	
-	while (*pemenang == " " || cekKosong3(papan) != 0) {
-		int turn=1;
-		printPapan3(papan);
-		giliran3(papan, &turn);
-		
-		if (*pemenang != " " || cekKosong3(papan) == 0) {
+void main3(permainan game, char (*pemenang)[20], int *index_halaman) {
+//	dashboard(game.pemain1, game.pemain2);
+	while (idx_pemenang == 0  && kosong != 0) {
+		printPapan3(papan3);
+		giliran3(papan3, &turn);
+		kosong = cekKosong3(papan3);
+		idx_pemenang = cekPemenang3(papan3);
+		printf("pemenang: %d\n", idx_pemenang);
+		printf("kosong: %d", kosong);
+		if (idx_pemenang == 1 || kosong == 0) {
+			for (int i=0; i<strlen(game.pemain1.nama); i++) {
+				(*pemenang)[i] = game.pemain1.nama[i];
+			}
+			printf("pemenang: %s\n", (*pemenang));
+			*index_halaman = 8;
+//			system("cls");
 			break;
 		}
-
-		if (*pemenang != " " || cekKosong3(papan) == 0) {
+		if (idx_pemenang == 2 || kosong == 0) {
+			for (int i=0; i<strlen(game.pemain2.nama); i++) {
+				(*pemenang)[i] = game.pemain2.nama[i];
+			}
+			*index_halaman = 8;
+			printf("pemenang: %s\n", (*pemenang));
+//			system("cls");
 			break;
 		}
 	}
@@ -57,7 +75,7 @@ void main3(permainan game, char (*pemenang)[20]) {
 void giliran3(char papan[3][3], int *giliran) {
 	int n, i, j;
 	kursorOut(68,19);
-	printf("Giliran pemain");
+	printf("Giliran pemain %d", *giliran);
 	kursorOut(68,21);
 	printf("Masukkan nomor papan: ");
 	scanf("%d", &n);
@@ -75,6 +93,8 @@ void giliran3(char papan[3][3], int *giliran) {
 	} else {
 		kursorOut(68,23);
 		printf("kotak sudah terisi");
+		sleep(1);
+		printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
 	}
 }
 
@@ -87,15 +107,16 @@ int cekKosong3(char papan[3][3]) {
 			}
 		}
 	}
+	return count;
 }
 
 
-int cekPemenang3(char papan[3][3], permainan *game) {
+int cekPemenang3(char papan[3][3]) {
 	for(int baris = 0;baris<3;baris++){
-		if(papan[baris][0] == papan[baris][1] && papan[baris][1] == papan[baris][2]{
+		if(papan[baris][0] == papan[baris][1] && papan[baris][1] == papan[baris][2]) {
 			if (papan[baris][1] == 'X' && papan[baris][2] == 'X'){
 				return 1;
-			} else  if ((papan[baris][1] == 'O' && papan[baris][2] == 'O')){
+			} else if (papan[baris][1] == 'O' && papan[baris][2] == 'O'){
 				return 2;
 			}
 		}
@@ -111,7 +132,7 @@ int cekPemenang3(char papan[3][3], permainan *game) {
 		}
 	}
 
-	if (papan[0][0] == papan[1][1] && papan[0][0] == papan[2][2] ||  ) {
+	if (papan[0][0] == papan[1][1] && papan[0][0] == papan[2][2]) {
 		if (papan[1][1] == 'X' && papan[2][2] == 'X'){
 			return 1;
 		} else if (papan[1][1] == 'O' && papan[2][2] == 'O'){
@@ -129,13 +150,13 @@ int cekPemenang3(char papan[3][3], permainan *game) {
 }
 
 void main5(permainan game) {
-	system("cls");
+//	system("cls");
 	kursorOut(45, 19);
 	printf("p main 5x5");
 }
 
 void main7(permainan game) {
-	system("cls");
+//	system("cls");
 	kursorOut(45, 19);
 	printf("p main 7x7");
 }
