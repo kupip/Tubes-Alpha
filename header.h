@@ -44,7 +44,7 @@ void inputNama(permainan *game, int *index_halaman, int modeMain);
 
 void mainGame(permainan temp_game, char (*pemenang)[20], int *index_halaman);
 
-void menuAkhir(const char *pemenang, int *index_halaman, bool *keluar);
+void menuAkhir(char pemenang[20], int *index_halaman, bool *keluar);
 void dashboard(Player pemain1, Player pemain2);
 int cekKotakKosong(); // keknya ga perlu di declare di sini
 

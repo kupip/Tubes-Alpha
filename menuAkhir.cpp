@@ -9,8 +9,9 @@ Tgl			: 25/11/2023
 #include "header.h"
 #include <windows.h>
 
-void menuAkhir(const char *pemenang, int *index_halaman, bool *keluar) {
-	if (pemenang == "") {
+void menuAkhir(char pemenang[20], int *index_halaman, bool *keluar) {
+	system("cls");
+	if (pemenang != " ") {
 		kursorOut(50, 5);
 		printf("DRAW");
 		kursorOut(45, 7);

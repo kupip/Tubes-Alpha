@@ -46,23 +46,23 @@ void main3(permainan game, char (*pemenang)[20], int *index_halaman) {
 //	dashboard(game.pemain1, game.pemain2);
 	while (idx_pemenang != 0  || kosong != 0) {
 		printPapan3(papan3);
-			
 		giliran3(papan3, &turn);
 		kosong = cekKosong3(papan3);
 		idx_pemenang = cekPemenang3(papan3);
+		printPapan3(papan3);
 //		printf("pemenang: %d\n", idx_pemenang);
 //		printf("kosong: %d", kosong);
 		if (idx_pemenang == 1) {
-//			(*pemenang) = game.pemain1.nama;
-			printf("pemenang: %s\n", game.pemain1.nama);
+			strcpy((*pemenang), game.pemain1.nama);
+			printf("pemenang: %s\n", (*pemenang));
 			game.pemain1.skor++;
 			*index_halaman = 8;
 //			system("cls");
 			break;
 		}
 		else if (idx_pemenang == 2) {
-//			(*pemenang) = game.pemain2.nama;
-			printf("pemenang: %s\n", game.pemain2.nama);
+			strcpy((*pemenang), game.pemain2.nama);
+			printf("pemenang: %s\n", (*pemenang));
 			game.pemain2.skor++;
 			*index_halaman = 8;
 //			system("cls");
