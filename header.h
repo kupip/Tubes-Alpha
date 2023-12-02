@@ -30,17 +30,16 @@ void kursorOut(int x, int y);
 
 void tampilanAwal();
 
-
 void tampilHalaman(int *index_halaman, bool *keluar);
 
 // yang ada di tampilHalaman
-void menuAwal(int *index_halaman, bool *keluar);
-void tampilHighScore(int *index_halaman);
+void banner();
+void inputNama(permainan *game, int *index_halaman, int modeMain);
 void loadGame(int *index_halaman, permainan *temp_game);
+void menuAwal(int *index_halaman, bool *keluar);
 void pilihMode(int *index_halaman, int *modeMain);
 void pilihPapan(int *index_halaman, int *jenis_papan);
-void inputNama(permainan *game, int *index_halaman, int modeMain);
-void banner();
+void tampilHighScore(int *index_halaman);
 
 // Game Utama
 void dashboard(Player pemain1, Player pemain2);
@@ -48,6 +47,8 @@ void mainGame(permainan *game, char (*pemenang)[20], int *index_halaman);
 
 // Setelah Game
 void menuAkhir(char pemenang[20], int *index_halaman, bool *keluar);
+void saveGame(permainan game);
+void loadGame(permainan *game);
 
 // Print Papan
 void printPapan3(char papan[3][3]);

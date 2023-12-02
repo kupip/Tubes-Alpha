@@ -10,8 +10,8 @@ Tgl			: 26/11/2023
 #include "header.h"
 
 char papan3[3][3] = {{' ', ' ', ' '},
-					{' ', ' ', ' '},
-					{' ', ' ', ' '}};
+					 {' ', ' ', ' '},
+					 {' ', ' ', ' '}};
 					
 char papan5[5][5] = {{' ', ' ', ' ', ' ', ' '},
 					 {' ', ' ', ' ', ' ', ' '},
@@ -20,6 +20,8 @@ char papan5[5][5] = {{' ', ' ', ' ', ' ', ' '},
 					 {' ', ' ', ' ', ' ', ' '}};
 					 
 char papan7[7][7] = {{' ', ' ', ' ', ' ', ' ', ' ', ' '},
+					 {' ', ' ', ' ', ' ', ' ', ' ', ' '},
+					 {' ', ' ', ' ', ' ', ' ', ' ', ' '},
 					 {' ', ' ', ' ', ' ', ' ', ' ', ' '},
 					 {' ', ' ', ' ', ' ', ' ', ' ', ' '},
 					 {' ', ' ', ' ', ' ', ' ', ' ', ' '},
@@ -44,6 +46,10 @@ void setPapan5(char papan[5][5]);
 
 // Deklarasi modul untuk 7x7
 void main7(permainan *game);
+int cekKosong7(char papan[7][7]);
+int cekPemenang7(char papan[7][7]);
+void giliran7(char papan[7][7], int *giliran);
+void setPapan7(char papan[7][7]);
 
 void mainGame(permainan *game, char (*pemenang)[20], int *index_halaman) {
 	switch((*game).jenis_papan) {
@@ -71,7 +77,7 @@ void main3(permainan *game, char (*pemenang)[20], int *index_halaman) {
 		
 		if (idx_pemenang == 1) {
 			strcpy((*pemenang), (*game).pemain1.nama);
-			printf("pemenang: %s\n", (*pemenang));
+//			printf("pemenang: %s\n", (*pemenang));
 			(*game).pemain1.skor++;
 			*index_halaman = 8;
 			system("cls");
@@ -79,7 +85,7 @@ void main3(permainan *game, char (*pemenang)[20], int *index_halaman) {
 		}
 		else if (idx_pemenang == 2) {
 			strcpy((*pemenang), (*game).pemain2.nama);
-			printf("pemenang: %s\n", (*pemenang));
+//			printf("pemenang: %s\n", (*pemenang));
 			(*game).pemain2.skor++;
 			*index_halaman = 8;
 			system("cls");
@@ -97,7 +103,6 @@ void main3(permainan *game, char (*pemenang)[20], int *index_halaman) {
 }
 
 void main5(permainan *game) {
-//	system("cls");
 	dashboard((*game).pemain1, (*game).pemain2);
 	setPapan5(&papan5);
 	while (idx_pemenang != 0  || kosong != 0) {
@@ -105,11 +110,11 @@ void main5(permainan *game) {
 		giliran5(papan5, &turn);
 		kosong = cekKosong5(papan5);
 		idx_pemenang = cekPemenang5(papan5);
-		printPapan3(papan3);
+		printPapan5(papan5);
 		
 		if (idx_pemenang == 1) {
 			strcpy((*pemenang), (*game).pemain1.nama);
-			printf("pemenang: %s\n", (*pemenang));
+//			printf("pemenang: %s\n", (*pemenang));
 			(*game).pemain1.skor++;
 			*index_halaman = 8;
 			system("cls");
@@ -117,7 +122,7 @@ void main5(permainan *game) {
 		}
 		else if (idx_pemenang == 2) {
 			strcpy((*pemenang), (*game).pemain2.nama);
-			printf("pemenang: %s\n", (*pemenang));
+//			printf("pemenang: %s\n", (*pemenang));
 			(*game).pemain2.skor++;
 			*index_halaman = 8;
 			system("cls");
@@ -125,7 +130,7 @@ void main5(permainan *game) {
 		}
 		else if (idx_pemenang == 3 && kosong == 0)
 		{
-			printf("Draw");
+//			printf("Draw");
 			strcpy((*pemenang), " ");
 			*index_halaman = 8;
 			system("cls");
@@ -267,7 +272,7 @@ void giliran5(char papan[5][5], int *giliran) {
 	kursorOut(68, 19);
 	printf("Giliran pemain %d", *giliran);
 	kursorOut(68, 21);
-	printf("Masukkan nomor papan: ");
+	printf("Masukkan nomor papan:  \b");
 	scanf("%d", &n);
 	i=(n-1)/5;
 	j=(n-1)%5;
@@ -303,9 +308,7 @@ void setPapan5(char (*papan)[5][5]) {
 	}
 }
 
-
 void main7(permainan *game) {
-//	system("cls");
 	kursorOut(45, 19);
 	printf("p main 7x7");
 }
