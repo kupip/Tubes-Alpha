@@ -9,7 +9,7 @@ Tgl			: 26/11/2023
 
 void tampilHalaman(int *index_halaman, bool *keluar) {
 	permainan temp_game;
-	char pemenang[20] = " ";
+	char pemenang[20];
 	Player high_score[20];
 	
 	switch(*index_halaman) {
@@ -32,7 +32,7 @@ void tampilHalaman(int *index_halaman, bool *keluar) {
 			inputNama(&temp_game, &(*index_halaman), temp_game.modeMain); 
 			break;
 		case 7:
-			mainGame(temp_game, &pemenang, &(*index_halaman));
+			mainGame(&temp_game, &pemenang, &(*index_halaman));
 			break;
 		case 8:
 			menuAkhir(pemenang, &(*index_halaman), &(*keluar));

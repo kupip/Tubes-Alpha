@@ -17,27 +17,28 @@ Tgl			: 29/11/2023
 void menuAwal(int *index_halaman, bool *keluar)
 {
   int x, y, inp;
-  kursorOut(45, 7);
+  banner();
+  kursorOut(55, 15);
   printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 201, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 187);
-  kursorOut(45, 8);
+  kursorOut(55, 16);
   printf("%c START        %c", 186, 186);
-  kursorOut(45, 9);
+  kursorOut(55, 17);
   printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 204, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 185);
-  kursorOut(45, 10);
+  kursorOut(55, 18);
   printf("%c LOAD GAME    %c", 186, 186);
-  kursorOut(45, 11);
+  kursorOut(55, 19);
   printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 204, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 185);
-  kursorOut(45, 12);
+  kursorOut(55, 20);
   printf("%c HIGHSCORE    %c", 186, 186);
-  kursorOut(45, 13);
+  kursorOut(55, 21);
   printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 204, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 185);
-  kursorOut(45, 14);
+  kursorOut(55, 22);
   printf("%c EXIT         %c", 186, 186);
-  kursorOut(45, 15);
+  kursorOut(55, 23);
   printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 200, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 188);
   
-  x = 43;
-  y = 8;
+  x = 53;
+  y = 16;
   kursorOut(x,y);
   printf("%c", 175);
   do {
@@ -45,13 +46,13 @@ void menuAwal(int *index_halaman, bool *keluar)
 	switch (inp) {
 		case atas:
 			printf("\b ");
-			if (y>8) {
+			if (y>16) {
 				y -= 2;
 			}
 			break;
 		case bawah:
 			printf("\b ");
-			if (y<14) {
+			if (y<22) {
 				y += 2;
 			}
 	}
@@ -59,24 +60,24 @@ void menuAwal(int *index_halaman, bool *keluar)
 	switch (inp) {
 		case W:
 			printf("\b ");
-			if (y>8) {
+			if (y>16) {
 				y -= 2;
 			}
 			break;
 		case S:
 			printf("\b ");
-			if (y<14) {
+			if (y<22) {
 				y += 2;
 			}
 		case w:
 			printf("\b ");
-			if (y>8) {
+			if (y>16) {
 				y -= 2;
 			}
 			break;
 		case s:
 			printf("\b ");
-			if (y<14) {
+			if (y<22) {
 				y += 2;
 			}
 	}
@@ -86,16 +87,16 @@ void menuAwal(int *index_halaman, bool *keluar)
   } while (inp != 13);
   
   switch (y) {
-  	case 8:
+  	case 16:
   		*index_halaman = 4;
   		break;
-	case 10:
+	case 18:
 		*index_halaman = 2;
 		break;
-	case 12:
+	case 20:
 		*index_halaman = 3;
 		break;
-	case 14:
+	case 22:
 		*keluar = true;
 		break;
   }

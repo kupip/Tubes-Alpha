@@ -11,7 +11,7 @@ Tgl			: 25/11/2023
 
 void inputNama(permainan *game, int *index_halaman, int modeMain) {
 	system("cls");
-	const char *tempNama;
+//	const char *tempNama;
 	if (modeMain == 1) {
 		kursorOut(45, 21);
 		printf("Masukkan nama anda: ");
@@ -23,6 +23,7 @@ void inputNama(permainan *game, int *index_halaman, int modeMain) {
 		printf("Masukkan nama Player 1: ");
 		scanf("%s", (*game).pemain1.nama);;
 //		fflush(stdin);
+		system("cls");
 		kursorOut(45, 21);
 		printf("Masukkan nama Player 2: ");
 		scanf("%s", (*game).pemain2.nama);
