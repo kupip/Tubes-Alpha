@@ -44,29 +44,34 @@ void mainGame(permainan game, char (*pemenang)[20], int *index_halaman) {
 
 void main3(permainan game, char (*pemenang)[20], int *index_halaman) {
 //	dashboard(game.pemain1, game.pemain2);
-	while (idx_pemenang == 0  && kosong != 0) {
+	while (idx_pemenang != 0  || kosong != 0) {
 		printPapan3(papan3);
+			
 		giliran3(papan3, &turn);
 		kosong = cekKosong3(papan3);
 		idx_pemenang = cekPemenang3(papan3);
-		printf("pemenang: %d\n", idx_pemenang);
-		printf("kosong: %d", kosong);
-		if (idx_pemenang == 1 || kosong == 0) {
-			for (int i=0; i<strlen(game.pemain1.nama); i++) {
-				(*pemenang)[i] = game.pemain1.nama[i];
-			}
-			printf("pemenang: %s\n", (*pemenang));
+//		printf("pemenang: %d\n", idx_pemenang);
+//		printf("kosong: %d", kosong);
+		if (idx_pemenang == 1) {
+//			(*pemenang) = game.pemain1.nama;
+			printf("pemenang: %s\n", game.pemain1.nama);
+			game.pemain1.skor++;
 			*index_halaman = 8;
 //			system("cls");
 			break;
 		}
-		if (idx_pemenang == 2 || kosong == 0) {
-			for (int i=0; i<strlen(game.pemain2.nama); i++) {
-				(*pemenang)[i] = game.pemain2.nama[i];
-			}
+		else if (idx_pemenang == 2) {
+//			(*pemenang) = game.pemain2.nama;
+			printf("pemenang: %s\n", game.pemain2.nama);
+			game.pemain2.skor++;
 			*index_halaman = 8;
-			printf("pemenang: %s\n", (*pemenang));
 //			system("cls");
+			break;
+		}
+		
+		else if (idx_pemenang == 3 && kosong == 0)
+		{
+			printf("Draw");
 			break;
 		}
 	}
@@ -88,7 +93,6 @@ void giliran3(char papan[3][3], int *giliran) {
 		*giliran = 2;
 	} else if (papan[i][j] == ' ' && *giliran == 2){
 		papan[i][j] = 'O';
-		printf("%d", *giliran);
 		*giliran = 1;
 	} else {
 		kursorOut(68,23);
@@ -126,7 +130,7 @@ int cekPemenang3(char papan[3][3]) {
 		if(papan[0][kolom] == papan[1][kolom] && papan[1][kolom] == papan[2][kolom]){
 			if(papan[1][kolom] == 'X' && papan[2][kolom] == 'X'){
 				return 1;
-			} else if(papan[0][kolom] == papan[1][kolom] && papan[1][kolom] == papan[2][kolom]){
+			} else if(papan[1][kolom] == 'O' && papan[2][kolom] == 'O'){
 				return 2;
 			}
 		}
@@ -140,13 +144,14 @@ int cekPemenang3(char papan[3][3]) {
 		}
 		
 	}
-	if (papan[0][2] == papan[1][1] && papan[0][2] == papan[2][1]){
-		if(papan[1][1] == 'X' && papan[2][1] == 'X'){
+	if (papan[0][2] == papan[1][1] && papan[0][2] == papan[2][0]){
+		if(papan[1][1] == 'X' && papan[2][0] == 'X'){
 			return 1;
-		} else if (papan[1][1] == 'O' && papan[2][1] == 'O'){
+		} else if (papan[1][1] == 'O' && papan[2][0] == 'O'){
 			return 2;
 		}
 	}
+	return 3;
 }
 
 void main5(permainan game) {
