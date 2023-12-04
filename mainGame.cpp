@@ -42,7 +42,7 @@ void main5(permainan *game, char (*pemenang)[20], int *index_halaman);
 int cekKosong5(char papan[5][5]);
 int cekPemenang5(char papan[5][5]);
 void giliran5(char papan[5][5], int *giliran);
-void setPapan5(char papan[5][5]);
+void setPapan5(char (*papan)[5][5]);
 
 // Deklarasi modul untuk 7x7
 void main7(permainan *game);
@@ -57,7 +57,7 @@ void mainGame(permainan *game, char (*pemenang)[20], int *index_halaman) {
 			main3(&(*game), &(*pemenang), &(*index_halaman));
 			break;
 		case 5:
-			main5(&(*game));
+			main5(&(*game), &(*pemenang), &(*index_halaman));
 			break;
 		case 7:
 			main7(&(*game));
@@ -102,14 +102,14 @@ void main3(permainan *game, char (*pemenang)[20], int *index_halaman) {
 	}
 }
 
-void main5(permainan *game) {
+void main5(permainan *game, char (*pemenang)[20], int *index_halaman) {
 	dashboard((*game).pemain1, (*game).pemain2);
 	setPapan5(&papan5);
 	while (idx_pemenang != 0  || kosong != 0) {
 		printPapan5(papan5);
 		giliran5(papan5, &turn);
 		kosong = cekKosong5(papan5);
-		idx_pemenang = cekPemenang5(papan5);
+//		idx_pemenang = cekPemenang5(papan5);
 		printPapan5(papan5);
 		
 		if (idx_pemenang == 1) {
@@ -136,6 +136,7 @@ void main5(permainan *game) {
 			system("cls");
 			break;
 		}
+	}
 }
 
 
