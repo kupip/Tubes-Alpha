@@ -111,7 +111,7 @@ void main5(permainan *game, char (*pemenang)[20], int *index_halaman) {
 		printPapan5(papan5);
 		giliran5(&papan5, &turn);
 		kosong = cekKosong5(papan5);
-//		idx_pemenang = cekPemenang5(papan5);
+		idx_pemenang = cekPemenang5(papan5);
 		printPapan5(papan5);
 		
 		if (idx_pemenang == 1) {
@@ -169,9 +169,9 @@ int cekKosong5(char papan[5][5]) {
 int cekPemenang3(char papan[3][3]) {
 	for(int baris = 0;baris<3;baris++){
 		if(papan[baris][0] == papan[baris][1] && papan[baris][1] == papan[baris][2]) {
-			if (papan[baris][1] == 'X' && papan[baris][2] == 'X'){
+			if (papan[baris][1] == 'X'){
 				return 1;
-			} else if (papan[baris][1] == 'O' && papan[baris][2] == 'O'){
+			} else if (papan[baris][1] == 'O'){
 				return 2;
 			}
 		}
@@ -179,70 +179,83 @@ int cekPemenang3(char papan[3][3]) {
 	
 	for(int kolom = 0;kolom<3;kolom++){
 		if(papan[0][kolom] == papan[1][kolom] && papan[1][kolom] == papan[2][kolom]){
-			if(papan[1][kolom] == 'X' && papan[2][kolom] == 'X'){
+			if(papan[1][kolom] == 'X'){
 				return 1;
-			} else if(papan[1][kolom] == 'O' && papan[2][kolom] == 'O'){
+			} else if(papan[1][kolom] == 'O'){
 				return 2;
 			}
 		}
 	}
 
 	if (papan[0][0] == papan[1][1] && papan[0][0] == papan[2][2]) {
-		if (papan[1][1] == 'X' && papan[2][2] == 'X'){
+		if (papan[1][1] == 'X'){
 			return 1;
-		} else if (papan[1][1] == 'O' && papan[2][2] == 'O'){
+		} else if (papan[1][1] == 'O'){
 			return 2;
 		}
 		
 	}
 	if (papan[0][2] == papan[1][1] && papan[0][2] == papan[2][0]){
-		if(papan[1][1] == 'X' && papan[2][0] == 'X'){
+		if(papan[1][1] == 'X'){
 			return 1;
-		} else if (papan[1][1] == 'O' && papan[2][0] == 'O'){
+		} else if (papan[1][1] == 'O'){
 			return 2;
 		}
 	}
 	return 3;
 }
 
-//int cekPemenang5(char papan[5][5]) {
-//	for(int baris = 0; baris<5; baris++){
-//		if(papan[baris][0] == papan[baris][1] && papan[baris][1] == papan[baris][2]) {
-//			if (papan[baris][1] == 'X' && papan[baris][2] == 'X'){
-//				return 1;
-//			} else if (papan[baris][1] == 'O' && papan[baris][2] == 'O'){
-//				return 2;
-//			}
-//		}
-//	}
-//	
-//	for(int kolom = 0; kolom<5; kolom++){
-//		if(papan[0][kolom] == papan[1][kolom] && papan[1][kolom] == papan[2][kolom]){
-//			if(papan[1][kolom] == 'X' && papan[2][kolom] == 'X'){
-//				return 1;
-//			} else if(papan[1][kolom] == 'O' && papan[2][kolom] == 'O'){
-//				return 2;
-//			}
-//		}
-//	}
-//
-//	if (papan[0][0] == papan[1][1] && papan[0][0] == papan[2][2]) {
-//		if (papan[1][1] == 'X' && papan[2][2] == 'X'){
-//			return 1;
-//		} else if (papan[1][1] == 'O' && papan[2][2] == 'O'){
-//			return 2;
-//		}
-//		
-//	}
-//	if (papan[0][2] == papan[1][1] && papan[0][2] == papan[2][0]){
-//		if(papan[1][1] == 'X' && papan[2][0] == 'X'){
-//			return 1;
-//		} else if (papan[1][1] == 'O' && papan[2][0] == 'O'){
-//			return 2;
-//		}
-//	}
-//	return 3;
-//}
+int cekPemenang5(char papan[5][5]) {
+	for(int baris = 0; baris<5; baris++){
+		if((papan[baris][0] == papan[baris][1]  || papan[baris][3] == papan[baris][4]) && papan[baris][1] == papan[baris][2] && papan[baris][2] == papan[baris][3]){
+			if (papan[baris][2] == 'X' && (papan[baris][0] == 'X' || papan[baris][4] == 'X')){
+				return 1;
+			} else if (papan[baris][2] == 'O' && (papan[baris][0] == 'O' || papan[baris][4] == 'O')){
+				return 2;
+			}
+		}
+	}
+	
+	for(int kolom = 0; kolom<5; kolom++){
+		if((papan[0][kolom] == papan[1][kolom]  || papan[3][kolom] == papan[4][kolom]) && papan[1][kolom] == papan[2][kolom] && papan[2][kolom] == papan[3][kolom]){
+			if(papan[2][kolom] == 'X' && (papan[0][kolom] == 'X' || papan[4][kolom] == 'X')){
+				return 1;
+			} else if(papan[2][kolom] == 'O' && (papan[0][kolom] == 'O' || papan[4][kolom] == 'O')){
+				return 2;
+			}
+		}
+	}
+
+	if ((papan[0][0] == papan[1][1]  || papan[4][4] == papan[3][3]) && papan[1][1] == papan[2][2] && papan[2][2] == papan[3][3]) {
+		if (papan[2][2] == 'X' &&  (papan[0][0] == 'X' || papan[4][4] == 'X')){
+			return 1;
+		} else if (papan[2][2] == 'O' && (papan[0][0] == 'O' || papan[4][4] == 'O')){
+			return 2;
+		}
+		
+	}
+	if ((papan[0][4] == papan[1][3]  || papan[3][1] == papan[4][0]) && papan[1][3] == papan[2][2] && papan[2][2] == papan[3][1]){
+		if(papan[3][3] == 'X' && (papan[0][4] == 'X' || papan[3][1] == 'X')){
+			return 1;
+		} else if (papan[3][3] == 'O' && (papan[0][4] == 'O' || papan[3][1] == 'O')){
+			return 2;
+		}
+	}
+	if (papan[0][3] == papan[1][2] && papan[1][2] == papan[2][1] && papan[3][0]){
+		if(papan[0][3] == 'X'){
+			return 1;
+		} else if (papan [0][3] == 'O'){
+			return 2;
+		}
+	}
+	if (papan[1][4] == papan[2][3] && papan[2][3] == papan[3][2] && papan[4][1]){
+		if(papan[1][4] == 'X'){
+			return 1;
+		} else if (papan [1][4] == 'O'){
+			return 2;
+		}
+	}	return 3;
+}
 
 
 void giliran3(char papan[3][3], int *giliran) {
@@ -275,7 +288,7 @@ void giliran5(char (*papan)[5][5], int *giliran) {
 	kursorOut(61, 27);
 	printf("Giliran pemain %d", *giliran);
 	kursorOut(61, 28);
-	printf("Masukkan nomor papan:  \b");
+	printf("Masukkan nomor papan:   \b\b");
 	scanf("%d", &n);
 	i=(n-1)/5;
 	j=(n-1)%5;
