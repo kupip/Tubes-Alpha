@@ -35,7 +35,7 @@ void menuAwal(int *index_halaman, bool *keluar)
   kursorOut(55, 21);
   printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 204, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 185);
   kursorOut(55, 22);
-  printf("%c    EXIT     %c", 186, 186);
+  printf("%c     EXIT    %c", 186, 186);
   kursorOut(55, 23);
   printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 200, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 188);
   
