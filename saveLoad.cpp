@@ -8,6 +8,7 @@ Tgl			: 01/12/2023
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdbool.h>
 #include "header.h"
 
 void saveGame(permainan game) {
