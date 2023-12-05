@@ -47,8 +47,9 @@ void mainGame(permainan *game, char (*pemenang)[20], int *index_halaman);
 
 // Setelah Game
 void menuAkhir(char pemenang[20], int *index_halaman, bool *keluar);
+void menuAkhir(permainan game, char pemenang[20], int *index_halaman, bool *keluar);
 void saveGame(permainan game);
-void loadGame(permainan *game);
+void loadGame(int *index_halaman, permainan *game);
 
 // Print Papan
 void printPapan3(char papan[3][3]);

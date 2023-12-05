@@ -92,6 +92,7 @@ void menuAwal(int *index_halaman, bool *keluar)
   		break;
 	case 18:
 		*index_halaman = 2;
+		system("cls");
 		break;
 	case 20:
 		*index_halaman = 3;
@@ -100,4 +101,5 @@ void menuAwal(int *index_halaman, bool *keluar)
 		*keluar = true;
 		break;
   }
+  fflush(stdin);
 }

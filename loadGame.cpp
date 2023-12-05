@@ -13,8 +13,4 @@ Tgl			: 30/11/2023
 #define atas 72
 #define bawah 80
 
-void loadGame(int *index_halaman, permainan *temp_game) {
-	system("cls");
-	kursorOut(45, 12);
-	printf("p balap");
-}
+

@@ -27,7 +27,6 @@ char papan7[7][7] = {{' ', ' ', ' ', ' ', ' ', ' ', ' '},
 					 {' ', ' ', ' ', ' ', ' ', ' ', ' '},
 					 {' ', ' ', ' ', ' ', ' ', ' ', ' '}};
 int turn = 1;
-//int idx_pemenang = 0;
 int kosong=9;
 
 // Deklarasi modul untuk 3x3
@@ -78,17 +77,19 @@ void main3(permainan *game, char (*pemenang)[20], int *index_halaman) {
 		
 		if (idx_pemenang == 1) {
 			strcpy((*pemenang), (*game).pemain1.nama);
-//			printf("pemenang: %s\n", (*pemenang));
+			printf("pemenang: %s\n", (*pemenang));
 			(*game).pemain1.skor++;
 			*index_halaman = 8;
+			sleep(2);
 			system("cls");
 			break;
 		}
 		else if (idx_pemenang == 2) {
 			strcpy((*pemenang), (*game).pemain2.nama);
-//			printf("pemenang: %s\n", (*pemenang));
+			printf("pemenang: %s\n", (*pemenang));
 			(*game).pemain2.skor++;
 			*index_halaman = 8;
+			sleep(2);
 			system("cls");
 			break;
 		}
@@ -97,6 +98,7 @@ void main3(permainan *game, char (*pemenang)[20], int *index_halaman) {
 			printf("Draw");
 			strcpy((*pemenang), " ");
 			*index_halaman = 8;
+			sleep(2);
 			system("cls");
 			break;
 		}
@@ -116,25 +118,28 @@ void main5(permainan *game, char (*pemenang)[20], int *index_halaman) {
 		
 		if (idx_pemenang == 1) {
 			strcpy((*pemenang), (*game).pemain1.nama);
-//			printf("pemenang: %s\n", (*pemenang));
+			printf("pemenang: %s\n", (*pemenang));
 			(*game).pemain1.skor++;
 			*index_halaman = 8;
+			sleep(2);
 			system("cls");
 			break;
 		}
 		else if (idx_pemenang == 2) {
 			strcpy((*pemenang), (*game).pemain2.nama);
-//			printf("pemenang: %s\n", (*pemenang));
+			printf("pemenang: %s\n", (*pemenang));
 			(*game).pemain2.skor++;
 			*index_halaman = 8;
+			sleep(2);
 			system("cls");
 			break;
 		}
 		else if (idx_pemenang == 3 && kosong == 0)
 		{
-//			printf("Draw");
+			printf("Draw");
 			strcpy((*pemenang), " ");
 			*index_halaman = 8;
+			sleep(2);
 			system("cls");
 			break;
 		}

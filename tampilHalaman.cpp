@@ -35,7 +35,7 @@ void tampilHalaman(int *index_halaman, bool *keluar) {
 			mainGame(&temp_game, &pemenang, &(*index_halaman));
 			break;
 		case 8:
-			menuAkhir(pemenang, &(*index_halaman), &(*keluar));
+			menuAkhir(temp_game, pemenang, &(*index_halaman), &(*keluar));
 			break;
 	};
 }

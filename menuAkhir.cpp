@@ -15,7 +15,7 @@ Tgl			: 25/11/2023
 #define atas 72
 #define bawah 80
 
-void menuAkhir(char pemenang[20], int *index_halaman, bool *keluar) {
+void menuAkhir(permainan game, char pemenang[20], int *index_halaman, bool *keluar) {
 	int inp, x, y;
 	if (strcmp(pemenang, " ") == 0) {
 		kursorOut(50, 5);
@@ -99,7 +99,7 @@ void menuAkhir(char pemenang[20], int *index_halaman, bool *keluar) {
 	  		system("cls");
 	  		break;
 		case 16:
-			*index_halaman = 9;
+			saveGame(game);
 			system("cls");
 			break;
 		case 18:
