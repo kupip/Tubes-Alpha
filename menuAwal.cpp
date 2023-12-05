@@ -18,24 +18,26 @@ void menuAwal(int *index_halaman, bool *keluar)
 {
   int x, y, inp;
   banner();
+  kursorOut(58, 13);
+  printf("Main Menu");
   kursorOut(55, 15);
-  printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 201, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 187);
+  printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 201, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 187);
   kursorOut(55, 16);
-  printf("%c START        %c", 186, 186);
+  printf("%c    START    %c", 186, 186);
   kursorOut(55, 17);
-  printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 204, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 185);
+  printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 204, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 185);
   kursorOut(55, 18);
-  printf("%c LOAD GAME    %c", 186, 186);
+  printf("%c  LOAD GAME  %c", 186, 186);
   kursorOut(55, 19);
-  printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 204, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 185);
+  printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 204, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 185);
   kursorOut(55, 20);
-  printf("%c HIGHSCORE    %c", 186, 186);
+  printf("%c  HIGHSCORE  %c", 186, 186);
   kursorOut(55, 21);
-  printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 204, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 185);
+  printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 204, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 185);
   kursorOut(55, 22);
-  printf("%c EXIT         %c", 186, 186);
+  printf("%c    EXIT     %c", 186, 186);
   kursorOut(55, 23);
-  printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 200, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 188);
+  printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 200, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 188);
   
   x = 53;
   y = 16;
@@ -83,7 +85,7 @@ void menuAwal(int *index_halaman, bool *keluar)
 	}
   	
 	kursorOut(x, y);
-	printf("%c", 175);  
+	printf("%c", 175);
   } while (inp != 13);
   
   switch (y) {

@@ -17,7 +17,7 @@ void tampilHalaman(int *index_halaman, bool *keluar) {
 			menuAwal(&(*index_halaman), &(*keluar));
 			break;
 		case 2: // pilih opsi load game
-			loadGame(&temp_game, &(*index_halaman));
+			loadGame(&(*index_halaman), &temp_game);
 			break;
 		case 3: // pilih opsi high score
 			tampilHighScore(&(*index_halaman));
