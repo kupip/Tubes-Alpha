@@ -241,14 +241,14 @@ int cekPemenang5(char papan[5][5]) {
 			return 2;
 		}
 	}
-	if (papan[0][3] == papan[1][2] && papan[1][2] == papan[2][1] && papan[3][0]){
+	if (papan[0][3] == papan[1][2] && papan[1][2] == papan[2][1] && papan[3][0] == papan[2][1]){
 		if(papan[0][3] == 'X'){
 			return 1;
 		} else if (papan [0][3] == 'O'){
 			return 2;
 		}
 	}
-	if (papan[1][4] == papan[2][3] && papan[2][3] == papan[3][2] && papan[4][1]){
+	if (papan[1][4] == papan[2][3] && papan[2][3] == papan[3][2] && papan[4][1] == papan[3][2]){
 		if(papan[1][4] == 'X'){
 			return 1;
 		} else if (papan [1][4] == 'O'){
