@@ -104,9 +104,11 @@ void menuAkhir(char pemenang[20], int *index_halaman, bool *keluar) {
 			break;
 		case 18:
 			*index_halaman = 1;
+			system("cls");
 			break;
 		case 20:
 			*keluar = true;
+			system("cls");
 			break;
 	}
 }

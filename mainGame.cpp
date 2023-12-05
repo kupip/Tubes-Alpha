@@ -27,7 +27,7 @@ char papan7[7][7] = {{' ', ' ', ' ', ' ', ' ', ' ', ' '},
 					 {' ', ' ', ' ', ' ', ' ', ' ', ' '},
 					 {' ', ' ', ' ', ' ', ' ', ' ', ' '}};
 int turn = 1;
-int idx_pemenang = 0;
+//int idx_pemenang = 0;
 int kosong=9;
 
 // Deklarasi modul untuk 3x3
@@ -41,7 +41,7 @@ void setPapan3(char (*papan)[3][3]);
 void main5(permainan *game, char (*pemenang)[20], int *index_halaman);
 int cekKosong5(char papan[5][5]);
 int cekPemenang5(char papan[5][5]);
-void giliran5(char papan[5][5], int *giliran);
+void giliran5(char (*papan)[5][5], int *giliran);
 void setPapan5(char (*papan)[5][5]);
 
 // Deklarasi modul untuk 7x7
@@ -66,6 +66,7 @@ void mainGame(permainan *game, char (*pemenang)[20], int *index_halaman) {
 }
 
 void main3(permainan *game, char (*pemenang)[20], int *index_halaman) {
+	int idx_pemenang=0;
 	dashboard((*game).pemain1, (*game).pemain2);
 	setPapan3(&papan3);
 	while (kosong != 0) {
@@ -103,11 +104,12 @@ void main3(permainan *game, char (*pemenang)[20], int *index_halaman) {
 }
 
 void main5(permainan *game, char (*pemenang)[20], int *index_halaman) {
+	int idx_pemenang=0;
 	dashboard((*game).pemain1, (*game).pemain2);
 	setPapan5(&papan5);
 	while (idx_pemenang != 0  || kosong != 0) {
 		printPapan5(papan5);
-		giliran5(papan5, &turn);
+		giliran5(&papan5, &turn);
 		kosong = cekKosong5(papan5);
 //		idx_pemenang = cekPemenang5(papan5);
 		printPapan5(papan5);
@@ -248,12 +250,10 @@ void giliran3(char papan[3][3], int *giliran) {
 	kursorOut(68,19);
 	printf("Giliran pemain %d", *giliran);
 	kursorOut(68,21);
-	printf("Masukkan nomor papan: ");
+	printf("Masukkan nomor papan:  \b");
 	scanf("%d", &n);
 	i=(n-1)/3;
 	j=(n-1)%3;
-//	printf("\b ");
-	fflush(stdin);
 	
 	if (papan[i][j] == ' ' && *giliran == 1) {
 		papan[i][j] = 'X';
@@ -265,12 +265,12 @@ void giliran3(char papan[3][3], int *giliran) {
 		kursorOut(68,23);
 		printf("kotak sudah terisi");
 		sleep(1);
-//		printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
+		printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
 		fflush(stdin);
 	}
 }
 
-void giliran5(char papan[5][5], int *giliran) {
+void giliran5(char (*papan)[5][5], int *giliran) {
 	int n, i, j;
 	kursorOut(61, 27);
 	printf("Giliran pemain %d", *giliran);
@@ -279,20 +279,19 @@ void giliran5(char papan[5][5], int *giliran) {
 	scanf("%d", &n);
 	i=(n-1)/5;
 	j=(n-1)%5;
-//	printf("\b ");
 	fflush(stdin);
 	
-	if (papan[i][j] == ' ' && *giliran == 1) {
-		papan[i][j] = 'X';
+	if ((*papan)[i][j] == ' ' && *giliran == 1) {
+		(*papan)[i][j] = 'X';
 		*giliran = 2;
-	} else if (papan[i][j] == ' ' && *giliran == 2){
-		papan[i][j] = 'O';
+	} else if ((*papan)[i][j] == ' ' && *giliran == 2){
+		(*papan)[i][j] = 'O';
 		*giliran = 1;
 	} else {
 		kursorOut(61, 29);
 		printf("kotak sudah terisi");
 		sleep(1);
-//		printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
+		printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
 		fflush(stdin);
 	}
 }
