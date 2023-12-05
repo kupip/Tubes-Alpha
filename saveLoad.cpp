@@ -60,7 +60,7 @@ void loadGame(int *index_halaman, permainan *game) {
 			fread(&(*game), sizeof(permainan), 1, re);
 		}
 		*index_halaman=7;
-		system("cls");
 	}
 	fclose(re);
+	system("cls");
 }

@@ -77,6 +77,7 @@ void main3(permainan *game, char (*pemenang)[20], int *index_halaman) {
 		
 		if (idx_pemenang == 1) {
 			strcpy((*pemenang), (*game).pemain1.nama);
+			kursorOut(55, 5);
 			printf("pemenang: %s\n", (*pemenang));
 			(*game).pemain1.skor++;
 			*index_halaman = 8;
@@ -86,6 +87,7 @@ void main3(permainan *game, char (*pemenang)[20], int *index_halaman) {
 		}
 		else if (idx_pemenang == 2) {
 			strcpy((*pemenang), (*game).pemain2.nama);
+			kursorOut(55, 5);
 			printf("pemenang: %s\n", (*pemenang));
 			(*game).pemain2.skor++;
 			*index_halaman = 8;
@@ -118,6 +120,7 @@ void main5(permainan *game, char (*pemenang)[20], int *index_halaman) {
 		
 		if (idx_pemenang == 1) {
 			strcpy((*pemenang), (*game).pemain1.nama);
+			kursorOut(55, 5);
 			printf("pemenang: %s\n", (*pemenang));
 			(*game).pemain1.skor++;
 			*index_halaman = 8;
@@ -127,6 +130,7 @@ void main5(permainan *game, char (*pemenang)[20], int *index_halaman) {
 		}
 		else if (idx_pemenang == 2) {
 			strcpy((*pemenang), (*game).pemain2.nama);
+			kursorOut(55, 5);
 			printf("pemenang: %s\n", (*pemenang));
 			(*game).pemain2.skor++;
 			*index_halaman = 8;
