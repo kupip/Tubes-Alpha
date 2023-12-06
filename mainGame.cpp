@@ -263,7 +263,22 @@ int cekPemenang5(char papan[5][5]) {
 		} else if (papan [1][4] == 'O'){
 			return 2;
 		}
-	}	return 3;
+	}
+	if (papan[1][0] == papan[2][1] && papan[3][2] == papan[2][1] && papan[3][2] == papan[4][3]){
+		if(papan[4][3] == 'X'){
+			return 1;
+		} else if (papan [4][3] == 'O'){
+			return 2;
+		}
+	}
+	if (papan[0][1] == papan[1][2] && papan[1][2] == papan[2][3] && papan[2][3] == papan[3][4]){
+		if(papan[0][1] == 'X'){
+			return 1;
+		} else if (papan [0][1] == 'O'){
+			return 2;
+		}
+	}
+	return 3;
 }
 
 
