@@ -9,7 +9,7 @@ Tgl			: 25/11/2023
 #include <windows.h>
 #include "header.h"
 #define W 87
-#define w 119 
+#define w 119
 #define S 83
 #define s 115
 #define atas 72
@@ -20,12 +20,12 @@ void menuAkhir(permainan game, char pemenang[20], int *index_halaman, bool *kelu
 	if (strcmp(pemenang, " ") == 0) {
 		kursorOut(50, 5);
 		printf("DRAW");
-		
+
 	} else {
 		kursorOut(50, 5);
 		printf("%s WIN!", pemenang);
 	}
-	
+
 	kursorOut(55, 13);
 	printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 201, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 187);
 	kursorOut(55, 14);
@@ -44,7 +44,7 @@ void menuAkhir(permainan game, char pemenang[20], int *index_halaman, bool *kelu
 	printf("%c      EXIT    %c", 186, 186);
 	kursorOut(55, 21);
 	printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 200, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 188);
-	
+
 	x = 53;
 	y = 14;
 	kursorOut(x,y);
@@ -64,7 +64,7 @@ void menuAkhir(permainan game, char pemenang[20], int *index_halaman, bool *kelu
 					y += 2;
 				}
 		}
-		
+
 		switch (inp) {
 			case W:
 				printf("\b ");
@@ -90,9 +90,9 @@ void menuAkhir(permainan game, char pemenang[20], int *index_halaman, bool *kelu
 				}
 		}
 		kursorOut(x, y);
-		printf("%c", 175);  
+		printf("%c", 175);
 	} while (inp != 13);
-	  
+
 	switch (y) {
 		case 14:
 	  		*index_halaman = 7;
