@@ -769,7 +769,7 @@ int cekPemenang7(char papan[7][7])
 		{
 			return 1;
 		}
-		else if (papan[0][0] == 'O')
+		else if (papan[0][6] == 'O')
 		{
 			return 2;
 		}
@@ -795,11 +795,11 @@ int cekPemenang7(char papan[7][7])
 			papan[4][2] == papan[5][1] &&
 			papan[5][1] == papan[6][0])
 	{
-		if (papan[0][6] == 'X')
+		if (papan[2][4] == 'X')
 		{
 			return 1;
 		}
-		else if (papan[0][0] == 'O')
+		else if (papan[2][4] == 'O')
 		{
 			return 2;
 		}
