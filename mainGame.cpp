@@ -45,11 +45,11 @@ void giliran5(char (*papan)[5][5], int *giliran);
 void setPapan5(char (*papan)[5][5]);
 
 // Deklarasi modul untuk 7x7
-void main7(permainan *game);
+void main7(permainan *game, char (*pemenang)[20], int *index_halaman);
 int cekKosong7(char papan[7][7]);
 int cekPemenang7(char papan[7][7]);
-void giliran7(char papan[7][7], int *giliran);
-void setPapan7(char papan[7][7]);
+void giliran7(char (*papan)[7][7], int *giliran);
+void setPapan7(char (*papan)[7][7]);
 
 void mainGame(permainan *game, char (*pemenang)[20], int *index_halaman)
 {
@@ -62,11 +62,14 @@ void mainGame(permainan *game, char (*pemenang)[20], int *index_halaman)
 		main5(&(*game), &(*pemenang), &(*index_halaman));
 		break;
 	case 7:
-		main7(&(*game));
+		main7(&(*game), &(*pemenang), &(*index_halaman));
 		break;
 	}
 }
 
+/*+---------------------------------------------------------------+*/
+/*|                      MODUL PERMAINAN 3x3                      |*/
+/*+---------------------------------------------------------------+*/
 void main3(permainan *game, char (*pemenang)[20], int *index_halaman)
 {
 	int idx_pemenang = 0;
@@ -250,6 +253,9 @@ int cekPemenang3(char papan[3][3])
 	return 3;
 }
 
+/*+---------------------------------------------------------------+*/
+/*|                      MODUL PERMAINAN 5x5                      |*/
+/*+---------------------------------------------------------------+*/
 void main5(permainan *game, char (*pemenang)[20], int *index_halaman)
 {
 	int idx_pemenang = 0;
@@ -484,8 +490,127 @@ int cekPemenang5(char papan[5][5])
 	return 3;
 }
 
-void main7(permainan *game)
+/*+---------------------------------------------------------------+*/
+/*|                      MODUL PERMAINAN 5x5                      |*/
+/*+---------------------------------------------------------------+*/
+void main7(permainan *game, char (*pemenang)[20], int *index_halaman)
 {
-	kursorOut(45, 19);
-	printf("p main 7x7");
+	int idx_pemenang = 0;
+	dashboard((*game).pemain1, (*game).pemain2);
+	setPapan7(&papan7);
+	while (kosong != 0)
+	{
+		printPapan7(papan7);
+		giliran7(&papan7, &turn);
+		kosong = cekKosong7(papan7);
+		idx_pemenang = cekPemenang7(papan7);
+		printPapan7(papan7);
+
+		if (idx_pemenang == 1)
+		{
+			strcpy((*pemenang), (*game).pemain1.nama);
+			kursorOut(55, 5);
+			printf("pemenang: %s\n", (*pemenang));
+			(*game).pemain1.skor++;
+			*index_halaman = 8;
+			sleep(2);
+			system("cls");
+			break;
+		}
+		else if (idx_pemenang == 2)
+		{
+			strcpy((*pemenang), (*game).pemain2.nama);
+			kursorOut(55, 5);
+			printf("pemenang: %s\n", (*pemenang));
+			(*game).pemain2.skor++;
+			*index_halaman = 8;
+			sleep(2);
+			system("cls");
+			break;
+		}
+		else if (idx_pemenang == 3 && kosong == 0)
+		{
+			printf("Draw");
+			strcpy((*pemenang), " ");
+			*index_halaman = 8;
+			sleep(2);
+			system("cls");
+			break;
+		}
+	}
+}
+
+void setPapan7(char (*papan)[7][7])
+{
+	for (int brs = 0; brs < 7; brs++)
+	{
+		for (int klm = 0; klm < 7; klm++)
+		{
+			(*papan)[brs][klm] = ' ';
+		}
+	}
+}
+
+void giliran7(char (*papan)[7][7], int *giliran)
+{
+	int n, i, j;
+	kursorOut(54, 27);
+	printf("Giliran pemain %d", *giliran);
+	kursorOut(54, 28);
+	printf("Masukkan nomor papan:   \b\b");
+	scanf("%d", &n);
+	i = (n - 1) / 7;
+	j = (n - 1) % 7;
+	fflush(stdin);
+
+	if (n > 49 || n < 1)
+	{
+		kursorOut(61, 29);
+		printf("Harap masukkan angka yang sesuai");
+		sleep(1);
+
+		// Untuk membersihkan hasil print di layar
+		printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                                ");
+		fflush(stdin);
+	}
+	else if ((*papan)[i][j] == ' ' && *giliran == 1)
+	{
+		(*papan)[i][j] = 'X';
+		*giliran = 2;
+	}
+	else if ((*papan)[i][j] == ' ' && *giliran == 2)
+	{
+		(*papan)[i][j] = 'O';
+		*giliran = 1;
+	}
+	else
+	{
+		kursorOut(61, 29);
+		printf("kotak sudah terisi");
+		sleep(1);
+
+		// Untuk membersihkan hasil print di layar
+		printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
+		fflush(stdin);
+	}
+}
+
+int cekKosong7(char papan[7][7])
+{
+	int count = 0;
+	for (int i = 0; i < 7; i++)
+	{
+		for (int j = 0; j < 7; j++)
+		{
+			if (papan[i][j] == ' ')
+			{
+				count++;
+			}
+		}
+	}
+	return count;
+}
+
+int cekPemenang7(char papan[7][7])
+{
 }
