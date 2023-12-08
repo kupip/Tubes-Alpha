@@ -7,6 +7,7 @@ Tgl			: 26/11/2023
 
 #include <stdio.h>
 #include <unistd.h>
+#include <process.h>
 #include "header.h"
 
 char papan3[3][3] = {{' ', ' ', ' '},
@@ -26,14 +27,26 @@ char papan7[7][7] = {{' ', ' ', ' ', ' ', ' ', ' ', ' '},
 					 {' ', ' ', ' ', ' ', ' ', ' ', ' '},
 					 {' ', ' ', ' ', ' ', ' ', ' ', ' '},
 					 {' ', ' ', ' ', ' ', ' ', ' ', ' '}};
-int turn = 1;
+
+// Definisi Parameter Aktual untuk Thread
+//typedef struct {
+//	int giliran;
+//	char papan[3][3];
+//} gil3;
+//gil3 *turn3;
+//turn3->giliran = 1;
+//turn3->papan = {{' ', ' ', ' '},
+//			  {' ', ' ', ' '},
+//			  {' ', ' ', ' '}};
 int kosong=9;
+void timer(void *param);
+int turn = 0;
 
 // Deklarasi modul untuk 3x3
 void main3(permainan *game, char (*pemenang)[20], int *index_halaman);
 int cekKosong3(char papan[3][3]);
 int cekPemenang3(char papan[3][3]);
-void giliran3(char papan[3][3], int *giliran);
+void giliran3(char (*papan)[3][3], int *giliran);
 void setPapan3(char (*papan)[3][3]);
 
 // Deklarasi modul untuk 5x5
@@ -70,7 +83,10 @@ void main3(permainan *game, char (*pemenang)[20], int *index_halaman) {
 	setPapan3(&papan3);
 	while (kosong != 0) {
 		printPapan3(papan3);
-		giliran3(papan3, &turn);
+		giliran3(&papan3, &turn);
+//		_beginthread(giliran3, 0, (void *) gil3);
+//		_beginthread(timer, 0, (void *) gil3);
+//		_endthread();
 		kosong = cekKosong3(papan3);
 		idx_pemenang = cekPemenang3(papan3);
 		printPapan3(papan3);
@@ -267,30 +283,67 @@ int cekPemenang5(char papan[5][5]) {
 }
 
 
-void giliran3(char papan[3][3], int *giliran) {
+void giliran3(char (*papan)[3][3], int *giliran) {
 	int n, i, j;
 	kursorOut(68,19);
-	printf("Giliran pemain %d", *giliran);
+	printf("Giliran pemain %d", (*giliran) % 2);
 	kursorOut(68,21);
 	printf("Masukkan nomor papan:  \b");
-	scanf("%d", &n);
-	i=(n-1)/3;
-	j=(n-1)%3;
-	
-	if (papan[i][j] == ' ' && *giliran == 1) {
-		papan[i][j] = 'X';
-		*giliran = 2;
-	} else if (papan[i][j] == ' ' && *giliran == 2){
-		papan[i][j] = 'O';
-		*giliran = 1;
-	} else {
-		kursorOut(68,23);
-		printf("kotak sudah terisi");
+	for (int i=10;i>10;i--) {
+		kursorOut(5, 2);
+		printf("%d", i);
 		sleep(1);
-		printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
-		fflush(stdin);
+		printf("\b ");
+		if (kbhit()) {
+			scanf("%d", &n);
+			i=(n-1)/3;
+			j=(n-1)%3;
+			if ((*papan)[i][j] == ' ' && *giliran % 2 != 0) {
+				(*papan)[i][j] = 'X';
+				(*giliran)++;
+				fflush(stdin);
+			} else if ((*papan)[i][j] == ' ' && *giliran % 2 == 0){
+				(*papan)[i][j] = 'O';
+				(*giliran)++;
+				fflush(stdin);
+			} else {
+				kursorOut(68,23);
+				printf("kotak sudah terisi");
+				sleep(1);
+				printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
+				fflush(stdin);
+			}
+		}
 	}
+	
+	
 }
+
+//void giliran3(void *param) {
+//	int n, i, j;
+//	struct3 *g = (struct3*) param;
+//	kursorOut(68,19);
+//	printf("Giliran pemain %d", (*giliran) % 2);
+//	kursorOut(68,21);
+//	printf("Masukkan nomor papan:  \b");
+//	scanf("%d", &n);
+//	i=(n-1)/3;
+//	j=(n-1)%3;
+//	
+//	if (papan[i][j] == ' ' && *giliran % 2 != 0) {
+//		papan[i][j] = 'X';
+//		(*giliran)++;
+//	} else if (papan[i][j] == ' ' && *giliran % 2 == 0){
+//		papan[i][j] = 'O';
+//		(*giliran)++;
+//	} else {
+//		kursorOut(68,23);
+//		printf("kotak sudah terisi");
+//		sleep(1);
+//		printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
+//		fflush(stdin);
+//	}
+//}
 
 void giliran5(char (*papan)[5][5], int *giliran) {
 	int n, i, j;
@@ -333,6 +386,17 @@ void setPapan5(char (*papan)[5][5]) {
 		}
 	}
 }
+
+//void timer() {
+//	struct3 *gil3 = (struct3 *) param; 
+//	for (int i=10;i>10;i--) {
+//		kursorOut(55, 2);
+//		printf("%d", gil3->giliran);
+//		sleep(1);
+//		printf("\b ");
+//	}
+//	(gil3->giliran)++;
+//}
 
 void main7(permainan *game) {
 	kursorOut(45, 19);

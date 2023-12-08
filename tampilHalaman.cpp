@@ -13,7 +13,7 @@ void tampilHalaman(int *index_halaman, bool *keluar) {
 	Player high_score[20];
 	
 	switch(*index_halaman) {
-		case 1: // menu awal;
+		case 1: // menu awal
 			menuAwal(&(*index_halaman), &(*keluar));
 			break;
 		case 2: // pilih opsi load game
@@ -22,10 +22,10 @@ void tampilHalaman(int *index_halaman, bool *keluar) {
 		case 3: // pilih opsi high score
 			tampilHighScore(&(*index_halaman));
 			break;
-		case 4: //input Nama player kalo pilih mode vs komputer
+		case 4: // input Nama player kalo pilih mode vs komputer
 			pilihMode(&(*index_halaman), &temp_game.modeMain);
 			break;
-		case 5:
+		case 5: // buat milih jenis papan
 			pilihPapan(&(*index_halaman), &temp_game.jenis_papan);
 			break;
 		case 6:

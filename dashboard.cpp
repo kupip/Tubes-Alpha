@@ -11,9 +11,9 @@ Tgl			: 24/11/2023
 
 void dashboard(Player pemain1, Player pemain2) {
 //	system("cls");
-	kursorOut(30, 1); printf("%s", pemain1.nama);
-	kursorOut(30,2); printf("%d", pemain1.skor);
+	kursorOut(5, 12); printf("%s", pemain1.nama);
+	kursorOut(5, 13); printf("%d", pemain1.skor);
 	
-	kursorOut(50, 1); printf("%s", pemain2.nama);
-	kursorOut(50, 2); printf("%d", pemain2.skor);
+	kursorOut(25, 12); printf("%s", pemain2.nama);
+	kursorOut(25, 13); printf("%d", pemain2.skor);
 }
