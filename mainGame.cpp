@@ -111,7 +111,7 @@ void main5(permainan *game, char (*pemenang)[20], int *index_halaman) {
 	int idx_pemenang=0;
 	dashboard((*game).pemain1, (*game).pemain2);
 	setPapan5(&papan5);
-	while (idx_pemenang != 0  || kosong != 0) {
+	while (kosong != 0) {
 		printPapan5(papan5);
 		giliran5(&papan5, &turn);
 		kosong = cekKosong5(papan5);
@@ -150,7 +150,7 @@ void main5(permainan *game, char (*pemenang)[20], int *index_halaman) {
 	}
 }
 
-
+// Modul untuk menegecek kondisi draw untuk 3x3
 int cekKosong3(char papan[3][3]) {
 	int count=0;
 	for (int i=0; i<3; i++) {
@@ -163,6 +163,7 @@ int cekKosong3(char papan[3][3]) {
 	return count;
 }
 
+// Modul untuk menegecek kondisi draw untuk 5x5
 int cekKosong5(char papan[5][5]) {
 	int count=0;
 	for (int i=0; i<5; i++) {
@@ -176,6 +177,7 @@ int cekKosong5(char papan[5][5]) {
 }
 
 int cekPemenang3(char papan[3][3]) {
+	// Cek pemanang baris
 	for(int baris = 0;baris<3;baris++){
 		if(papan[baris][0] == papan[baris][1] && papan[baris][1] == papan[baris][2]) {
 			if (papan[baris][1] == 'X'){
@@ -186,6 +188,7 @@ int cekPemenang3(char papan[3][3]) {
 		}
 	}
 	
+	// Cek pemenang kolom
 	for(int kolom = 0;kolom<3;kolom++){
 		if(papan[0][kolom] == papan[1][kolom] && papan[1][kolom] == papan[2][kolom]){
 			if(papan[1][kolom] == 'X'){
@@ -195,7 +198,8 @@ int cekPemenang3(char papan[3][3]) {
 			}
 		}
 	}
-
+	
+	// Cek pemenang diagonal 1
 	if (papan[0][0] == papan[1][1] && papan[0][0] == papan[2][2]) {
 		if (papan[1][1] == 'X'){
 			return 1;
@@ -204,6 +208,7 @@ int cekPemenang3(char papan[3][3]) {
 		}
 		
 	}
+	// Cek pemenang diagonal 2
 	if (papan[0][2] == papan[1][1] && papan[0][2] == papan[2][0]){
 		if(papan[1][1] == 'X'){
 			return 1;
@@ -215,6 +220,7 @@ int cekPemenang3(char papan[3][3]) {
 }
 
 int cekPemenang5(char papan[5][5]) {
+	// Cek pemenang baris
 	for(int baris = 0; baris<5; baris++){
 		if((papan[baris][0] == papan[baris][1]  || papan[baris][3] == papan[baris][4]) && papan[baris][1] == papan[baris][2] && papan[baris][2] == papan[baris][3]){
 			if (papan[baris][2] == 'X' && (papan[baris][0] == 'X' || papan[baris][4] == 'X')){
@@ -225,6 +231,7 @@ int cekPemenang5(char papan[5][5]) {
 		}
 	}
 	
+	// Cek pemenang kolom
 	for(int kolom = 0; kolom<5; kolom++){
 		if((papan[0][kolom] == papan[1][kolom]  || papan[3][kolom] == papan[4][kolom]) && papan[1][kolom] == papan[2][kolom] && papan[2][kolom] == papan[3][kolom]){
 			if(papan[2][kolom] == 'X' && (papan[0][kolom] == 'X' || papan[4][kolom] == 'X')){
@@ -235,6 +242,7 @@ int cekPemenang5(char papan[5][5]) {
 		}
 	}
 
+	// Cek pemenang diagonal '\' besar
 	if ((papan[0][0] == papan[1][1]  || papan[4][4] == papan[3][3]) && papan[1][1] == papan[2][2] && papan[2][2] == papan[3][3]) {
 		if (papan[2][2] == 'X' &&  (papan[0][0] == 'X' || papan[4][4] == 'X')){
 			return 1;
@@ -243,6 +251,8 @@ int cekPemenang5(char papan[5][5]) {
 		}
 		
 	}
+	
+	// Cek pemenang diagonal '/' besar
 	if ((papan[0][4] == papan[1][3]  || papan[3][1] == papan[4][0]) && papan[1][3] == papan[2][2] && papan[2][2] == papan[3][1]){
 		if(papan[3][3] == 'X' && (papan[0][4] == 'X' || papan[3][1] == 'X')){
 			return 1;
@@ -250,6 +260,8 @@ int cekPemenang5(char papan[5][5]) {
 			return 2;
 		}
 	}
+	
+	// Cek pemenang diagonal '/' 1
 	if (papan[0][3] == papan[1][2] && papan[1][2] == papan[2][1] && papan[3][0] == papan[2][1]){
 		if(papan[0][3] == 'X'){
 			return 1;
@@ -257,6 +269,8 @@ int cekPemenang5(char papan[5][5]) {
 			return 2;
 		}
 	}
+	
+	// Cek pemenang diagonal '/' 2
 	if (papan[1][4] == papan[2][3] && papan[2][3] == papan[3][2] && papan[4][1] == papan[3][2]){
 		if(papan[1][4] == 'X'){
 			return 1;
@@ -264,6 +278,8 @@ int cekPemenang5(char papan[5][5]) {
 			return 2;
 		}
 	}
+	
+	// Cek pemenang diagonal '\' 1
 	if (papan[1][0] == papan[2][1] && papan[3][2] == papan[2][1] && papan[3][2] == papan[4][3]){
 		if(papan[4][3] == 'X'){
 			return 1;
@@ -271,6 +287,8 @@ int cekPemenang5(char papan[5][5]) {
 			return 2;
 		}
 	}
+	
+	// Cek pemenang diagonal '\' 2
 	if (papan[0][1] == papan[1][2] && papan[1][2] == papan[2][3] && papan[2][3] == papan[3][4]){
 		if(papan[0][1] == 'X'){
 			return 1;
@@ -302,6 +320,8 @@ void giliran3(char papan[3][3], int *giliran) {
 		kursorOut(68,23);
 		printf("kotak sudah terisi");
 		sleep(1);
+		
+		// Untuk membersihkan hasil print di layar
 		printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
 		fflush(stdin);
 	}
@@ -328,11 +348,14 @@ void giliran5(char (*papan)[5][5], int *giliran) {
 		kursorOut(61, 29);
 		printf("kotak sudah terisi");
 		sleep(1);
+		
+		// Untuk membersihkan hasil print di layar
 		printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
 		fflush(stdin);
 	}
 }
 
+// Inisialisasi papan kosong 3x3
 void setPapan3(char (*papan)[3][3]) {
 	for (int brs=0; brs<3; brs++) {
 		for (int klm=0; klm<3; klm++) {
@@ -341,6 +364,7 @@ void setPapan3(char (*papan)[3][3]) {
 	}
 }
 
+// Inisialisasi papan kosong 5x5
 void setPapan5(char (*papan)[5][5]) {
 	for (int brs=0; brs<5; brs++) {
 		for (int klm=0; klm<5; klm++) {
