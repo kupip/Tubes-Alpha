@@ -24,6 +24,12 @@ typedef struct
 	Player pemain2;
 } permainan;
 
+// Tipe data posisi agar lebih memudahkan AI
+typedef struct {
+	int i, j;
+} posisi;
+
+
 HWND WINAPI GetConsoleWindowNT(void);
 
 void kursorOut(int x, int y);
@@ -44,6 +50,8 @@ void tampilHighScore(int *index_halaman);
 // Game Utama
 void dashboard(Player pemain1, Player pemain2);
 void mainGame(permainan *game, char (*pemenang)[20], int *index_halaman);
+int cekPemenang3(char papan[3][3]);
+posisi posisiTerbaik3(char papan[3][3], int giliran);
 
 // Setelah Game
 void menuAkhir(permainan game, char pemenang[20], int *index_halaman, bool *keluar);

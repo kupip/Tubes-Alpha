@@ -17,8 +17,10 @@ void inputNama(permainan *game, int *index_halaman, int modeMain)
 		banner();
 		kursorOut(45, 21);
 		printf("Masukkan nama anda: ");
-		scanf("%[\n]", (*game).pemain1.nama);
+		scanf("%[^\n]", (*game).pemain1.nama);
+		(*game).pemain1.skor = 0;
 		strcpy((*game).pemain2.nama, "Computer");
+		(*game).pemain2.skor = 0;
 		*index_halaman = 7;
 	}
 	else
@@ -43,6 +45,7 @@ void inputNama(permainan *game, int *index_halaman, int modeMain)
 		printf("Masukkan nama Player 1: ");
 		scanf("%[^\n]", (*game).pemain1.nama);;
 		(*game).pemain1.skor = 0; // pemberian nilai awal buat skor biar ga kebawa skor yg lalu lalu
+		
 		fflush(stdin);
 		system("cls");
 
