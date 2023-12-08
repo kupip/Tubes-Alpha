@@ -1,38 +1,17 @@
+// C++ program to demonstrate use of kbhit()
 #include <stdio.h>
-#include <process.h>
 #include <conio.h>
-#include <unistd.h>
-#include <stdlib.h>
 
-#include "header.h"
-
-void trit1(void *ignored);
-void trit2(void *ignored);
-
-// int main()
-// {
-// 	_beginthread(trit1, 0, NULL);
-// 	_beginthread(trit2, 0, NULL);
-// 	_endthread();
-// 	return 0;
-// }
-
-void trit1(void *ignored)
+int main()
 {
-	printf("Tekan enter");
-	int inp = getch();
-	if (inp == 13)
-	{
-		exit(1);
+    while (!kbhit()) {
+    	printf("Press a key\n");
 	}
-}
-
-void trit2(void *ignored)
-{
-	for (int i = 0; i < 10; i++)
-	{
-		printf("%d", i);
-		sleep(1);
-		printf("\b ");
-	}
+	printf("%d\n", kbhit());
+	printf("%d", getch());
+//	fflush(stdin);
+//	int inp;
+//	inp = getch();
+//	printf("%c", inp);
+    return 0;
 }
