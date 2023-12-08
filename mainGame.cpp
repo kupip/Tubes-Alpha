@@ -373,7 +373,7 @@ int cekPemenang5(char papan[5][5])
 	return 3;
 }
 
-void giliran3(char papan[3][3], int *giliran)
+void giliran3(char (*papan)[3][3], int *giliran)
 {
 	int n, i, j;
 	kursorOut(68, 19);
@@ -394,14 +394,14 @@ void giliran3(char papan[3][3], int *giliran)
 		printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                                ");
 		fflush(stdin);
 	}
-	else if (papan[i][j] == ' ' && *giliran == 1)
+	else if ((*papan)[i][j] == ' ' && *giliran == 1)
 	{
-		papan[i][j] = 'X';
+		(*papan)[i][j] = 'X';
 		*giliran = 2;
 	}
-	else if (papan[i][j] == ' ' && *giliran == 2)
+	else if ((*papan)[i][j] == ' ' && *giliran == 2)
 	{
-		papan[i][j] = 'O';
+		(*papan)[i][j] = 'O';
 		*giliran = 1;
 	}
 	else
