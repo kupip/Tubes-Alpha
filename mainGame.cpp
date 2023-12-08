@@ -7,6 +7,7 @@ Tgl			: 26/11/2023
 
 #include <stdio.h>
 #include <unistd.h>
+#include <process.h>
 #include "header.h"
 
 char papan3[3][3] = {{' ', ' ', ' '},
@@ -33,7 +34,7 @@ int kosong = 9;
 void main3(permainan *game, char (*pemenang)[20], int *index_halaman);
 int cekKosong3(char papan[3][3]);
 int cekPemenang3(char papan[3][3]);
-void giliran3(char papan[3][3], int *giliran);
+void giliran3(char (*papan)[3][3], int *giliran);
 void setPapan3(char (*papan)[3][3]);
 
 // Deklarasi modul untuk 5x5
@@ -74,7 +75,10 @@ void main3(permainan *game, char (*pemenang)[20], int *index_halaman)
 	while (kosong != 0)
 	{
 		printPapan3(papan3);
-		giliran3(papan3, &turn);
+		giliran3(&papan3, &turn);
+//		_beginthread(giliran3, 0, (void *) gil3);
+//		_beginthread(timer, 0, (void *) gil3);
+//		_endthread();
 		kosong = cekKosong3(papan3);
 		idx_pemenang = cekPemenang3(papan3);
 		printPapan3(papan3);
@@ -410,6 +414,8 @@ void giliran3(char papan[3][3], int *giliran)
 		printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
 		fflush(stdin);
 	}
+	
+	
 }
 
 void giliran5(char (*papan)[5][5], int *giliran)
