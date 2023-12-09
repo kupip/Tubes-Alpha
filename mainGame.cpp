@@ -1120,6 +1120,6 @@ void timer(int x, int y)
 		printf("Waktu: %d ", time);
 		kursorOut(x, y); // balik ke samping kanan teks Masukkan nomor papan
 		time--;
-		Sleep(1);
+		Sleep(1000);
 	}
 }
