@@ -50,8 +50,13 @@ void tampilHighScore(int *index_halaman);
 // Game Utama
 void dashboard(Player pemain1, Player pemain2);
 void mainGame(permainan *game, char (*pemenang)[20], int *index_halaman);
+
+// Untuk Komputer
 int cekPemenang3(char papan[3][3]);
-posisi posisiTerbaik3(char papan[3][3], int giliran);
+int cekPemenang5(char papan[5][5]);
+posisi posisiTerbaik3(char papan[3][3]);
+posisi posisiTerbaik5(char papan[5][5]);
+posisi posisiTerbaik7(char papan[7][7]);
 
 // Setelah Game
 void menuAkhir(permainan game, char pemenang[20], int *index_halaman, bool *keluar);
