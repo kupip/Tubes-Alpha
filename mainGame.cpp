@@ -32,27 +32,6 @@ int turn = 1;
 int kosong = 9;
 void timer(int x, int y);
 
-// Deklarasi modul untuk 3x3
-void main3(permainan *game, char (*pemenang)[20], int *index_halaman);
-int cekKosong3(char papan[3][3]);
-int cekPemenang3(char papan[3][3]);
-void giliran3(char (*papan)[3][3], int *giliran, int modeMain);
-void setPapan3(char (*papan)[3][3]);
-
-// Deklarasi modul untuk 5x5
-void main5(permainan *game, char (*pemenang)[20], int *index_halaman);
-int cekKosong5(char papan[5][5]);
-int cekPemenang5(char papan[5][5]);
-void giliran5(char (*papan)[5][5], int *giliran, int modeMain);
-void setPapan5(char (*papan)[5][5]);
-
-// Deklarasi modul untuk 7x7
-void main7(permainan *game, char (*pemenang)[20], int *index_halaman);
-int cekKosong7(char papan[7][7]);
-int cekPemenang7(char papan[7][7]);
-void giliran7(char (*papan)[7][7], int *giliran, int modeMain);
-void setPapan7(char (*papan)[7][7]);
-
 void mainGame(permainan *game, char (*pemenang)[20], int *index_halaman)
 {
 	switch ((*game).jenis_papan)
@@ -692,11 +671,9 @@ void setPapan7(char (*papan)[7][7])
 }
 
 // Modul untuk mengisi papan 7x7
-void giliran7(char (*papan)[7][7], int *giliran)
+void giliran7(char (*papan)[7][7], int *giliran, int modeMain)
 {
 	int n, i, j;
-	kursorOut(68, 19);
-	int modeMain = 2;
 
 	// pengecekan kondisi vs Player atau Computer
 	if (modeMain == 2)

@@ -25,10 +25,10 @@ typedef struct
 } permainan;
 
 // Tipe data posisi agar lebih memudahkan AI
-typedef struct {
+typedef struct
+{
 	int i, j;
 } posisi;
-
 
 HWND WINAPI GetConsoleWindowNT(void);
 
@@ -67,3 +67,27 @@ void loadGame(int *index_halaman, permainan *game);
 void printPapan3(char papan[3][3]);
 void printPapan5(char papan[5][5]);
 void printPapan7(char papan[7][7]);
+
+// Deklarasi modul untuk 3x3
+void main3(permainan *game, char (*pemenang)[20], int *index_halaman);
+int cekKosong3(char papan[3][3]);
+int cekPemenang3(char papan[3][3]);
+void giliran3(char (*papan)[3][3], int *giliran, int modeMain);
+void setPapan3(char (*papan)[3][3]);
+
+// Deklarasi modul untuk 5x5
+void main5(permainan *game, char (*pemenang)[20], int *index_halaman);
+int cekKosong5(char papan[5][5]);
+int cekPemenang5(char papan[5][5]);
+void giliran5(char (*papan)[5][5], int *giliran, int modeMain);
+void setPapan5(char (*papan)[5][5]);
+
+// Deklarasi modul untuk 7x7
+void main7(permainan *game, char (*pemenang)[20], int *index_halaman);
+int cekKosong7(char papan[7][7]);
+int cekPemenang7(char papan[7][7]);
+void giliran7(char (*papan)[7][7], int *giliran, int modeMain);
+void setPapan7(char (*papan)[7][7]);
+
+// Modul Highscore
+void printHighScore(char namapemain[20], int skor, int urutanData, int akhir);
