@@ -214,6 +214,106 @@ int cekPemenang3(char papan[3][3])
 	return 3;
 }
 
+// Modul untuk mengisi papan 3x3
+void giliran3(char (*papan)[3][3], int *giliran, int modeMain)
+{
+	int n, i, j;
+	
+	// pengecekan kondisi vs Player atau Computer
+	if (modeMain == 2) {
+		kursorOut(68, 19);
+		printf("Giliran pemain %d", ((*giliran)%2==0)?(*giliran)%2+2:(*giliran)%2 );
+		kursorOut(68, 21);
+		printf("Masukkan nomor papan:   %c", 174);
+		timer(90, 21);
+		if (kbhit()==1) {
+			kursorOut(90, 21);
+			scanf("%d", &n);
+			i = (n - 1) / 3;
+			j = (n - 1) % 3;
+			if (n > 9 || n < 1)
+			{
+				kursorOut(68, 23);
+				printf("Harap masukkan angka yang sesuai");
+				sleep(1);
+
+				// Untuk membersihkan hasil print di layar
+				printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                                ");
+				fflush(stdin);
+			}
+			else if ((*papan)[i][j] == ' ' && (*giliran) % 2 != 0)
+			{
+				(*papan)[i][j] = 'X';
+				(*giliran)++;
+			}
+			else if ((*papan)[i][j] == ' ' && (*giliran) % 2 == 0)
+			{
+				(*papan)[i][j] = 'O';
+				(*giliran)++;
+			}
+			else
+			{
+				kursorOut(68, 23);
+				printf("kotak sudah terisi");
+				sleep(1);
+
+				// Untuk membersihkan hasil print di layar
+				printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
+				fflush(stdin);
+			}
+		} else {
+			(*giliran) = 2;
+		}
+	} else {
+		kursorOut(68, 19);
+		printf("Masukkan nomor papan:   %c", 174);
+		if (*giliran == 1) {
+			timer(90, 19);
+			if (kbhit()) {
+				kursorOut(90, 19);
+				scanf("%d", &n);
+				i = (n - 1) / 3;
+				j = (n - 1) % 3;
+				if (n > 9 || n < 1)
+				{
+					kursorOut(68, 21);
+					printf("Harap masukkan angka yang sesuai");
+					sleep(1);
+
+					// Untuk membersihkan hasil print di layar
+					printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                                ");
+					fflush(stdin);
+				}
+				else if ((*papan)[i][j] == ' ')
+				{
+					(*papan)[i][j] = 'X';
+					*giliran = 2;
+				}
+				else
+				{
+					kursorOut(68, 21);
+					printf("kotak sudah terisi");
+					sleep(1);
+
+					// Untuk membersihkan hasil print di layar
+					printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
+					fflush(stdin);
+				}
+			} else {
+				i = posisiTerbaik3(papan3).i;
+				j = posisiTerbaik3(papan3).j;
+				(*papan)[i][j] = 'O';
+				(*giliran) = 1;
+			}
+		} else {
+			i = posisiTerbaik3(papan3).i;
+			j = posisiTerbaik3(papan3).j;
+			(*papan)[i][j] = 'O';
+			(*giliran) = 1;
+		}
+	}
+}
+
 /*+---------------------------------------------------------------+*/
 /*|                      MODUL PERMAINAN 5x5                      |*/
 /*+---------------------------------------------------------------+*/
@@ -994,105 +1094,7 @@ int cekPemenang7(char papan[7][7])
 	return 3;
 }
 
-void giliran3(char (*papan)[3][3], int *giliran, int modeMain)
-{
-	int n, i, j;
-	
-	// pengecekan kondisi vs Player atau Computer
-	if (modeMain == 2) {
-		kursorOut(68, 19);
-		printf("Giliran pemain %d", ((*giliran)%2==0)?(*giliran)%2+2:(*giliran)%2 );
-		kursorOut(68, 21);
-		printf("Masukkan nomor papan:   %c", 174);
-		timer(90, 21);
-		if (kbhit()==1) {
-			kursorOut(90, 21);
-			scanf("%d", &n);
-			i = (n - 1) / 3;
-			j = (n - 1) % 3;
-			if (n > 9 || n < 1)
-			{
-				kursorOut(68, 23);
-				printf("Harap masukkan angka yang sesuai");
-				sleep(1);
-
-				// Untuk membersihkan hasil print di layar
-				printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                                ");
-				fflush(stdin);
-			}
-			else if ((*papan)[i][j] == ' ' && (*giliran) % 2 != 0)
-			{
-				(*papan)[i][j] = 'X';
-				(*giliran)++;
-			}
-			else if ((*papan)[i][j] == ' ' && (*giliran) % 2 == 0)
-			{
-				(*papan)[i][j] = 'O';
-				(*giliran)++;
-			}
-			else
-			{
-				kursorOut(68, 23);
-				printf("kotak sudah terisi");
-				sleep(1);
-
-				// Untuk membersihkan hasil print di layar
-				printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
-				fflush(stdin);
-			}
-		} else {
-			(*giliran) = 2;
-		}
-	} else {
-		kursorOut(68, 19);
-		printf("Masukkan nomor papan:   %c", 174);
-		if (*giliran == 1) {
-			timer(90, 19);
-			if (kbhit()) {
-				kursorOut(90, 19);
-				scanf("%d", &n);
-				i = (n - 1) / 3;
-				j = (n - 1) % 3;
-				if (n > 9 || n < 1)
-				{
-					kursorOut(68, 21);
-					printf("Harap masukkan angka yang sesuai");
-					sleep(1);
-
-					// Untuk membersihkan hasil print di layar
-					printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                                ");
-					fflush(stdin);
-				}
-				else if ((*papan)[i][j] == ' ')
-				{
-					(*papan)[i][j] = 'X';
-					*giliran = 2;
-				}
-				else
-				{
-					kursorOut(68, 21);
-					printf("kotak sudah terisi");
-					sleep(1);
-
-					// Untuk membersihkan hasil print di layar
-					printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
-					fflush(stdin);
-				}
-			} else {
-				i = posisiTerbaik3(papan3).i;
-				j = posisiTerbaik3(papan3).j;
-				(*papan)[i][j] = 'O';
-				(*giliran) = 1;
-			}
-		} else {
-			i = posisiTerbaik3(papan3).i;
-			j = posisiTerbaik3(papan3).j;
-			(*papan)[i][j] = 'O';
-			(*giliran) = 1;
-		}
-	}
-}
-
+// Modul pewaktu pengisian
 void timer(int x, int y) {
 	kursorOut(73, 2);
 	int time = 10;
