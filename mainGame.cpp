@@ -50,7 +50,7 @@ void setPapan5(char (*papan)[5][5]);
 void main7(permainan *game, char (*pemenang)[20], int *index_halaman);
 int cekKosong7(char papan[7][7]);
 int cekPemenang7(char papan[7][7]);
-void giliran7(char (*papan)[7][7], int *giliran);
+void giliran7(char (*papan)[7][7], int *giliran, int modeMain);
 void setPapan7(char (*papan)[7][7]);
 
 void mainGame(permainan *game, char (*pemenang)[20], int *index_halaman)
@@ -69,7 +69,6 @@ void mainGame(permainan *game, char (*pemenang)[20], int *index_halaman)
 	}
 }
 
-
 /*+---------------------------------------------------------------+*/
 /*|                      MODUL PERMAINAN 3x3                      |*/
 /*+---------------------------------------------------------------+*/
@@ -79,7 +78,7 @@ void main3(permainan *game, char (*pemenang)[20], int *index_halaman)
 	int idx_pemenang = 0;
 	dashboard((*game).pemain1, (*game).pemain2);
 	setPapan3(&papan3);
-	
+
 	while (kosong != 0)
 	{
 		printPapan3(papan3);
@@ -151,7 +150,6 @@ int cekKosong3(char papan[3][3])
 	return count;
 }
 
-
 // Modul untuk memeriksa pemenang pada 3x3
 int cekPemenang3(char papan[3][3])
 {
@@ -218,15 +216,17 @@ int cekPemenang3(char papan[3][3])
 void giliran3(char (*papan)[3][3], int *giliran, int modeMain)
 {
 	int n, i, j;
-	
+
 	// pengecekan kondisi vs Player atau Computer
-	if (modeMain == 2) {
+	if (modeMain == 2)
+	{
 		kursorOut(68, 19);
-		printf("Giliran pemain %d", ((*giliran)%2==0)?(*giliran)%2+2:(*giliran)%2 );
+		printf("Giliran pemain %d", ((*giliran) % 2 == 0) ? (*giliran) % 2 + 2 : (*giliran) % 2);
 		kursorOut(68, 21);
 		printf("Masukkan nomor papan:   %c", 174);
 		timer(90, 21);
-		if (kbhit()==1) {
+		if (kbhit() == 1)
+		{
 			kursorOut(90, 21);
 			scanf("%d", &n);
 			i = (n - 1) / 3;
@@ -261,15 +261,21 @@ void giliran3(char (*papan)[3][3], int *giliran, int modeMain)
 				printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
 				fflush(stdin);
 			}
-		} else {
+		}
+		else
+		{
 			(*giliran) = 2;
 		}
-	} else {
+	}
+	else
+	{
 		kursorOut(68, 19);
 		printf("Masukkan nomor papan:   %c", 174);
-		if (*giliran == 1) {
+		if (*giliran == 1)
+		{
 			timer(90, 19);
-			if (kbhit()) {
+			if (kbhit())
+			{
 				kursorOut(90, 19);
 				scanf("%d", &n);
 				i = (n - 1) / 3;
@@ -299,13 +305,17 @@ void giliran3(char (*papan)[3][3], int *giliran, int modeMain)
 					printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
 					fflush(stdin);
 				}
-			} else {
+			}
+			else
+			{
 				i = posisiTerbaik3(papan3).i;
 				j = posisiTerbaik3(papan3).j;
 				(*papan)[i][j] = 'O';
 				(*giliran) = 1;
 			}
-		} else {
+		}
+		else
+		{
 			i = posisiTerbaik3(papan3).i;
 			j = posisiTerbaik3(papan3).j;
 			(*papan)[i][j] = 'O';
@@ -325,7 +335,7 @@ void main5(permainan *game, char (*pemenang)[20], int *index_halaman)
 	while (kosong != 0)
 	{
 		printPapan5(papan5);
-		giliran5(&papan5, &turn);
+		giliran5(&papan5, &turn, (*game).modeMain);
 		kosong = cekKosong5(papan5);
 		idx_pemenang = cekPemenang5(papan5);
 		printPapan5(papan5);
@@ -380,15 +390,17 @@ void giliran5(char (*papan)[5][5], int *giliran, int modeMain)
 {
 	int n, i, j;
 
-	if (modeMain == 2) {
+	if (modeMain == 2)
+	{
 		kursorOut(61, 27);
-		printf("Giliran pemain %d", *giliran);
+		printf("Giliran pemain %d", ((*giliran) % 2 == 0) ? (*giliran) % 2 + 2 : (*giliran) % 2);
 		kursorOut(61, 28);
 		printf("Masukkan nomor papan:   \b\b");
 		timer(90, 28);
 
 		// jika pengguna menekan keyboard
-		if (kbhit()) {
+		if (kbhit())
+		{
 			kursorOut(90, 28);
 			scanf("%d", &n);
 			i = (n - 1) / 5;
@@ -423,15 +435,21 @@ void giliran5(char (*papan)[5][5], int *giliran, int modeMain)
 				printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
 				fflush(stdin);
 			}
-		} else {
+		}
+		else
+		{
 			(*giliran) = 2;
 		}
-	} else {
+	}
+	else
+	{
 		kursorOut(68, 28);
 		printf("Masukkan nomor papan:   %c", 174);
-		if (*giliran == 1) {
+		if (*giliran == 1)
+		{
 			timer(90, 28);
-			if (kbhit()) {
+			if (kbhit())
+			{
 				kursorOut(90, 28);
 				scanf("%d", &n);
 				i = (n - 1) / 5;
@@ -461,13 +479,17 @@ void giliran5(char (*papan)[5][5], int *giliran, int modeMain)
 					printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
 					fflush(stdin);
 				}
-			} else {
+			}
+			else
+			{
 				i = posisiTerbaik5(papan5).i;
 				j = posisiTerbaik5(papan5).j;
 				(*papan)[i][j] = 'O';
 				(*giliran) = 1;
 			}
-		} else {
+		}
+		else
+		{
 			i = posisiTerbaik5(papan5).i;
 			j = posisiTerbaik5(papan5).j;
 			(*papan)[i][j] = 'O';
@@ -618,7 +640,7 @@ void main7(permainan *game, char (*pemenang)[20], int *index_halaman)
 	while (kosong != 0)
 	{
 		printPapan7(papan7);
-		giliran7(&papan7, &turn);
+		giliran7(&papan7, &turn, (*game).modeMain);
 		kosong = cekKosong7(papan7);
 		idx_pemenang = cekPemenang7(papan7);
 		printPapan7(papan7);
@@ -675,15 +697,17 @@ void giliran7(char (*papan)[7][7], int *giliran)
 	int n, i, j;
 	kursorOut(68, 19);
 	int modeMain = 2;
-	
+
 	// pengecekan kondisi vs Player atau Computer
-	if (modeMain == 2) {
+	if (modeMain == 2)
+	{
 		kursorOut(68, 35);
-		printf("Giliran pemain %d", *giliran);
+		printf("Giliran pemain %d", ((*giliran) % 2 == 0) ? (*giliran) % 2 + 2 : (*giliran) % 2);
 		kursorOut(68, 36);
 		printf("Masukkan nomor papan:   %c", 174);
 		timer(90, 36);
-		if (kbhit()==1) {
+		if (kbhit() == 1)
+		{
 			kursorOut(90, 36);
 			scanf("%d", &n);
 			i = (n - 1) / 7;
@@ -718,14 +742,19 @@ void giliran7(char (*papan)[7][7], int *giliran)
 				printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
 				fflush(stdin);
 			}
-		} else {
+		}
+		else
+		{
 			(*giliran) = 2;
 		}
-	} else {
+	}
+	else
+	{
 		kursorOut(68, 36);
 		printf("Masukkan nomor papan:   %c", 174);
 		timer(90, 36);
-		if (kbhit()) {
+		if (kbhit())
+		{
 			kursorOut(90, 36);
 			scanf("%d", &n);
 			i = (n - 1) / 7;
@@ -739,11 +768,15 @@ void giliran7(char (*papan)[7][7], int *giliran)
 				// Untuk membersihkan hasil print di layar
 				printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                                ");
 				fflush(stdin);
-			} else {
+			}
+			else
+			{
 				(*papan)[i][j] = 'X';
 				*giliran = 1;
 			}
-		} else {
+		}
+		else
+		{
 			i = posisiTerbaik7(papan7).i;
 			j = posisiTerbaik7(papan7).j;
 			(*giliran) = 2;
@@ -1095,7 +1128,8 @@ int cekPemenang7(char papan[7][7])
 }
 
 // Modul pewaktu pengisian
-void timer(int x, int y) {
+void timer(int x, int y)
+{
 	kursorOut(73, 2);
 	int time = 10;
 	printf("Waktu: %d", time);
