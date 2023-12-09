@@ -59,45 +59,48 @@ void inputNama(permainan *game, int *index_halaman, int modeMain)
 		kursorOut(45, 21);
 		printf("Masukkan nama Player 1: ");
 		scanf("%[^\n]", (*game).pemain1.nama);
-		;
 		(*game).pemain1.skor = 0; // pemberian nilai awal buat skor biar ga kebawa skor yg lalu lalu
 
 		fflush(stdin);
 		system("cls");
 
-		banner();
-		switch ((*game).jenis_papan)
+		do
 		{
-		case 3:
-			kursorOut(45, 20);
-			printf("Papan 3x3");
-			break;
-		case 5:
-			kursorOut(45, 20);
-			printf("Papan 5x5");
-			break;
-		case 7:
-			kursorOut(45, 20);
-			printf("Papan 7x7");
-			break;
-		}
-		kursorOut(45, 21);
-		printf("Masukkan nama Player 2: ");
-		scanf("%[^\n]", (*game).pemain2.nama);
-		if (strcmp((*game).pemain1.nama, (*game).pemain2.nama) == 0)
-		{
-			kursorOut(45, 22);
-			printf("Mohon masukkan nama yang berbeda");
-			Sleep(1);
+			banner();
+			switch ((*game).jenis_papan)
+			{
+			case 3:
+				kursorOut(45, 20);
+				printf("Papan 3x3");
+				break;
+			case 5:
+				kursorOut(45, 20);
+				printf("Papan 5x5");
+				break;
+			case 7:
+				kursorOut(45, 20);
+				printf("Papan 7x7");
+				break;
+			}
+			kursorOut(45, 21);
+			printf("Masukkan nama Player 2: ");
+			scanf("%[^\n]", (*game).pemain2.nama);
+			if (strcmp((*game).pemain1.nama, (*game).pemain2.nama) == 0)
+			{
+				kursorOut(45, 22);
+				printf("Mohon masukkan nama yang berbeda");
+				Sleep(2000);
 
-			printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                                ");
-			fflush(stdin);
-		}
-		else
-		{
-			(*game).pemain2.skor = 0;
-			*index_halaman = 7;
-		}
+				kursorOut(45, 22);
+				printf("                                ");
+				fflush(stdin);
+			}
+			system("cls");
+
+		} while (strcmp((*game).pemain1.nama, (*game).pemain2.nama) == 0);
+
+		(*game).pemain2.skor = 0;
+		*index_halaman = 7;
 	}
 	fflush(stdin);
 	system("cls");
