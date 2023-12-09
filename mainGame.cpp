@@ -204,7 +204,7 @@ void giliran3(char (*papan)[3][3], int *giliran, int modeMain)
 		kursorOut(68, 21);
 		printf("Masukkan nomor papan:   %c", 174);
 		timer(90, 21);
-		if (kbhit() == 1)
+		if (getch() == 13)
 		{
 			kursorOut(90, 21);
 			scanf("%d", &n);
@@ -243,7 +243,7 @@ void giliran3(char (*papan)[3][3], int *giliran, int modeMain)
 		}
 		else
 		{
-			(*giliran) = 2;
+			(*giliran)++;
 		}
 	}
 	else
@@ -272,7 +272,7 @@ void giliran3(char (*papan)[3][3], int *giliran, int modeMain)
 				else if ((*papan)[i][j] == ' ')
 				{
 					(*papan)[i][j] = 'X';
-					*giliran = 2;
+					(*giliran)++;
 				}
 				else
 				{
@@ -290,7 +290,7 @@ void giliran3(char (*papan)[3][3], int *giliran, int modeMain)
 				i = posisiTerbaik3(papan3).i;
 				j = posisiTerbaik3(papan3).j;
 				(*papan)[i][j] = 'O';
-				(*giliran) = 1;
+				*giliran = 1;
 			}
 		}
 		else
@@ -298,7 +298,7 @@ void giliran3(char (*papan)[3][3], int *giliran, int modeMain)
 			i = posisiTerbaik3(papan3).i;
 			j = posisiTerbaik3(papan3).j;
 			(*papan)[i][j] = 'O';
-			(*giliran) = 1;
+			*giliran = 1;
 		}
 	}
 }
@@ -397,12 +397,12 @@ void giliran5(char (*papan)[5][5], int *giliran, int modeMain)
 			else if ((*papan)[i][j] == ' ' && *giliran == 1)
 			{
 				(*papan)[i][j] = 'X';
-				*giliran = 2;
+				(*giliran)++;
 			}
 			else if ((*papan)[i][j] == ' ' && *giliran == 2)
 			{
 				(*papan)[i][j] = 'O';
-				*giliran = 1;
+				(*giliran)++;
 			}
 			else
 			{
@@ -417,7 +417,7 @@ void giliran5(char (*papan)[5][5], int *giliran, int modeMain)
 		}
 		else
 		{
-			(*giliran) = 2;
+			(*giliran)++;
 		}
 	}
 	else
@@ -464,7 +464,7 @@ void giliran5(char (*papan)[5][5], int *giliran, int modeMain)
 				i = posisiTerbaik5(papan5).i;
 				j = posisiTerbaik5(papan5).j;
 				(*papan)[i][j] = 'O';
-				(*giliran) = 1;
+				*giliran = 1;
 			}
 		}
 		else
@@ -472,7 +472,7 @@ void giliran5(char (*papan)[5][5], int *giliran, int modeMain)
 			i = posisiTerbaik5(papan5).i;
 			j = posisiTerbaik5(papan5).j;
 			(*papan)[i][j] = 'O';
-			(*giliran) = 1;
+			*giliran = 1;
 		}
 	}
 }
@@ -702,12 +702,12 @@ void giliran7(char (*papan)[7][7], int *giliran, int modeMain)
 			else if ((*papan)[i][j] == ' ' && *giliran == 1)
 			{
 				(*papan)[i][j] = 'X';
-				*giliran = 2;
+				(*giliran)++;
 			}
 			else if ((*papan)[i][j] == ' ' && *giliran == 2)
 			{
 				(*papan)[i][j] = 'O';
-				*giliran = 1;
+				(*giliran)++;
 			}
 			else
 			{
@@ -722,7 +722,7 @@ void giliran7(char (*papan)[7][7], int *giliran, int modeMain)
 		}
 		else
 		{
-			(*giliran) = 2;
+			(*giliran)++;
 		}
 	}
 	else
@@ -756,7 +756,7 @@ void giliran7(char (*papan)[7][7], int *giliran, int modeMain)
 		{
 			i = posisiTerbaik7(papan7).i;
 			j = posisiTerbaik7(papan7).j;
-			(*giliran) = 2;
+			(*giliran) = 1;
 		}
 	}
 }
