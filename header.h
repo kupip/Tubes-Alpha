@@ -38,6 +38,8 @@ void tampilanAwal();
 
 void tampilHalaman(int *index_halaman, bool *keluar);
 
+void timer(int x, int y);
+
 // yang ada di tampilHalaman
 void banner();
 void inputNama(permainan *game, int *index_halaman, int modeMain);
@@ -91,3 +93,4 @@ void setPapan7(char (*papan)[7][7]);
 
 // Modul Highscore
 void printHighScore(char namapemain[20], int skor, int urutanData, int akhir);
+int cekNamaDuplikat(int _awal, char listNama[10000][20], char _namaPlayer[20]);
