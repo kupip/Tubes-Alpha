@@ -8,6 +8,7 @@ Tgl			: 26/11/2023
 #include <stdio.h>
 #include <unistd.h>
 #include <process.h>
+
 #include "header.h"
 
 char papan3[3][3] = {{' ', ' ', ' '},
@@ -91,7 +92,7 @@ void main3(permainan *game, char (*pemenang)[20], int *index_halaman)
 			printf("pemenang: %s\n", (*pemenang));
 			(*game).pemain1.skor++;
 			*index_halaman = 8;
-			sleep(2);
+			Sleep(2);
 			system("cls");
 			break;
 		}
@@ -102,7 +103,7 @@ void main3(permainan *game, char (*pemenang)[20], int *index_halaman)
 			printf("pemenang: %s\n", (*pemenang));
 			(*game).pemain2.skor++;
 			*index_halaman = 8;
-			sleep(2);
+			Sleep(2);
 			system("cls");
 			break;
 		}
@@ -111,7 +112,7 @@ void main3(permainan *game, char (*pemenang)[20], int *index_halaman)
 			printf("Draw");
 			strcpy((*pemenang), " ");
 			*index_halaman = 8;
-			sleep(2);
+			Sleep(2);
 			system("cls");
 			break;
 		}
@@ -145,7 +146,7 @@ void giliran3(char (*papan)[3][3], int *giliran)
 	{
 		kursorOut(68, 23);
 		printf("Harap masukkan angka yang sesuai");
-		sleep(1);
+		Sleep(1);
 
 		// Untuk membersihkan hasil print di layar
 		printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                                ");
@@ -165,7 +166,7 @@ void giliran3(char (*papan)[3][3], int *giliran)
 	{
 		kursorOut(68, 23);
 		printf("kotak sudah terisi");
-		sleep(1);
+		Sleep(1);
 
 		// Untuk membersihkan hasil print di layar
 		printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
@@ -275,7 +276,7 @@ void main5(permainan *game, char (*pemenang)[20], int *index_halaman)
 			printf("pemenang: %s\n", (*pemenang));
 			(*game).pemain1.skor++;
 			*index_halaman = 8;
-			sleep(2);
+			Sleep(2);
 			system("cls");
 			break;
 		}
@@ -286,7 +287,7 @@ void main5(permainan *game, char (*pemenang)[20], int *index_halaman)
 			printf("pemenang: %s\n", (*pemenang));
 			(*game).pemain2.skor++;
 			*index_halaman = 8;
-			sleep(2);
+			Sleep(2);
 			system("cls");
 			break;
 		}
@@ -295,7 +296,7 @@ void main5(permainan *game, char (*pemenang)[20], int *index_halaman)
 			printf("Draw");
 			strcpy((*pemenang), " ");
 			*index_halaman = 8;
-			sleep(2);
+			Sleep(2);
 			system("cls");
 			break;
 		}
@@ -330,7 +331,7 @@ void giliran5(char (*papan)[5][5], int *giliran)
 	{
 		kursorOut(61, 29);
 		printf("Harap masukkan angka yang sesuai");
-		sleep(1);
+		Sleep(1);
 
 		// Untuk membersihkan hasil print di layar
 		printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                                ");
@@ -350,7 +351,7 @@ void giliran5(char (*papan)[5][5], int *giliran)
 	{
 		kursorOut(61, 29);
 		printf("kotak sudah terisi");
-		sleep(1);
+		Sleep(1);
 
 		// Untuk membersihkan hasil print di layar
 		printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
@@ -512,7 +513,7 @@ void main7(permainan *game, char (*pemenang)[20], int *index_halaman)
 			printf("pemenang: %s\n", (*pemenang));
 			(*game).pemain1.skor++;
 			*index_halaman = 8;
-			sleep(2);
+			Sleep(2);
 			system("cls");
 			break;
 		}
@@ -523,7 +524,7 @@ void main7(permainan *game, char (*pemenang)[20], int *index_halaman)
 			printf("pemenang: %s\n", (*pemenang));
 			(*game).pemain2.skor++;
 			*index_halaman = 8;
-			sleep(2);
+			Sleep(2);
 			system("cls");
 			break;
 		}
@@ -532,7 +533,7 @@ void main7(permainan *game, char (*pemenang)[20], int *index_halaman)
 			printf("Draw");
 			strcpy((*pemenang), " ");
 			*index_halaman = 8;
-			sleep(2);
+			Sleep(2);
 			system("cls");
 			break;
 		}
@@ -566,7 +567,7 @@ void giliran7(char (*papan)[7][7], int *giliran)
 	{
 		kursorOut(61, 37);
 		printf("Harap masukkan angka yang sesuai");
-		sleep(1);
+		Sleep(1);
 
 		// Untuk membersihkan hasil print di layar
 		printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                                ");
@@ -586,7 +587,7 @@ void giliran7(char (*papan)[7][7], int *giliran)
 	{
 		kursorOut(61, 37);
 		printf("kotak sudah terisi");
-		sleep(1);
+		Sleep(1);
 
 		// Untuk membersihkan hasil print di layar
 		printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
@@ -944,7 +945,7 @@ void timer()
 	int time = 10;
 	printf("Waktu: %d", time);
 	kursorOut(90, 21);
-	sleep(1);
+	Sleep(1);
 	time--;
 	while (!kbhit() && time >= 0)
 	{
@@ -953,6 +954,6 @@ void timer()
 		printf("Waktu: %d ", time);
 		kursorOut(90, 21);
 		time--;
-		sleep(1);
+		Sleep(1);
 	}
 }

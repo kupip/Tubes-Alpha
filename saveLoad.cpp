@@ -33,7 +33,7 @@ void loadGame(int *index_halaman, permainan *game)
 {
   	int i, n, idx_save;
   	FILE *re=fopen("data.bin", "rb");
-  
+
   	i=0;
   //	system("cls");
   	while(!feof(re)) {
@@ -55,7 +55,7 @@ void loadGame(int *index_halaman, permainan *game)
   	scanf("%d", &idx_save);
   	if (idx_save > i) {
   		printf("Data yang anda pilih tidak valid");
-  		sleep(1);
+  		Sleep(1);
   		printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                                ");
   	} else if(idx_save == 0){
   		*index_halaman = 1;
