@@ -204,7 +204,7 @@ void giliran3(char (*papan)[3][3], int *giliran, int modeMain)
 		kursorOut(68, 21);
 		printf("Masukkan nomor papan:   %c", 174);
 		timer(90, 21);
-		if (getch() == 13)
+		if (kbhit() == 1)
 		{
 			kursorOut(90, 21);
 			scanf("%d", &n);
@@ -729,26 +729,46 @@ void giliran7(char (*papan)[7][7], int *giliran, int modeMain)
 	{
 		kursorOut(68, 36);
 		printf("Masukkan nomor papan:   %c", 174);
-		timer(90, 36);
-		if (kbhit())
+		if (*giliran == 1)
 		{
-			kursorOut(90, 36);
-			scanf("%d", &n);
-			i = (n - 1) / 7;
-			j = (n - 1) % 7;
-			if (n > 49 || n < 1)
+			timer(90, 36);
+			if (kbhit() == 1)
 			{
-				kursorOut(68, 23);
-				printf("Harap masukkan angka yang sesuai");
-				sleep(1);
+				kursorOut(90, 36);
+				scanf("%d", &n);
+				i = (n - 1) / 7;
+				j = (n - 1) % 7;
+				if (n > 49 || n < 1)
+				{
+					kursorOut(68, 38);
+					printf("Harap masukkan angka yang sesuai");
+					sleep(1);
 
-				// Untuk membersihkan hasil print di layar
-				printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                                ");
-				fflush(stdin);
+					// Untuk membersihkan hasil print di layar
+					printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                                ");
+					fflush(stdin);
+				}
+				else if ((*papan)[i][j] == ' ')
+				{
+					(*papan)[i][j] = 'X';
+					*giliran = 2;
+				}
+				else
+				{
+					kursorOut(68, 38);
+					printf("kotak sudah terisi");
+					sleep(1);
+
+					// Untuk membersihkan hasil print di layar
+					printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
+					fflush(stdin);
+				}
 			}
 			else
 			{
-				(*papan)[i][j] = 'X';
+				i = posisiTerbaik7(papan7).i;
+				j = posisiTerbaik7(papan7).j;
+				(*papan)[i][j] = 'O';
 				*giliran = 1;
 			}
 		}
@@ -756,7 +776,8 @@ void giliran7(char (*papan)[7][7], int *giliran, int modeMain)
 		{
 			i = posisiTerbaik7(papan7).i;
 			j = posisiTerbaik7(papan7).j;
-			(*giliran) = 1;
+			(*papan)[i][j] = 'O';
+			*giliran = 1;
 		}
 	}
 }

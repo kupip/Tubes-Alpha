@@ -29,7 +29,7 @@ int minimax3(char papan[3][3], int kedalaman, bool maximizing)
 
 	if (maximizing)
 	{
-		int best = -10;
+		int best = -1000;
 		for (int i = 0; i < 3; i++)
 		{
 			for (int j = 0; j < 3; j++)
@@ -52,7 +52,7 @@ int minimax3(char papan[3][3], int kedalaman, bool maximizing)
 	}
 	else
 	{
-		int best = 10;
+		int best = 1000;
 		for (int i = 0; i < 3; i++)
 		{
 			for (int j = 0; j < 3; j++)
@@ -147,7 +147,7 @@ posisi posisiTerbaik3(char papan[3][3])
 	int best = -1000;
 	int sementara;
 	int depth = 0;
-	posisi posTerbaik;
+	posisi posTerbaik = {-1, -1};
 
 	// Menguji setiap posisi yang mungkin
 	if (papan[1][1] == ' ')
@@ -164,7 +164,7 @@ posisi posisiTerbaik3(char papan[3][3])
 				if (papan[i][j] == ' ')
 				{
 					papan[i][j] = 'O';
-					sementara = minimax3(papan, depth, false);
+					sementara = minimax3(papan, 0, false);
 
 					// meng-undo gerakan yang telah dibuat
 					papan[i][j] = ' ';
@@ -184,7 +184,7 @@ posisi posisiTerbaik3(char papan[3][3])
 // Modul untuk mencari posisi terbaik pada papan 5x5
 posisi posisiTerbaik5(char papan[5][5])
 {
-	int best = -1000;
+	int best = 10;
 	int sementara;
 	int depth = 0;
 	posisi posTerbaik;
@@ -233,7 +233,7 @@ int minimax7(char papan[7][7], int kedalaman, bool maximizing)
 
 	if (maximizing)
 	{
-		int best = -10;
+		int best = -1000000;
 		for (int i = 0; i < 7; i++)
 		{
 			for (int j = 0; j < 7; j++)
@@ -282,7 +282,7 @@ int minimax7(char papan[7][7], int kedalaman, bool maximizing)
 // Modul untuk mencari posisi terbaik pada papan 7x7
 posisi posisiTerbaik7(char papan[7][7])
 {
-	int best = -1000;
+	int best = 10;
 	int sementara;
 	int depth = 0;
 	posisi posTerbaik;

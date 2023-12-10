@@ -51,7 +51,7 @@ void printPapan5(char papan[5][5])
   kursorOut(61, 10);
   printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 195, 196, 196, 196, 196, 196, 197, 196, 196, 196, 196, 196, 197, 196, 196, 196, 196, 196, 197, 196, 196, 196, 196, 196, 197, 196, 196, 196, 196, 196, 180);
   kursorOut(61, 11);
-  printf("%c6    %c7    %c8    %c9    %c10    %c", 179, 179, 179, 179, 179, 179);
+  printf("%c6    %c7    %c8    %c9    %c10   %c", 179, 179, 179, 179, 179, 179);
   kursorOut(61, 12);
   printf("%c  %c  %c  %c  %c  %c  %c  %c  %c  %c  %c", 179, papan[1][0], 179, papan[1][1], 179, papan[1][2], 179, papan[1][3], 179, papan[1][4], 179);
   kursorOut(61, 13);
