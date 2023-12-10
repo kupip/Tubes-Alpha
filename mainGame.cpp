@@ -225,7 +225,7 @@ void giliran3(char (*papan)[3][3], int *giliran, int modeMain)
 				(*papan)[i][j] = 'X';
 				(*giliran) = 2;
 			}
-			else if ((*papan)[i][j] == ' ' && (*giliran) == 3)
+			else if ((*papan)[i][j] == ' ' && (*giliran) == 2)
 			{
 				(*papan)[i][j] = 'O';
 				(*giliran) = 1;
