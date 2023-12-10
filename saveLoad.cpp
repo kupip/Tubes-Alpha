@@ -41,6 +41,7 @@ void loadGame(int *index_halaman, permainan *game)
   		i++;
   	}
   	n=i-1;
+	rewind(re);
   	for (i=1; i<=n; i++) {
   		fread(&(*game), sizeof(permainan), 1, re);
   		printf("Data %d\n", i);

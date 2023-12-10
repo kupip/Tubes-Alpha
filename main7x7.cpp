@@ -4,6 +4,7 @@ Deskripsi	: Body modul-modul main7 untuk memainkkan tic tac toe dengan papan 7x7
 Dibuat oleh	: M. Rafif Genadratama / 231524016
 Tgl			: 10/12/2023
 */
+
 #include <stdio.h>
 #include <unistd.h>
 #include <process.h>
@@ -17,7 +18,6 @@ char papan7[7][7] = {{' ', ' ', ' ', ' ', ' ', ' ', ' '},
 					 {' ', ' ', ' ', ' ', ' ', ' ', ' '},
 					 {' ', ' ', ' ', ' ', ' ', ' ', ' '},
 					 {' ', ' ', ' ', ' ', ' ', ' ', ' '}};
-
 
 /*+---------------------------------------------------------------+*/
 /*|                      MODUL PERMAINAN 7x7                      |*/

@@ -7,8 +7,8 @@ Tgl			: 01/12/2023
 
 #include <stdio.h>
 #include <stdbool.h>
+
 #include "header.h"
-// #include "mainGame.cpp"
 
 // Modul minimax untuk mengecek kemungkinan nilai dari sebuah gerakan
 int minimax3(char papan[3][3], int kedalaman, bool maximizing)
