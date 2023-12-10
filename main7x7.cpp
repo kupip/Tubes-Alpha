@@ -7,7 +7,7 @@ Tgl			: 10/12/2023
 
 #include <stdio.h>
 #include <unistd.h>
-#include <process.h>
+#include <windows.h>
 
 #include "header.h"
 
@@ -44,7 +44,7 @@ void main7(permainan *game, char (*pemenang)[20], int *index_halaman)
 			printf("pemenang: %s\n", (*pemenang));
 			(*game).pemain1.skor++;
 			*index_halaman = 8;
-			Sleep(2);
+			Sleep(2000);
 			system("cls");
 			break;
 		}
@@ -55,7 +55,7 @@ void main7(permainan *game, char (*pemenang)[20], int *index_halaman)
 			printf("pemenang: %s\n", (*pemenang));
 			(*game).pemain2.skor++;
 			*index_halaman = 8;
-			Sleep(2);
+			Sleep(2000);
 			system("cls");
 			break;
 		}
@@ -64,7 +64,7 @@ void main7(permainan *game, char (*pemenang)[20], int *index_halaman)
 			printf("Draw");
 			strcpy((*pemenang), " ");
 			*index_halaman = 8;
-			Sleep(2);
+			Sleep(2000);
 			system("cls");
 			break;
 		}
@@ -83,11 +83,11 @@ void setPapan7(char (*papan)[7][7])
 	}
 }
 
+int temp_i, temp_j; // dua variabel untuk menampung indeks yang diinputkan oleh user
 // Modul untuk mengisi papan 7x7
 void giliran7(char (*papan)[7][7], int *giliran, int modeMain)
 {
 	int n, i, j;
-	int temp_i = 1, temp_j = 1;
 
 	// pengecekan kondisi vs Player atau Computer
 	if (modeMain == 2)
@@ -164,12 +164,13 @@ void giliran7(char (*papan)[7][7], int *giliran, int modeMain)
 
 					// Untuk membersihkan hasil print di layar
 					printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                                ");
-					fflush(stdin);
 				}
 				else if ((*papan)[i][j] == ' ')
 				{
 					(*papan)[i][j] = 'X';
 					*giliran = 2;
+                    temp_i = i;
+                    temp_j = j;
 				}
 				else
 				{
@@ -179,10 +180,7 @@ void giliran7(char (*papan)[7][7], int *giliran, int modeMain)
 
 					// Untuk membersihkan hasil print di layar
 					printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                  ");
-					fflush(stdin);
 				}
-                temp_i = i;
-                temp_j = j;
 			}
 			else
 			{
@@ -191,7 +189,6 @@ void giliran7(char (*papan)[7][7], int *giliran, int modeMain)
 		}
 		else
 		{
-			printf(" %d %d", temp_i, temp_j);
             i = posisiTerbaik7(papan7, temp_i, temp_j).i;
 			j = posisiTerbaik7(papan7, temp_i, temp_j).j;
 			(*papan)[i][j] = 'O';

@@ -20,12 +20,12 @@ void menuAkhir(permainan game, char pemenang[20], int *index_halaman, bool *kelu
 	int inp, x, y;
 	if (strcmp(pemenang, " ") == 0)
 	{
-		kursorOut(50, 5);
+		kursorOut(58, 5);
 		printf("DRAW");
 	}
 	else
 	{
-		kursorOut(50, 5);
+		kursorOut(55, 5);
 		printf("%s WIN!", pemenang);
 	}
 

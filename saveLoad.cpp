@@ -15,16 +15,18 @@ void saveGame(permainan game)
 {
   	bool temu=false;
   	permainan game_dicari;
-  	FILE *wr=fopen("data.bin", "ab");
-  	FILE *cari=fopen("data.bin", "rb");
-  //	strcpy(game_dicari.pemain1.nama, game.pemain1.nama);
-  //	strcpy(game_dicari.pemain2.nama, game.pemain2.nama);
-  //	while (!temu) {
-  //		fread(&game_dicari, sizeof(permainan), 1, cari);
-  //		if (strcmp(game_dicari.pemain1.nama, game.pemain1.nama)==0 && strcmp(game_dicari.pemain2.nama, game.pemain2.nama)==0) {
-  //			fwrite(&game, sizeof(permainan), 1, cari);
-  //		}
-  //	}
+  	FILE *wr=fopen("data.bin", "r+b");
+  	strcpy(game_dicari.pemain1.nama, game.pemain1.nama);
+  	strcpy(game_dicari.pemain2.nama, game.pemain2.nama);
+  	int i=0;
+  	while (!temu) {
+  		fread(&game_dicari, sizeof(permainan), 1, wr);
+  		if (strcmp(game_dicari.pemain1.nama, game.pemain1.nama)==0 && strcmp(game_dicari.pemain2.nama, game.pemain2.nama)==0) {
+			break;
+  		}
+  		i++;
+  	}
+  	fseek(wr, i*sizeof(permainan), SEEK_SET);
   	fwrite(&game, sizeof(permainan), 1, wr);
   	fclose(wr);
 }

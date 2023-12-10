@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=1
 CompilerSettings=0000000000000000001000000
-UnitCount=24
+UnitCount=23
 
 [VersionInfo]
 Major=1
@@ -241,16 +241,6 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit20]
-FileName=setPapan.cpp
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit21]
 FileName=main3x3.cpp
 CompileCpp=1
 Folder=
@@ -260,7 +250,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit22]
+[Unit21]
 FileName=main5x5.cpp
 CompileCpp=1
 Folder=
@@ -270,8 +260,18 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit23]
+[Unit22]
 FileName=main7x7.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit23]
+FileName=timer.cpp
 CompileCpp=1
 Folder=
 Compile=1

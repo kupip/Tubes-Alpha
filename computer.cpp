@@ -7,6 +7,7 @@ Tgl			: 01/12/2023
 
 #include <stdio.h>
 #include <stdbool.h>
+#include <math.h>
 
 #include "header.h"
 
@@ -215,7 +216,7 @@ posisi posisiTerbaik5(char papan[5][5])
 }
 
 // Modul minimax untuk mengecek kemungkinan nilai dari sebuah gerakan
-int minimax7(char papan[7][7], int kedalaman, bool maximizing)
+int minimax7(char papan[7][7], int kedalaman, bool maximizing, int i_start, int j_start)
 {
 	int skor = cekPemenang7(papan);
 	int kosong = cekKosong7(papan);
@@ -229,7 +230,7 @@ int minimax7(char papan[7][7], int kedalaman, bool maximizing)
 	{
 		return 10;
 	}
-	else if (skor == 3 && kosong == 0)
+	else
 	{
 		return 0;
 	}
@@ -237,21 +238,27 @@ int minimax7(char papan[7][7], int kedalaman, bool maximizing)
 	if (maximizing)
 	{
 		int best = -1000000;
-		for (int i = 0; i < 7; i++)
+		for (int i = i_start; i < i_start+3; i++)
 		{
-			for (int j = 0; j < 7; j++)
-			{
-				if (papan[i][j] == ' ')
-				{
-					papan[i][j] = 'O';
-					sementara = minimax7(papan, kedalaman + 1, false);
-
-					// meng-undo gerakan yang telah dibuat
-					papan[i][j] = ' ';
-					if (sementara > best)
+			for (int j = j_start; j < j_start; j++)
+			{	
+				if (i_start<7 && i_start>=0 && j_start<7 && j_start>=0) {
+					if (papan[i][j] == ' ')
 					{
-						best = sementara;
+						papan[i][j] = 'O';
+						sementara = minimax7(papan, kedalaman + 1, false, i_start, j_start);
+
+						// meng-undo gerakan yang telah dibuat
+						papan[i][j] = ' ';
+						if (sementara > best)
+						{
+							best = sementara;
+						}
+					} else {
+						continue;
 					}
+				} else {
+					break;
 				}
 			}
 		}
@@ -260,21 +267,27 @@ int minimax7(char papan[7][7], int kedalaman, bool maximizing)
 	else
 	{
 		int best = 1000000;
-		for (int i = 7; i < 7; i++)
+		for (int i = i_start; i < i_start+3; i++)
 		{
-			for (int j = 7; j < 7; j++)
-			{
-				if (papan[i][j] == ' ')
-				{
-					papan[i][j] = 'X';
-					sementara = minimax7(papan, kedalaman + 1, true);
-
-					// meng-undo gerakan yang telah dibuat
-					papan[i][j] = ' ';
-					if (sementara < best)
+			for (int j = j_start; j < j_start; j++)
+			{	
+				if (i_start<7 && i_start>=0 && j_start<7 && j_start>=0) {
+					if (papan[i][j] == ' ')
 					{
-						best = sementara;
+						papan[i][j] = 'X';
+						sementara = minimax7(papan, kedalaman + 1, true, i_start, j_start);
+
+						// meng-undo gerakan yang telah dibuat
+						papan[i][j] = ' ';
+						if (sementara < best)
+						{
+							best = sementara;
+						}
+					} else {
+						continue;
 					}
+				} else {
+					break;
 				}
 			}
 		}
@@ -285,11 +298,20 @@ int minimax7(char papan[7][7], int kedalaman, bool maximizing)
 // Modul untuk mencari posisi terbaik pada papan 7x7
 posisi posisiTerbaik7(char papan[7][7], int i_pemain, int j_pemain)
 {
+	int i, j, count;
 	int best = -1000;
 	int sementara;
 	int depth = 0;
 	posisi posTerbaik;
 	posisi tempPos[8];
+
+	/*
+	1|2|3
+	-----
+	4|X|5
+	-----
+	7|6|8
+	*/
 
 	// #1
 	tempPos[0].i = i_pemain - 1;
@@ -323,52 +345,31 @@ posisi posisiTerbaik7(char papan[7][7], int i_pemain, int j_pemain)
 	tempPos[7].i = i_pemain + 1;
 	tempPos[7].j = j_pemain + 1;
 
-	// for (int i=0; i<8; i++) {
-	// 	if (tempPos[i].i<0 || tempPos[i].i>6 || tempPos[i].j<0 || tempPos[i].j>6 || papan[tempPos[i].i][tempPos[i].j] == 'O' || papan[tempPos[i].i][tempPos[i].j] == 'X') {
-	// 		tempPos[i].i = -1;
-	// 		tempPos[i].j = -1;
-	// 	}
-	// }
-	posTerbaik.i = tempPos[0].i;
-	posTerbaik.j = tempPos[0].j;
+	count = 0;
+	while (i<8) {
+		if (tempPos[i].i<0 || tempPos[i].i>6 || tempPos[i].j<0 || tempPos[i].j>6 || papan[tempPos[i].i][tempPos[i].j] == 'O' || papan[tempPos[i].i][tempPos[i].j] == 'X') {
+			tempPos[i].i = -1;
+			tempPos[i].j = -1;
+		} else {
+			count++;
+		}
+	}
 
-	// for (int i=0; i<8; i++) {
-	// 	if (tempPos[i].i != -1 && tempPos[i].j != -1) {
-	// 		// papan[tempPos[i].i][tempPos[i].j] == 'O';
-	// 		// sementara = minimax7(papan, depth, false);
-
-	// 		// meng-undo gerakan yang telah dibuat
-	// 		// papan[tempPos[i].i][tempPos[i].j] = ' ';
-	// 		// if (sementara > best)
-	// 		// {
-	// 			// best = sementara;
-	// 			posTerbaik.i = tempPos[i].i;
-	// 			posTerbaik.j = tempPos[i].j;
-	// 			break;
-	// 		// }
-	// 	}
-	// }
-
-	// for (int i = 0; i < 7; i++)
-	// {
-	// 	for (int j = 0; j < 7; j++)
-	// 	{
-	// 		if (papan[i][j] == ' ')
-	// 		{
-	// 			papan[i][j] = 'O';
-	// 			sementara = minimax7(papan, depth, false);
-
-	// 			// meng-undo gerakan yang telah dibuat
-	// 			papan[i][j] = ' ';
-	// 			if (sementara > best)
-	// 			{
-	// 				best = sementara;
-	// 				posTerbaik.i = i;
-	// 				posTerbaik.j = j;
-	// 			}
-	// 			// printf("%d ", sementara);
-	// 		}
-	// 	}
-	// }
+	posisi posSah[count];
+	j=0;
+	for (int i=0; i<count; i++) {
+		while (j<8) {
+			if (tempPos[j].i != -1 && tempPos[j].j != -1) {
+				posSah[i].i = tempPos[j].i;
+				posSah[i].j = tempPos[j].j;
+				j++;
+				break;
+			} else {
+				j++;
+			}
+		}
+	}
+	posTerbaik.i = posSah[3].i;
+	posTerbaik.j = posSah[3].j;
 	return posTerbaik;
 }
