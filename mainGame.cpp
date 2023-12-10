@@ -200,7 +200,7 @@ void giliran3(char (*papan)[3][3], int *giliran, int modeMain)
 	if (modeMain == 2)
 	{
 		kursorOut(68, 19);
-		printf("Giliran pemain %d", ((*giliran) % 2 == 0) ? (*giliran) % 2 + 2 : (*giliran) % 2);
+		printf("Giliran pemain %d", *giliran);
 		kursorOut(68, 21);
 		printf("Masukkan nomor papan:   %c", 174);
 		timer(90, 21);
@@ -220,15 +220,15 @@ void giliran3(char (*papan)[3][3], int *giliran, int modeMain)
 				printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                                ");
 				fflush(stdin);
 			}
-			else if ((*papan)[i][j] == ' ' && (*giliran) % 2 != 0)
+			else if ((*papan)[i][j] == ' ' && (*giliran) == 1)
 			{
 				(*papan)[i][j] = 'X';
-				(*giliran)++;
+				(*giliran) = 2;
 			}
-			else if ((*papan)[i][j] == ' ' && (*giliran) % 2 == 0)
+			else if ((*papan)[i][j] == ' ' && (*giliran) == 3)
 			{
 				(*papan)[i][j] = 'O';
-				(*giliran)++;
+				(*giliran) = 1;
 			}
 			else
 			{
@@ -243,7 +243,11 @@ void giliran3(char (*papan)[3][3], int *giliran, int modeMain)
 		}
 		else
 		{
-			(*giliran)++;
+			if ((*giliran) == 1) {
+				*giliran = 2;
+			} else {
+				*giliran = 1;
+			}
 		}
 	}
 	else

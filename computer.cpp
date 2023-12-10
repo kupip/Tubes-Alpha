@@ -1,9 +1,10 @@
 /*
-File		: miniMax.cpp
+File		: computer.cpp
 Deskripsi	: Body modul minimax() untuk menemukan gerakan terbaik bagi komputer.
 Dibuat oleh	: M. Rafif Genadratama / 231524016
 Tgl			: 01/12/2023
 */
+
 #include <stdio.h>
 #include <stdbool.h>
 #include "header.h"

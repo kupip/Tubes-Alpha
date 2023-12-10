@@ -48,6 +48,7 @@ void menuAwal(int *index_halaman, bool *keluar);
 void pilihMode(int *index_halaman, int *modeMain);
 void pilihPapan(int *index_halaman, int *jenis_papan);
 void tampilHighScore(int *index_halaman);
+void howToPlay(int *index_halaman);
 
 // Game Utama
 void dashboard(Player pemain1, Player pemain2);
