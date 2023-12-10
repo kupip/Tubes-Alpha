@@ -35,8 +35,12 @@ void menuAwal(int *index_halaman, bool *keluar)
 	kursorOut(55, 21);
 	printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 204, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 185);
 	kursorOut(55, 22);
-	printf("%c    EXIT     %c", 186, 186);
+	printf("%c HOW TO PLAY %c", 186, 186);
 	kursorOut(55, 23);
+	printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 204, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 185);
+	kursorOut(55, 24);
+	printf("%c    EXIT     %c", 186, 186);
+	kursorOut(55, 25);
 	printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 200, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 188);
 
 	x = 53;
@@ -57,7 +61,7 @@ void menuAwal(int *index_halaman, bool *keluar)
 			break;
 		case bawah:
 			printf("\b ");
-			if (y < 22)
+			if (y < 24)
 			{
 				y += 2;
 			}
@@ -74,7 +78,7 @@ void menuAwal(int *index_halaman, bool *keluar)
 			break;
 		case S:
 			printf("\b ");
-			if (y < 22)
+			if (y < 24)
 			{
 				y += 2;
 			}
@@ -87,7 +91,7 @@ void menuAwal(int *index_halaman, bool *keluar)
 			break;
 		case s:
 			printf("\b ");
-			if (y < 22)
+			if (y < 24)
 			{
 				y += 2;
 			}
@@ -109,6 +113,9 @@ void menuAwal(int *index_halaman, bool *keluar)
 		*index_halaman = 3;
 		break;
 	case 22:
+		*index_halaman = 9;
+		break;
+	case 24:
 		*keluar = true;
 		break;
 	}

@@ -39,5 +39,6 @@ void tampilHalaman(int *index_halaman, bool *keluar) {
 			break;
 		case 9:
 			howToPlay(&(*index_halaman));
+			break;
 	};
 }
