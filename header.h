@@ -71,6 +71,7 @@ void printPapan3(char papan[3][3]);
 void printPapan5(char papan[5][5]);
 void printPapan7(char papan[7][7]);
 
+void timer(int x, int y);
 // Deklarasi modul untuk 3x3
 void main3(permainan *game, char (*pemenang)[20], int *index_halaman);
 int cekKosong3(char papan[3][3]);

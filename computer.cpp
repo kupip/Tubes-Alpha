@@ -185,7 +185,7 @@ int minimax5(char papan[5][5], int kedalaman, bool maximizing)
 // Modul untuk mencari posisi terbaik pada papan 5x5
 posisi posisiTerbaik5(char papan[5][5])
 {
-	int best = 10;
+	int best = -1000;
 	int sementara;
 	int depth = 0;
 	posisi posTerbaik;
@@ -207,7 +207,7 @@ posisi posisiTerbaik5(char papan[5][5])
 					posTerbaik.i = i;
 					posTerbaik.j = j;
 				}
-				printf("%d ", sementara);
+//				printf("%d ", sementara);
 			}
 		}
 	}
@@ -323,30 +323,31 @@ posisi posisiTerbaik7(char papan[7][7], int i_pemain, int j_pemain)
 	tempPos[7].i = i_pemain + 1;
 	tempPos[7].j = j_pemain + 1;
 
-	for (int i=0; i<8; i++) {
-		if (tempPos[i].i<0 || tempPos[i].i>6 || tempPos[i].j<0 || tempPos[i].j>6 || papan[tempPos[i].i][tempPos[i].j] == 'O' || papan[tempPos[i].i][tempPos[i].j] == 'X') {
-			tempPos[i].i = -1;
-			tempPos[i].j = -1;
-		}
-	}
-	
+	// for (int i=0; i<8; i++) {
+	// 	if (tempPos[i].i<0 || tempPos[i].i>6 || tempPos[i].j<0 || tempPos[i].j>6 || papan[tempPos[i].i][tempPos[i].j] == 'O' || papan[tempPos[i].i][tempPos[i].j] == 'X') {
+	// 		tempPos[i].i = -1;
+	// 		tempPos[i].j = -1;
+	// 	}
+	// }
+	posTerbaik.i = tempPos[0].i;
+	posTerbaik.j = tempPos[0].j;
 
-	for (int i=0; i<8; i++) {
-		if (tempPos[i].i != -1 && tempPos[i].j != -1) {
-			// papan[tempPos[i].i][tempPos[i].j] == 'O';
-			// sementara = minimax7(papan, depth, false);
+	// for (int i=0; i<8; i++) {
+	// 	if (tempPos[i].i != -1 && tempPos[i].j != -1) {
+	// 		// papan[tempPos[i].i][tempPos[i].j] == 'O';
+	// 		// sementara = minimax7(papan, depth, false);
 
-			// meng-undo gerakan yang telah dibuat
-			// papan[tempPos[i].i][tempPos[i].j] = ' ';
-			// if (sementara > best)
-			// {
-				// best = sementara;
-				posTerbaik.i = tempPos[i].i;
-				posTerbaik.j = tempPos[i].j;
-				break;
-			// }
-		}
-	}
+	// 		// meng-undo gerakan yang telah dibuat
+	// 		// papan[tempPos[i].i][tempPos[i].j] = ' ';
+	// 		// if (sementara > best)
+	// 		// {
+	// 			// best = sementara;
+	// 			posTerbaik.i = tempPos[i].i;
+	// 			posTerbaik.j = tempPos[i].j;
+	// 			break;
+	// 		// }
+	// 	}
+	// }
 
 	// for (int i = 0; i < 7; i++)
 	// {

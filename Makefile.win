@@ -4,8 +4,8 @@
 CPP      = g++.exe -D__DEBUG__
 CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
-OBJ      = main.o kursorOut.o tampilanAwal.o dashboard.o inputNama.o menuAkhir.o tampilHalaman.o printPapan.o aturUkuranConsole.o mainGame.o menuAwal.o pilihMode.o tampilHighScore.o pilihPapan.o banner.o saveLoad.o computer.o howToPlay.o
-LINKOBJ  = main.o kursorOut.o tampilanAwal.o dashboard.o inputNama.o menuAkhir.o tampilHalaman.o printPapan.o aturUkuranConsole.o mainGame.o menuAwal.o pilihMode.o tampilHighScore.o pilihPapan.o banner.o saveLoad.o computer.o howToPlay.o
+OBJ      = main.o kursorOut.o tampilanAwal.o dashboard.o inputNama.o menuAkhir.o tampilHalaman.o printPapan.o aturUkuranConsole.o mainGame.o menuAwal.o pilihMode.o tampilHighScore.o pilihPapan.o banner.o saveLoad.o computer.o howToPlay.o main3x3.o main5x5.o main7x7.o timer.o
+LINKOBJ  = main.o kursorOut.o tampilanAwal.o dashboard.o inputNama.o menuAkhir.o tampilHalaman.o printPapan.o aturUkuranConsole.o mainGame.o menuAwal.o pilihMode.o tampilHighScore.o pilihPapan.o banner.o saveLoad.o computer.o howToPlay.o main3x3.o main5x5.o main7x7.o timer.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -77,3 +77,15 @@ computer.o: computer.cpp
 
 howToPlay.o: howToPlay.cpp
 	$(CPP) -c howToPlay.cpp -o howToPlay.o $(CXXFLAGS)
+
+main3x3.o: main3x3.cpp
+	$(CPP) -c main3x3.cpp -o main3x3.o $(CXXFLAGS)
+
+main5x5.o: main5x5.cpp
+	$(CPP) -c main5x5.cpp -o main5x5.o $(CXXFLAGS)
+
+main7x7.o: main7x7.cpp
+	$(CPP) -c main7x7.cpp -o main7x7.o $(CXXFLAGS)
+
+timer.o: timer.cpp
+	$(CPP) -c timer.cpp -o timer.o $(CXXFLAGS)
