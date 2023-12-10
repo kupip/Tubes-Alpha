@@ -678,6 +678,7 @@ void setPapan7(char (*papan)[7][7])
 void giliran7(char (*papan)[7][7], int *giliran, int modeMain)
 {
 	int n, i, j;
+	int temp_i, temp_j;
 
 	// pengecekan kondisi vs Player atau Computer
 	if (modeMain == 2)
@@ -755,6 +756,8 @@ void giliran7(char (*papan)[7][7], int *giliran, int modeMain)
 				else if ((*papan)[i][j] == ' ')
 				{
 					(*papan)[i][j] = 'X';
+					temp_i = i;
+					temp_j = j;
 					*giliran = 2;
 				}
 				else
@@ -770,16 +773,13 @@ void giliran7(char (*papan)[7][7], int *giliran, int modeMain)
 			}
 			else
 			{
-				i = posisiTerbaik7(papan7).i;
-				j = posisiTerbaik7(papan7).j;
-				(*papan)[i][j] = 'O';
-				*giliran = 1;
+				*giliran = 2;
 			}
 		}
 		else
 		{
-			i = posisiTerbaik7(papan7).i;
-			j = posisiTerbaik7(papan7).j;
+			i = posisiTerbaik7(papan7, temp_i, temp_j).i;
+			j = posisiTerbaik7(papan7, temp_i, temp_j).j;
 			(*papan)[i][j] = 'O';
 			*giliran = 1;
 		}
