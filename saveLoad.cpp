@@ -64,7 +64,7 @@ void loadGame(int *index_halaman, permainan *game)
 	  	scanf("%d", &idx_save);
 	  	if (idx_save > i-1) {
 	  		printf("Data yang anda pilih tidak valid");
-	  		Sleep(1);
+	  		Sleep(1000);
 	  		printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                                ");
 	  	} else if(idx_save == 0){
 	  		*index_halaman = 1;
