@@ -62,7 +62,7 @@ void loadGame(int *index_halaman, permainan *game)
 		  }
 	  	printf("Pilih data yang ingin anda lanjutkan (Ketik 0 untuk kembali)\n=>");
 	  	scanf("%d", &idx_save);
-	  	if (idx_save > i) {
+	  	if (idx_save > i-1) {
 	  		printf("Data yang anda pilih tidak valid");
 	  		Sleep(1);
 	  		printf("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                                ");
