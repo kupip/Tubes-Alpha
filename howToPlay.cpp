@@ -37,8 +37,3 @@ void howToPlay(int *index_halaman) {
 	*index_halaman = 1;
 	system("cls");
 }
-
-/*
-
-   
-*/

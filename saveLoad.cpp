@@ -14,7 +14,7 @@ Tgl			: 01/12/2023
 void saveGame(permainan game)
 {
   	int i;
-	  permainan game_dicari;
+	permainan game_dicari;
   	FILE *wr=fopen("data.bin", "r+b");
   	strcpy(game_dicari.pemain1.nama, game.pemain1.nama);
   	strcpy(game_dicari.pemain2.nama, game.pemain2.nama);

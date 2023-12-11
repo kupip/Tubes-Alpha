@@ -11,8 +11,9 @@ Tgl			: 01/12/2023
 
 #include "header.h"
 
+// https://www.geeksforgeeks.org/finding-optimal-move-in-tic-tac-toe-using-minimax-algorithm-in-game-theory/
 // Modul minimax untuk mengecek kemungkinan nilai dari sebuah gerakan
-int minimax3(char papan[3][3], int kedalaman, bool maximizing)
+int minimax3(char papan[3][3], bool maximizing)
 {
 	int skor = cekPemenang3(papan);
 	int sementara;
@@ -39,7 +40,7 @@ int minimax3(char papan[3][3], int kedalaman, bool maximizing)
 				if (papan[i][j] == ' ')
 				{
 					papan[i][j] = 'O';
-					sementara = minimax3(papan, kedalaman + 1, false);
+					sementara = minimax3(papan, false);
 
 					// meng-undo gerakan yang telah dibuat
 					papan[i][j] = ' ';
@@ -62,7 +63,7 @@ int minimax3(char papan[3][3], int kedalaman, bool maximizing)
 				if (papan[i][j] == ' ')
 				{
 					papan[i][j] = 'X';
-					sementara = minimax3(papan, kedalaman + 1, true);
+					sementara = minimax3(papan, true);
 
 					// meng-undo gerakan yang telah dibuat
 					papan[i][j] = ' ';
@@ -100,7 +101,7 @@ posisi posisiTerbaik3(char papan[3][3])
 				if (papan[i][j] == ' ')
 				{
 					papan[i][j] = 'O';
-					sementara = minimax3(papan, 0, false);
+					sementara = minimax3(papan, false);
 
 					// meng-undo gerakan yang telah dibuat
 					papan[i][j] = ' ';

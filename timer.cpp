@@ -9,6 +9,7 @@ Tgl			: 10/12/2023
 #include <process.h>
 
 #include "header.h"
+
 // Modul pewaktu pengisian
 void timer(int x, int y)
 {

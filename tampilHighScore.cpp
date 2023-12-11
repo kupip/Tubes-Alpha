@@ -10,7 +10,6 @@ Tgl			: 08/12/2023
 
 void tampilHighScore(int *index_halaman)
 {
-
 	FILE *file1;
 	Player pemain[10000];
 	Player pemainTampil[10000];
