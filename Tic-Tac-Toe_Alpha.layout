@@ -2,7 +2,7 @@
 Order=0,2,1,4,5,6,8,9,3,10,11,12,13,14,7,15,16,17,18,19,20,22,21
 Focused=17
 [Editor_0]
-CursorCol=3
+CursorCol=1
 CursorRow=23
 TopLine=1
 LeftChar=1
@@ -89,7 +89,7 @@ LeftChar=1
 [Editor_17]
 CursorCol=2
 CursorRow=373
-TopLine=348
+TopLine=338
 LeftChar=1
 [Editor_18]
 CursorCol=1

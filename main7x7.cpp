@@ -83,7 +83,7 @@ void setPapan7(char (*papan)[7][7])
 	}
 }
 
-int temp_i, temp_j; // dua variabel untuk menampung indeks yang diinputkan oleh user
+int temp_i7, temp_j7; // dua variabel untuk menampung indeks yang diinputkan oleh user
 // Modul untuk mengisi papan 7x7
 void giliran7(char (*papan)[7][7], int *giliran, int modeMain)
 {
@@ -169,8 +169,8 @@ void giliran7(char (*papan)[7][7], int *giliran, int modeMain)
 				{
 					(*papan)[i][j] = 'X';
 					*giliran = 2;
-                    temp_i = i;
-                    temp_j = j;
+                    temp_i7 = i;
+                    temp_j7 = j;
 				}
 				else
 				{
@@ -189,8 +189,8 @@ void giliran7(char (*papan)[7][7], int *giliran, int modeMain)
 		}
 		else
 		{
-            i = posisiTerbaik7(papan7, temp_i, temp_j).i;
-			j = posisiTerbaik7(papan7, temp_i, temp_j).j;
+            i = posisiTerbaik7(papan7, temp_i7, temp_j7).i;
+			j = posisiTerbaik7(papan7, temp_i7, temp_j7).j;
 			(*papan)[i][j] = 'O';
 			*giliran = 1;
 		}

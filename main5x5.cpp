@@ -81,6 +81,8 @@ void setPapan5(char (*papan)[5][5])
 	}
 }
 
+int temp_i5, temp_j5; // dua variabel untuk menampung indeks yang diinputkan oleh user
+// Modul untuk mengisi papan 5x5
 void giliran5(char (*papan)[5][5], int *giliran, int modeMain)
 {
 	int n, i, j;
@@ -166,6 +168,8 @@ void giliran5(char (*papan)[5][5], int *giliran, int modeMain)
 				else if ((*papan)[i][j] == ' ')
 				{
 					(*papan)[i][j] = 'X';
+					temp_i5 = i;
+					temp_j5 = j;
 					*giliran = 2;
 				}
 				else
@@ -181,16 +185,13 @@ void giliran5(char (*papan)[5][5], int *giliran, int modeMain)
 			}
 			else
 			{
-				i = posisiTerbaik5(papan5).i;
-				j = posisiTerbaik5(papan5).j;
-				(*papan)[i][j] = 'O';
-				*giliran = 1;
+				*giliran = 2;
 			}
 		}
 		else
 		{
-			i = posisiTerbaik5(papan5).i;
-			j = posisiTerbaik5(papan5).j;
+			i = posisiTerbaik5(papan5, temp_i5, temp_j5).i;
+			j = posisiTerbaik5(papan5, temp_i5, temp_j5).j;
 			(*papan)[i][j] = 'O';
 			*giliran = 1;
 		}
