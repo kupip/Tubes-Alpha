@@ -38,31 +38,32 @@ void main5(permainan *game, char (*pemenang)[20], int *index_halaman)
 		if (idx_pemenang == 1)
 		{
 			strcpy((*pemenang), (*game).pemain1.nama);
-			kursorOut(55, 5);
+			kursorOut(63, 5);
 			printf("pemenang: %s\n", (*pemenang));
 			(*game).pemain1.skor++;
 			*index_halaman = 8;
-			Sleep(2);
+			Sleep(2000);
 			system("cls");
 			break;
 		}
 		else if (idx_pemenang == 2)
 		{
 			strcpy((*pemenang), (*game).pemain2.nama);
-			kursorOut(55, 5);
+			kursorOut(63, 5);
 			printf("pemenang: %s\n", (*pemenang));
 			(*game).pemain2.skor++;
 			*index_halaman = 8;
-			Sleep(2);
+			Sleep(2000);
 			system("cls");
 			break;
 		}
 		else if (idx_pemenang == 3 && kosong == 0)
 		{
+			kursorOut(63, 5);
 			printf("Draw");
 			strcpy((*pemenang), " ");
 			*index_halaman = 8;
-			Sleep(2);
+			Sleep(2000);
 			system("cls");
 			break;
 		}
@@ -144,20 +145,20 @@ void giliran5(char (*papan)[5][5], int *giliran, int modeMain)
 	}
 	else
 	{
-		kursorOut(68, 28);
+		kursorOut(61, 28);
 		printf("Masukkan nomor papan:   %c", 174);
 		if (*giliran == 1)
 		{
-			timer(90, 28);
+			timer(83, 28);
 			if (kbhit())
 			{
-				kursorOut(90, 28);
+				kursorOut(83, 28);
 				scanf("%d", &n);
 				i = (n - 1) / 5;
 				j = (n - 1) % 5;
 				if (n > 25 || n < 1)
 				{
-					kursorOut(68, 30);
+					kursorOut(61, 30);
 					printf("Harap masukkan angka yang sesuai");
 					sleep(1);
 
@@ -174,7 +175,7 @@ void giliran5(char (*papan)[5][5], int *giliran, int modeMain)
 				}
 				else
 				{
-					kursorOut(68, 30);
+					kursorOut(61, 30);
 					printf("kotak sudah terisi");
 					sleep(1);
 

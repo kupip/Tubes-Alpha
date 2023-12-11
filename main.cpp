@@ -11,8 +11,6 @@ Tgl			: 24/11/2023
 
 int main(int argc, char **argv)
 {
-	HWND hWnd = GetConsoleWindowNT();
-	MoveWindow(hWnd, 10, 10, 1100, 750, TRUE);
 	bool keluar = false;
 	int idx_halaman = 1;
 	tampilanAwal();

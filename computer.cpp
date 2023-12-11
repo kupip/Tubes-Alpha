@@ -190,7 +190,6 @@ posisi posisiTerbaik5(char papan[5][5], int i_pemain, int j_pemain)
 			}
 		}
 	}
-	printf("%d ", count);
 	srand(0);
 	r = rand()%count;
 	posTerbaik5.i = posSah[r].i;
