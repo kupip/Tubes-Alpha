@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/rafif/OneDrive - Politeknik Negeri Bandung/sem 2/repair tubes ddp/Tubes-Alpha",
-      "program": "c:/Users/rafif/OneDrive - Politeknik Negeri Bandung/sem 2/repair tubes ddp/Tubes-Alpha/build/Debug/outDebug",
+      "cwd": "c:/Users/rafif/OneDrive - Politeknik Negeri Bandung/sem 2/repair tubes ddp/Tubes-Alpha/src",
+      "program": "c:/Users/rafif/OneDrive - Politeknik Negeri Bandung/sem 2/repair tubes ddp/Tubes-Alpha/src/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
