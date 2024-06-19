@@ -12,11 +12,13 @@ ini, kami dapat mengembangkan pemahaman kami mengenai dasar-dasar pemrograman se
 bahwa salah satu media pembelajaran terbaik adalah pengalaman dan melalui pengerjaan tugas besar ini, besar harapan kami untuk dapat memperkaya pengalaman dan mahaman 
 kami sehingga kami dapat mengembangkan keterampilan kami dalam dasar-dasar pemrograman.
 
+## Instalasi
+- Anda dapat mengunduh proyek ini sebagai zip kemudian melakukan <i>extract</i>.
+- Setelah itu, Anda dapat langsung menjalankan program run.exe.
+
 ## Anggota
 Muhammad Rafif Genadratama - 231524016  
 Nadia Rachma Yuninda 		- 231524017  
 Thafa Fadillah Ramdani 	- 231524027
 
-## Instalasi
-- Anda dapat mengunduh proyek ini sebagai zip kemudian melakukan <i>extract</i>.
-- Setelah itu, Anda dapat langsung menjalankan program run.exe.
+ttd. Alpha 2024
