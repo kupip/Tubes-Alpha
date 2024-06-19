@@ -28,7 +28,7 @@ void tampilHighScore(int *index_halaman)
 		printf("\n\tPress any button to back");
 
 		fclose(file1);
-		int butt = getch();
+		getch();
 	}
 	else
 	{

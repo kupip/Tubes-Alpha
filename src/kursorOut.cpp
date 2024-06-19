@@ -12,7 +12,7 @@ Tgl			: 24/11/2023
 void kursorOut(int x, int y) {
 	COORD p;
 	HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
-	p.X = x;
-	p.Y = y;
+	p.X = (SHORT) x;
+	p.Y = (SHORT) y;
 	SetConsoleCursorPosition(hOut, p);
 }

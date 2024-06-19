@@ -83,7 +83,6 @@ posisi posisiTerbaik3(char papan[3][3])
 {
 	int best = -1000;
 	int sementara;
-	int depth = 0;
 	posisi posTerbaik = {-1, -1};
 
 	// Menguji setiap posisi yang mungkin
@@ -177,13 +176,14 @@ posisi posisiTerbaik5(char papan[5][5], int i_pemain, int j_pemain)
 		i++;
 	}
 
-	posisi posSah[count];
+	// posisi posSah[count];
+	posisi *posSah=new posisi[count];
 	j=0;
-	for (int i=0; i<count; i++) {
+	for (int idx=0; i<count; idx++) {
 		while (j<8) {
 			if (tempPos[j].i != -1 && tempPos[j].j != -1) {
-				posSah[i].i = tempPos[j].i;
-				posSah[i].j = tempPos[j].j;
+				posSah[idx].i = tempPos[j].i;
+				posSah[idx].j = tempPos[j].j;
 				j++;
 				break;
 			} else {
@@ -257,13 +257,14 @@ posisi posisiTerbaik7(char papan[7][7], int i_pemain, int j_pemain)
 		i++;
 	}
 
-	posisi posSah[count];
+	// posisi posSah[count];
+	posisi *posSah=new posisi[count];
 	j=0;
-	for (int i=0; i<count; i++) {
+	for (int idx=0; idx<count; idx++) {
 		while (j<8) {
 			if (tempPos[j].i != -1 && tempPos[j].j != -1) {
-				posSah[i].i = tempPos[j].i;
-				posSah[i].j = tempPos[j].j;
+				posSah[idx].i = tempPos[j].i;
+				posSah[idx].j = tempPos[j].j;
 				j++;
 				break;
 			} else {

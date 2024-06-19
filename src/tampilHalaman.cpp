@@ -10,8 +10,14 @@ Tgl			: 26/11/2023
 void tampilHalaman(int *index_halaman, bool *keluar) {
 	permainan temp_game;
 	char pemenang[20];
-	Player high_score[20];
 	
+	// Inisialisasi
+	temp_game.jenis_papan=0;
+	temp_game.modeMain=0;
+	strcpy(temp_game.pemain1.nama, " ");
+	temp_game.pemain1.skor=0;
+	strcpy(temp_game.pemain2.nama, " ");
+	temp_game.pemain2.skor=0;
 	switch(*index_halaman) {
 		case 1: // menu awal
 			menuAwal(&(*index_halaman), &(*keluar));

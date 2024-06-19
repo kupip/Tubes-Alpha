@@ -26,7 +26,7 @@ void saveGame(permainan game)
   		}
   		i++;
   	}
-  	fseek(wr, i*sizeof(permainan), SEEK_SET);
+  	fseek(wr, (long) i*sizeof(permainan), SEEK_SET);
   	fwrite(&game, sizeof(permainan), 1, wr);
   	fclose(wr);
 }
@@ -79,4 +79,25 @@ void loadGame(int *index_halaman, permainan *game)
 	  	fclose(re);
 	  	system("cls");
 	}
+}
+
+void saveGame(permainan game)
+{
+  	int i;
+	permainan game_dicari;
+  	FILE *wr=fopen("data.bin", "w");
+
+  	strcpy(game_dicari.pemain1.nama, game.pemain1.nama);
+  	strcpy(game_dicari.pemain2.nama, game.pemain2.nama);
+  	i=0;
+  	while (!feof(wr)) {
+  		fread(&game_dicari, sizeof(permainan), 1, wr);
+  		if (strcmp(game_dicari.pemain1.nama, game.pemain1.nama)==0 && strcmp(game_dicari.pemain2.nama, game.pemain2.nama)==0) {
+			break;
+  		}
+  		i++;
+  	}
+  	fseek(wr, (long) i*sizeof(permainan), SEEK_SET);
+  	fwrite(&game, sizeof(permainan), 1, wr);
+  	fclose(wr);
 }

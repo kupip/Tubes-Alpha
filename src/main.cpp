@@ -9,7 +9,7 @@ Tgl			: 24/11/2023
 #include <windows.h>
 #include "header.h"
 
-int main(int argc, char **argv)
+int main()
 {
 	bool keluar = false;
 	int idx_halaman = 1;
