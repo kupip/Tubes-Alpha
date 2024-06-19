@@ -81,7 +81,7 @@ void loadGame(int *index_halaman, permainan *game)
 	}
 }
 
-void saveGame(permainan game)
+void saveGameNew(permainan game)
 {
   	int i;
 	permainan game_dicari;
