@@ -13,16 +13,16 @@ Tgl			: 26/11/2023
 
 void mainGame(permainan *game, char (*pemenang)[20], int *index_halaman)
 {
-	switch ((*game).jenis_papan)
+	switch (game->jenis_papan)
 	{
 	case 3:
-		main3(&(*game), &(*pemenang), &(*index_halaman));
+		main3(game, pemenang, index_halaman);
 		break;
 	case 5:
-		main5(&(*game), &(*pemenang), &(*index_halaman));
+		main5(game, pemenang, index_halaman);
 		break;
 	case 7:
-		main7(&(*game), &(*pemenang), &(*index_halaman));
+		main7(game, pemenang, index_halaman);
 		break;
 	}
 }

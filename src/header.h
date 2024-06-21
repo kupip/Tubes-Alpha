@@ -10,6 +10,13 @@ Tgl			: 24/11/2023
 #include <conio.h>
 #include <windows.h>
 
+#define W 87
+#define w 119
+#define S 83
+#define s 115
+#define atas 72
+#define bawah 80
+
 // Record untuk identitas pemain dan skor
 typedef struct
 {

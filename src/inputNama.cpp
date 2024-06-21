@@ -15,7 +15,7 @@ void inputNama(permainan *game, int *index_halaman, int modeMain)
 	if (modeMain == 1)
 	{
 		banner();
-		switch ((*game).jenis_papan)
+		switch (game->jenis_papan)
 		{
 		case 3:
 			kursorOut(45, 20);
@@ -32,16 +32,16 @@ void inputNama(permainan *game, int *index_halaman, int modeMain)
 		}
 		kursorOut(45, 21);
 		printf("Masukkan nama anda: ");
-		scanf("%[^\n]", (*game).pemain1.nama);
-		(*game).pemain1.skor = 0;
-		strcpy((*game).pemain2.nama, "Computer");
-		(*game).pemain2.skor = 0;
+		scanf("%[^\n]", game->pemain1.nama);
+		game->pemain1.skor = 0;
+		strcpy(game->pemain2.nama, "Computer");
+		game->pemain2.skor = 0;
 		*index_halaman = 7;
 	}
 	else
 	{
 		banner();
-		switch ((*game).jenis_papan)
+		switch (game->jenis_papan)
 		{
 		case 3:
 			kursorOut(45, 20);
@@ -58,8 +58,8 @@ void inputNama(permainan *game, int *index_halaman, int modeMain)
 		}
 		kursorOut(45, 21);
 		printf("Masukkan nama Player 1: ");
-		scanf("%[^\n]", (*game).pemain1.nama);
-		(*game).pemain1.skor = 0; // pemberian nilai awal buat skor biar ga kebawa skor yg lalu lalu
+		scanf("%[^\n]", game->pemain1.nama);
+		game->pemain1.skor = 0; // pemberian nilai awal buat skor biar ga kebawa skor yg lalu lalu
 
 		fflush(stdin);
 		system("cls");
@@ -67,7 +67,7 @@ void inputNama(permainan *game, int *index_halaman, int modeMain)
 		do
 		{
 			banner();
-			switch ((*game).jenis_papan)
+			switch (game->jenis_papan)
 			{
 			case 3:
 				kursorOut(45, 20);
@@ -84,8 +84,8 @@ void inputNama(permainan *game, int *index_halaman, int modeMain)
 			}
 			kursorOut(45, 21);
 			printf("Masukkan nama Player 2: ");
-			scanf("%[^\n]", (*game).pemain2.nama);
-			if (strcmp((*game).pemain1.nama, (*game).pemain2.nama) == 0)
+			scanf("%[^\n]", game->pemain2.nama);
+			if (strcmp(game->pemain1.nama, game->pemain2.nama) == 0)
 			{
 				kursorOut(45, 22);
 				printf("Mohon masukkan nama yang berbeda");
@@ -97,9 +97,9 @@ void inputNama(permainan *game, int *index_halaman, int modeMain)
 			}
 			system("cls");
 
-		} while (strcmp((*game).pemain1.nama, (*game).pemain2.nama) == 0);
+		} while (strcmp(game->pemain1.nama, game->pemain2.nama) == 0);
 
-		(*game).pemain2.skor = 0;
+		game->pemain2.skor = 0;
 		*index_halaman = 7;
 	}
 	fflush(stdin);

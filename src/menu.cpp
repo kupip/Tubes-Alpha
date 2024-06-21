@@ -8,12 +8,6 @@ Tgl			: 25/11/2023
 #include <stdio.h>
 #include <windows.h>
 #include "header.h"
-#define W 87
-#define w 119
-#define S 83
-#define s 115
-#define atas 72
-#define bawah 80
 
 void menuAkhir(permainan game, char pemenang[20], int *index_halaman, bool *keluar)
 {
@@ -125,14 +119,6 @@ void menuAkhir(permainan game, char pemenang[20], int *index_halaman, bool *kelu
 		break;
 	}
 }
-
-
-#define W 87
-#define w 119
-#define S 83
-#define s 115
-#define atas 72
-#define bawah 80
 
 void menuAwal(int *index_halaman, bool *keluar)
 {

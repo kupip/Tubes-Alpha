@@ -12,10 +12,10 @@ Tgl			: 10/12/2023
 #include "header.h"
 
 char papan5[5][5] = {{' ', ' ', ' ', ' ', ' '},
-					 {' ', ' ', ' ', ' ', ' '},
-					 {' ', ' ', ' ', ' ', ' '},
-					 {' ', ' ', ' ', ' ', ' '},
-					 {' ', ' ', ' ', ' ', ' '}};
+										 {' ', ' ', ' ', ' ', ' '},
+										 {' ', ' ', ' ', ' ', ' '},
+										 {' ', ' ', ' ', ' ', ' '},
+										 {' ', ' ', ' ', ' ', ' '}};
 
 /*+---------------------------------------------------------------+*/
 /*|                      MODUL PERMAINAN 5x5                      |*/
@@ -25,22 +25,22 @@ void main5(permainan *game, char (*pemenang)[20], int *index_halaman)
 	int idx_pemenang = 0;
 	int turn = 1;
 	int kosong = 9;
-	dashboard((*game).pemain1, (*game).pemain2);
+	dashboard(game->pemain1, game->pemain2);
 	setPapan5(&papan5);
 	while (kosong != 0)
 	{
 		printPapan5(papan5);
-		giliran5(&papan5, &turn, (*game).modeMain);
+		giliran5(&papan5, &turn, game->modeMain);
 		kosong = cekKosong5(papan5);
 		idx_pemenang = cekPemenang5(papan5);
 		printPapan5(papan5);
 
 		if (idx_pemenang == 1)
 		{
-			strcpy((*pemenang), (*game).pemain1.nama);
+			strcpy((*pemenang), game->pemain1.nama);
 			kursorOut(63, 5);
 			printf("pemenang: %s\n", (*pemenang));
-			(*game).pemain1.skor++;
+			game->pemain1.skor++;
 			*index_halaman = 8;
 			Sleep(2000);
 			system("cls");
@@ -48,10 +48,10 @@ void main5(permainan *game, char (*pemenang)[20], int *index_halaman)
 		}
 		else if (idx_pemenang == 2)
 		{
-			strcpy((*pemenang), (*game).pemain2.nama);
+			strcpy((*pemenang), game->pemain2.nama);
 			kursorOut(63, 5);
 			printf("pemenang: %s\n", (*pemenang));
-			(*game).pemain2.skor++;
+			game->pemain2.skor++;
 			*index_halaman = 8;
 			Sleep(2000);
 			system("cls");
@@ -136,9 +136,12 @@ void giliran5(char (*papan)[5][5], int *giliran, int modeMain)
 		}
 		else
 		{
-			if ((*giliran) == 1) {
+			if ((*giliran) == 1)
+			{
 				*giliran = 2;
-			} else {
+			}
+			else
+			{
 				*giliran = 1;
 			}
 		}

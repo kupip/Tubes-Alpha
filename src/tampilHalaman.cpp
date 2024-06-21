@@ -15,31 +15,31 @@ void tampilHalaman(int *index_halaman, bool *keluar)
 	switch (*index_halaman)
 	{
 	case 1: // menu awal
-		menuAwal(&(*index_halaman), &(*keluar));
+		menuAwal(index_halaman, keluar);
 		break;
 	case 2: // pilih opsi load game
-		loadGame(&(*index_halaman), &temp_game);
+		loadGame(index_halaman, &temp_game);
 		break;
 	case 3: // pilih opsi high score
-		tampilHighScore(&(*index_halaman));
+		tampilHighScore(index_halaman);
 		break;
 	case 4: // input Nama player kalo pilih mode vs komputer
-		pilihMode(&(*index_halaman), &temp_game.modeMain);
+		pilihMode(index_halaman, &temp_game.modeMain);
 		break;
 	case 5: // buat milih jenis papan
-		pilihPapan(&(*index_halaman), &temp_game.jenis_papan);
+		pilihPapan(index_halaman, &temp_game.jenis_papan);
 		break;
 	case 6:
-		inputNama(&temp_game, &(*index_halaman), temp_game.modeMain);
+		inputNama(&temp_game, index_halaman, temp_game.modeMain);
 		break;
 	case 7:
-		mainGame(&temp_game, &pemenang, &(*index_halaman));
+		mainGame(&temp_game, &pemenang, index_halaman);
 		break;
 	case 8:
-		menuAkhir(temp_game, pemenang, &(*index_halaman), &(*keluar));
+		menuAkhir(temp_game, pemenang, index_halaman, keluar);
 		break;
 	case 9:
-		howToPlay(&(*index_halaman));
+		howToPlay(index_halaman);
 		break;
 	};
 }

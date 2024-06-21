@@ -12,12 +12,12 @@ Tgl			: 10/12/2023
 #include "header.h"
 
 char papan7[7][7] = {{' ', ' ', ' ', ' ', ' ', ' ', ' '},
-					 {' ', ' ', ' ', ' ', ' ', ' ', ' '},
-					 {' ', ' ', ' ', ' ', ' ', ' ', ' '},
-					 {' ', ' ', ' ', ' ', ' ', ' ', ' '},
-					 {' ', ' ', ' ', ' ', ' ', ' ', ' '},
-					 {' ', ' ', ' ', ' ', ' ', ' ', ' '},
-					 {' ', ' ', ' ', ' ', ' ', ' ', ' '}};
+										 {' ', ' ', ' ', ' ', ' ', ' ', ' '},
+										 {' ', ' ', ' ', ' ', ' ', ' ', ' '},
+										 {' ', ' ', ' ', ' ', ' ', ' ', ' '},
+										 {' ', ' ', ' ', ' ', ' ', ' ', ' '},
+										 {' ', ' ', ' ', ' ', ' ', ' ', ' '},
+										 {' ', ' ', ' ', ' ', ' ', ' ', ' '}};
 
 /*+---------------------------------------------------------------+*/
 /*|                      MODUL PERMAINAN 7x7                      |*/
@@ -27,22 +27,22 @@ void main7(permainan *game, char (*pemenang)[20], int *index_halaman)
 	int idx_pemenang = 0;
 	int turn = 1;
 	int kosong = 9;
-	dashboard((*game).pemain1, (*game).pemain2);
+	dashboard(game->pemain1, game->pemain2);
 	setPapan7(&papan7);
 	while (kosong != 0)
 	{
 		printPapan7(papan7);
-		giliran7(&papan7, &turn, (*game).modeMain);
+		giliran7(&papan7, &turn, game->modeMain);
 		kosong = cekKosong7(papan7);
 		idx_pemenang = cekPemenang7(papan7);
 		printPapan7(papan7);
 
 		if (idx_pemenang == 1)
 		{
-			strcpy((*pemenang), (*game).pemain1.nama);
+			strcpy((*pemenang), game->pemain1.nama);
 			kursorOut(56, 5);
 			printf("pemenang: %s\n", (*pemenang));
-			(*game).pemain1.skor++;
+			game->pemain1.skor++;
 			*index_halaman = 8;
 			Sleep(2000);
 			system("cls");
@@ -50,10 +50,10 @@ void main7(permainan *game, char (*pemenang)[20], int *index_halaman)
 		}
 		else if (idx_pemenang == 2)
 		{
-			strcpy((*pemenang), (*game).pemain2.nama);
+			strcpy((*pemenang), game->pemain2.nama);
 			kursorOut(56, 5);
 			printf("pemenang: %s\n", (*pemenang));
-			(*game).pemain2.skor++;
+			game->pemain2.skor++;
 			*index_halaman = 8;
 			Sleep(2000);
 			system("cls");
@@ -137,9 +137,12 @@ void giliran7(char (*papan)[7][7], int *giliran, int modeMain)
 		}
 		else
 		{
-			if ((*giliran) == 1) {
+			if ((*giliran) == 1)
+			{
 				*giliran = 2;
-			} else {
+			}
+			else
+			{
 				*giliran = 1;
 			}
 		}
@@ -170,8 +173,8 @@ void giliran7(char (*papan)[7][7], int *giliran, int modeMain)
 				{
 					(*papan)[i][j] = 'X';
 					*giliran = 2;
-                    temp_i7 = i;
-                    temp_j7 = j;
+					temp_i7 = i;
+					temp_j7 = j;
 				}
 				else
 				{
@@ -190,7 +193,7 @@ void giliran7(char (*papan)[7][7], int *giliran, int modeMain)
 		}
 		else
 		{
-            i = posisiTerbaik7(papan7, temp_i7, temp_j7).i;
+			i = posisiTerbaik7(papan7, temp_i7, temp_j7).i;
 			j = posisiTerbaik7(papan7, temp_i7, temp_j7).j;
 			(*papan)[i][j] = 'O';
 			*giliran = 1;
