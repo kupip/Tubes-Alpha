@@ -81,7 +81,7 @@ void loadGame(int *index_halaman, permainan *game)
 	if (idx_save < 0 || idx_save > n)
 	{
 		printf("Data yang anda pilih tidak valid\n");
-		Sleep(2);
+		Sleep(2000);
 		printf("\r                                \r");
 	}
 	else if (idx_save == 0)
